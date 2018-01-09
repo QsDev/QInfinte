@@ -33,16 +33,16 @@ We are Going to Create [2 files][df1]:
         }
     }
     
-    export var LabelJob = bind.Register({
-        Name: "toggle",
+    var myJob = bind.Register({
+        Name: "myJob",
         Todo(ji, i) {            
+            var value=(ji.Scop.Value||"").trim();
+            var d=ji.dom.parent;
+            d.style.display= value.length<3 ?'none':  ji.getValue('defaultDisplay');
         },
         OnInitialize(ji, e) {
-            ji.addEventListener('domclick', 'click', (e) => {
-                ji.Scop.Value = !!!ji.Scop.Value;
-            });
-        }, OnScopDisposing(ji, e) {
-            ji.removeEventListener('domclick');
+            ji.addValue('defaultDisplay',ji.dom.parent.style.display);
+            this.Todo(ji,e);
         }
     });
 ```
@@ -54,7 +54,7 @@ We are Going to Create [2 files][df1]:
             <text db-bind="FirstName" db-job="label"></text>
             <span  db-bind="LastName">
                 <text db-job="label"></text>
-                <text style="display:none" db-job="myJob"></text>
+                <text style="display:none" db-bind="^.FirstName" db-job="myJob"></text>
             </span>
         </div>
     </template>
