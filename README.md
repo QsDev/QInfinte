@@ -1,7 +1,5 @@
 # QJs Framework
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
-
-QJs is a Core JavaScipt-Framework, without any dependency & fully costumizable
+*** QJs is a Core JavaScipt-Framework, without any dependency & fully costumizable with modern technologies
 
 #Technologies Implimented
   - MVVM (Databinding with a new way)
