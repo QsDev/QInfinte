@@ -1,7 +1,7 @@
 # QJs Framework
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
-QJs is a Core JavaScipt-Framework, without any dependency & fully costumizable 
+QJs is a Core JavaScipt-Framework, without any dependency & fully costumizable
 
 #Technologies Implimented
   - MVVM (Databinding with a new way)
@@ -15,30 +15,50 @@ QJs is a Core JavaScipt-Framework, without any dependency & fully costumizable
   - Api & Commands
   - Application Architecture
   - Observable Objects
-  - 
+  - Secure Authentication Over Http
 
-# New Features!
+# #Example!
+We are Going to Create [2 files][df1]:
+  - [Templates.html][df1]
+  - [Code.js][df1]
 
-  - Import a HTML file and watch it magically convert to Markdown
-  - Drag and drop images (requires your Dropbox account be linked)
+### Code.html
+```javascript
+    import {bind} from 'js/Corelib';
+    export class Person extends bind.DObject{
+        static __fields__(){
+            this.DPFName=bind.DObject.CreateField("FirstName",String);
+            this.DPFName=bind.DObject.CreateField("FirstName",String);
+            return [this.DPFName ,this.DPLName];
+        }
+    }
+    
+    export var LabelJob = bind.Register({
+        Name: "toggle",
+        Todo(ji, i) {            
+        },
+        OnInitialize(ji, e) {
+            ji.addEventListener('domclick', 'click', (e) => {
+                ji.Scop.Value = !!!ji.Scop.Value;
+            });
+        }, OnScopDisposing(ji, e) {
+            ji.removeEventListener('domclick');
+        }
+    });
+```
 
-
-You can also:
-  - Import and save files from GitHub, Dropbox, Google Drive and One Drive
-  - Drag and drop markdown and HTML files into Dillinger
-  - Export documents as Markdown, HTML and PDF
-
-Markdown is a lightweight markup language based on the formatting conventions that people naturally use in email.  As [John Gruber] writes on the [Markdown site][df1]
-
-> The overriding design goal for Markdown's
-> formatting syntax is to make it as readable
-> as possible. The idea is that a
-> Markdown-formatted document should be
-> publishable as-is, as plain text, without
-> looking like it's been marked up with tags
-> or formatting instructions.
-
-This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.
+### Templates.html
+```html
+    <template name="T1">
+        <div class="row">
+            <text db-bind="FirstName" db-job="label"></text>
+            <span  db-bind="LastName">
+                <text db-job="label"></text>
+                <text style="display:none" db-job="myJob"></text>
+            </span>
+        </div>
+    </template>
+````
 
 ### Tech
 
@@ -186,15 +206,3 @@ MIT
    [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
    [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
    [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
-
-Example :
-
-template.html
-<template name="T1"> 
-  <div class="row">
-    <text db-bind="FirstName" db-job="label"></text>  
-    &nbsp;
-    <text db-bind="LastName" db-job="label"></text>  
-    &nbsp
-  </div>  
-</div>
