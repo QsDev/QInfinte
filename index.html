@@ -1,0 +1,34 @@
+﻿
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>QShop</title>
+    <script defer>
+        var t;
+        Object.defineProperty(window, 'QReqConfig', { get: function () { return t; }, set: function (v) { } });
+        QReqConfig = t = { get UseRelativePath() { return true; }, set UseRelativePath(v) { } };
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<script src="https://togetherjs.com/togetherjs-min.js"></script>-->
+    <!-- BEGIN TRACKJS -->
+    <!--<script type="text/javascript">window._trackJs = { token: 'cfed55a41e8e4a57a7ab8c60552a69a9' };</script>
+    <script type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.js"></script>-->
+    <!-- END TRACKJS -->
+
+    <script defer src="./lib/Upgrade.js"></script>
+    <!--<link href="Content/bootstrap.css" rel="stylesheet" />-->
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+
+    <link async rel="stylesheet" href="./css/app.css" />
+    <link async href="./css/HBar.css" rel="stylesheet" />
+    <link async href="./css/aapp.css" rel="stylesheet" />
+    <link async href="./css/site.css" rel="stylesheet" />
+    <script defer data-main="./main.js" src="./lib/ireq.js" async></script>
+
+</head>
+                                                                           
+<body style="border-color: white;">
+    <!--<button style="position:fixed;z-index:22222233;" onclick="TogetherJS(this); return false;">Start TogetherJS</button>-->
+    <div id="spinner" class="full-fixedlayout"><div class="spinner"><div class="spinner-circle spinner-start"></div><p class="spinner-message">Initializing...</p></div></div>
+</body>
+</html>

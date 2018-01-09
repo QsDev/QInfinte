@@ -1,0 +1,3939 @@
+﻿/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+/* This file holds CSS that should be shared, in theory, by all user-visible
+ * chrome:// pages. */
+
+@import url(chrome://resources/css/text_defaults.css);
+@import url(i18n_process.css);
+@import url(widgets.css);
+
+
+/* Prevent CSS from overriding the hidden property. */
+[hidden] {
+  display: none !important;
+}
+
+html {
+  height: 100%;  /* For printing. */
+}
+
+html.loading * {
+  -webkit-transition-delay: 0ms !important;
+  -webkit-transition-duration: 0ms !important;
+}
+
+body {
+  cursor: default;
+  margin: 0;
+}
+
+p {
+  line-height: 1.8em;
+}
+
+h1,
+h2,
+h3 {
+  -webkit-user-select: none;
+  font-weight: normal;
+  /* Makes the vertical size of the text the same for all fonts. */
+  line-height: 1;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  font-size: 1.3em;
+  margin-bottom: 0.4em;
+}
+
+h3 {
+  color: black;
+  font-size: 1.2em;
+  margin-bottom: 0.8em;
+}
+
+a {
+  color: rgb(17, 85, 204);
+  text-decoration: underline;
+}
+
+a:active {
+  color: rgb(5, 37, 119);
+}
+
+/* Elements that need to be LTR even in an RTL context, but should align
+ * right. (Namely, URLs, search engine names, etc.) */
+html[dir='rtl'] .weakrtl {
+  direction: ltr;
+  text-align: right;
+}
+
+/* Input fields in search engine table need to be weak-rtl. Since those input
+ * fields are generated for all cr.ListItem elements (and we only want weakrtl
+ * on some), the class needs to be on the enclosing div. */
+html[dir='rtl'] div.weakrtl input {
+  direction: ltr;
+  text-align: right;
+}
+
+html[dir='rtl'] .favicon-cell.weakrtl {
+  -webkit-padding-end: 22px;
+  -webkit-padding-start: 0;
+}
+
+/* weakrtl for selection drop downs needs to account for the fact that
+ * Webkit does not honor the text-align attribute for the select element.
+ * (See Webkit bug #40216) */
+html[dir='rtl'] select.weakrtl {
+  direction: rtl;
+}
+
+html[dir='rtl'] select.weakrtl option {
+  direction: ltr;
+}
+
+/* WebKit does not honor alignment for text specified via placeholder attribute.
+ * This CSS is a workaround. Please remove once WebKit bug is fixed.
+ * https://bugs.webkit.org/show_bug.cgi?id=63367 */
+html[dir='rtl'] input.weakrtl::-webkit-input-placeholder,
+html[dir='rtl'] .weakrtl input::-webkit-input-placeholder {
+  direction: rtl;
+}
+
+/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+/* The shield that overlays the background. */
+.overlay {
+  -webkit-box-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  /* TODO(dbeam): remove perspective when http://crbug.com/374970 is fixed. */
+  -webkit-perspective: 1px;
+  -webkit-transition: 200ms opacity;
+  background-color: rgba(255, 255, 255, 0.75);
+  bottom: 0;
+  display: -webkit-box;
+  left: 0;
+  overflow: auto;
+  padding: 20px;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+/* Used to slide in the overlay. */
+.overlay.transparent .page {
+  /* TODO(flackr): Add perspective(500px) rotateX(5deg) when accelerated
+   * compositing is enabled on chrome:// pages. See http://crbug.com/116800. */
+  transform: scale(0.99) translateY(-20px);
+}
+
+/* The foreground dialog. */
+.overlay .page {
+  -webkit-border-radius: 3px;
+  -webkit-box-orient: vertical;
+  -webkit-transition: 200ms transform;
+  background: white;
+  box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.15);
+  color: #333;
+  display: -webkit-box;
+  min-width: 400px;
+  padding: 0;
+  position: relative;
+  z-index: 0;
+}
+
+/* If the options page is loading don't do the transition. */
+.loading .overlay,
+.loading .overlay .page {
+  -webkit-transition-duration: 0ms !important;
+}
+
+/* keyframes used to pulse the overlay */
+@-webkit-keyframes pulse {
+ 0% {
+   transform: scale(1);
+ }
+ 40% {
+   transform: scale(1.02);
+  }
+ 60% {
+   transform: scale(1.02);
+  }
+ 100% {
+   transform: scale(1);
+ }
+}
+
+.overlay .page.pulse {
+  -webkit-animation-duration: 180ms;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-name: pulse;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+.overlay .page > .close-button {
+  background-image: url(chrome://theme/IDR_CLOSE_DIALOG);
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 14px;
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  width: 14px;
+  z-index: 1;
+}
+
+html[dir='rtl'] .overlay .page > .close-button {
+  left: 10px;
+  right: auto;
+}
+
+.overlay .page > .close-button:hover {
+  background-image: url(chrome://theme/IDR_CLOSE_DIALOG_H);
+}
+
+.overlay .page > .close-button:active {
+  background-image: url(chrome://theme/IDR_CLOSE_DIALOG_P);
+}
+
+.overlay .page h1 {
+  -webkit-padding-end: 24px;
+  -webkit-user-select: none;
+  color: #333;
+  /* 120% of the body's font-size of 84% is 16px. This will keep the relative
+   * size between the body and these titles consistent. */
+  font-size: 120%;
+  /* TODO(flackr): Pages like sync-setup and delete user collapse the margin
+   * above the top of the page. Use padding instead to make sure that the
+   * headers of these pages have the correct spacing, but this should not be
+   * necessary. See http://crbug.com/119029. */
+  margin: 0;
+  padding: 14px 17px 14px;
+  text-shadow: white 0 1px 2px;
+}
+
+.overlay .page .content-area {
+  -webkit-box-flex: 1;
+  overflow: auto;
+  padding: 6px 17px 6px;
+  position: relative;
+}
+
+.overlay .page .action-area {
+  -webkit-box-align: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: end;
+  display: -webkit-box;
+  padding: 14px 17px;
+}
+
+html[dir='rtl'] .overlay .page .action-area {
+  left: 0;
+}
+
+.overlay .page .action-area-right {
+  display: -webkit-box;
+}
+
+.overlay .page .button-strip {
+  -webkit-box-orient: horizontal;
+  display: -webkit-box;
+}
+
+.overlay .page .button-strip > :-webkit-any(button,
+                                            input[type='button'],
+                                            input[type='submit']) {
+  -webkit-margin-start: 10px;
+  display: block;
+}
+
+.overlay .page .button-strip > .default-button:not(:focus) {
+  border-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay .page .spacer-div {
+  -webkit-box-flex: 1;
+}
+
+/* On OSX 10.7, hidden scrollbars may prevent the user from realizing that the
+ * overlay contains scrollable content. To resolve this, style the scrollbars on
+ * OSX so they are always visible. See http://crbug.com/123010. */
+
+
+.gray-bottom-bar {
+  background-color: #f5f5f5;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  border-color: #e7e7e7;
+  border-top-style: solid;
+  border-width: 1px;
+  color: #888;
+  display: -webkit-box;
+  padding: 14px 17px;
+}
+
+/* Prevent the page underneath the overlay from scrolling. */
+.frozen {
+  position: fixed;
+}
+
+#overlay-container-1 {
+  z-index: 11;
+}
+#overlay-container-2 {
+  z-index: 12;
+}
+
+.transparent {
+  opacity: 0;
+}
+/* Copyright 2014 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+/* This file is dynamically processed by a C++ data source handler to fill in
+ * some per-platform/locale styles that dramatically alter the page. This is
+ * done to reduce flicker, as JS may not run before the page is rendered.
+ *
+ * There are two ways to include this stylesheet:
+ * 1. via its chrome://resources/ URL in HTML, i.e.:
+ *
+ *   <link rel="stylesheet" href="chrome://resources/css/text_defaults.css">
+ *
+ * 2. via the webui::AppendWebUICSSTextDefaults() method to directly append it
+ * to an HTML string.
+ * Otherwise its placeholders won't be expanded. */
+
+html {
+  direction: ltr;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-size: 75%;
+}
+
+button {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+/* Copyright 2015 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+[i18n-content]::before,
+[i18n-values*=".innerHTML:"]::before,
+* /deep/ [i18n-content]::before,
+* /deep/ [i18n-values*=".innerHTML:"]::before {
+  /* Insert a non-breaking space into nodes that have i18n content. */
+  content: '\00a0';
+}
+
+[i18n-processed][i18n-content]::before,
+[i18n-processed] [i18n-content]::before,
+[i18n-processed][i18n-values*=".innerHTML:"]::before,
+[i18n-processed] [i18n-values*=".innerHTML:"]::before,
+* /deep/ [i18n-processed][i18n-content]::before,
+* /deep/ [i18n-processed] [i18n-content]::before,
+* /deep/ [i18n-processed][i18n-values*=".innerHTML:"]::before,
+* /deep/ [i18n-processed] [i18n-values*=".innerHTML:"]::before {
+  /* Undo the non-breaking space hack after i18n processing has run. */
+  content: normal;
+}
+body {
+  /* http://crbug.com/129406 --- horizontal scrollbars flicker when changing
+   * sections. */
+  overflow-x: hidden;
+}
+
+#navigation {
+  height: 100%;
+  left: 0;
+  /* This is a hack to prevent the navigation bar from occluding pointer events
+   * from the bottom scroll bar (which shows when one needs to horizontally
+   * scroll). Corresponding padding-top to offset this is in uber_frame.css */
+  margin-top: -20px;
+  position: absolute;
+  /* This value is different from the left value to compensate for the scroll
+   * bar (which is always on and to the right) in RTL. */
+  right: 15px;
+  width: 155px;
+  z-index: 3;
+}
+
+#navigation.background {
+  z-index: 1;
+}
+
+#navigation.changing-content {
+  -webkit-transition: -webkit-transform 100ms, width 100ms;
+}
+
+.iframe-container {
+  -webkit-margin-start: -20px;
+  -webkit-transition: margin 100ms, opacity 100ms;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.iframe-container.selected {
+  -webkit-margin-start: 0;
+  -webkit-transition: margin 200ms, opacity 200ms;
+  -webkit-transition-delay: 100ms;
+  opacity: 1;
+  z-index: 2;
+}
+
+.iframe-container.expanded {
+  left: 0;
+}
+
+iframe {
+  border: none;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+list,
+grid {
+  display: block;
+  outline: none;
+  overflow: auto;
+  position: relative; /* Make sure that item offsets are relative to the
+                         list. */
+}
+
+list > *,
+grid > * {
+  -webkit-user-select: none;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid rgba(255, 255, 255, 0); /* transparent white */
+  border-radius: 2px;
+  cursor: default;
+  line-height: 20px;
+  margin: -1px 0;
+  overflow: hidden;
+  padding: 0 3px;
+  position: relative; /* to allow overlap */
+  text-overflow: ellipsis;
+  white-space: pre;
+}
+
+list > * {
+  display: block;
+}
+
+grid > * {
+  display: inline-block;
+}
+
+list > [lead],
+grid > [lead] {
+  border-color: transparent;
+}
+
+list:focus > [lead],
+grid:focus > [lead] {
+  border-color: hsl(214, 91%, 65%);
+  z-index: 2;
+}
+
+list > [anchor],
+grid > [anchor] {
+
+}
+
+list:not([disabled]) > :hover,
+grid:not([disabled]) > :hover {
+  background-color: hsl(214, 91%, 97%);
+  border-color: hsl(214, 91%, 85%);
+  z-index: 1;
+}
+
+list > [selected],
+grid > [selected] {
+  background-color: hsl(0, 0%, 90%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.8),
+                                            rgba(255, 255, 255, 0));
+  border-color: hsl(0, 0%, 85%);
+  z-index: 2;
+}
+
+list:focus > [selected],
+grid:focus > [selected] {
+  background-color: hsl(214, 91%, 89%);
+  border-color: hsl(214, 91%, 65%);
+}
+
+list:focus > [lead][selected],
+list > [selected]:hover,
+grid:focus > [lead][selected],
+grid > [selected]:hover {
+  background-color: hsl(214, 91%, 87%);
+  border-color: hsl(214, 91%, 65%);
+}
+
+list > .spacer,
+grid > .spacer {
+  border: 0;
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+list :-webkit-any(
+    input[type='input'],
+    input[type='password'],
+    input[type='search'],
+    input[type='text'],
+    input[type='url']),
+list :-webkit-any(
+    button,
+    input[type='button'],
+    input[type='submit'],
+    select):not(.custom-appearance) {
+  line-height: normal;
+  margin: 0;
+  vertical-align: middle;
+}
+
+list > [hidden],
+grid > [hidden] {
+  display: none;
+}
+
+list > .drag-selection-border {
+  border-radius: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  outline: 1px solid rgba(0, 0, 0, 0.1);
+  position: absolute;
+  z-index: 2;
+}
+body {
+  -webkit-margin-start: 23px;
+  color: rgb(48, 57, 66);
+}
+
+body.uber-frame {
+  -webkit-margin-start: 155px;
+}
+
+html[dir='rtl'] body.uber-frame {
+  /* Enable vertical scrollbar at all times in RTL to avoid visual glitches when
+   * showing sub-pages that vertically overflow. */
+  overflow-y: scroll;
+}
+
+/* TODO(dbeam): Remove .page class from overlays in settings so the junk below
+ * isn't necessary. */
+body #extension-settings.page,
+body #mainview-content .page,
+body .subpage-sheet-container .page,
+body > .page {
+  -webkit-margin-end: 24px;
+  min-width: 576px;
+  padding-bottom: 20px;
+  padding-top: 55px;
+}
+
+body header {
+  background-image: -webkit-linear-gradient(white,
+                                            white 40%,
+                                            rgba(255, 255, 255, 0.92));
+  left: 23px;
+  /* <section>s in options currently amount to 638px total, broken up into
+   * 600px max-width + 18px -webkit-padding-start + 20px -webkit-margin-end
+   * so we mirror this value here so the headers match width and horizontal
+   * alignment when scrolling sideways.
+   * other-devices.css' .device width depends on this, please keep in sync. */
+  max-width: 738px;
+  min-width: 600px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  /* list.css sets a z-index of up to 2, this is set to 3 to ensure that the
+   * header is in front of the selected list item. */
+  z-index: 3;
+}
+
+body.uber-frame header {
+  left: 155px;
+}
+
+html[dir='rtl'] body header {
+  left: 0;
+  right: 23px;
+}
+
+html[dir='rtl'] body.uber-frame header {
+  right: 155px;
+}
+
+body header > .search-field-container,
+body header > .header-extras,
+body header > button {
+  position: absolute;
+  right: 20px;
+  top: 21px;
+}
+
+html[dir='rtl'] body header > .search-field-container,
+html[dir='rtl'] body header > .header-extras,
+html[dir='rtl'] body header > button {
+  left: 20px;
+  right: auto;
+}
+
+body header input[type='search'],
+body header input[type='text'],
+body header button {
+  margin: 0;
+}
+
+body header > h1 {
+  margin: 0;
+  padding: 21px 0 13px;
+}
+
+/* Create a border under the h1 (but before anything that gets appended
+ * to the end of the header). */
+body header > h1::after {
+  -webkit-margin-end: 20px;
+  background-color: #eee;
+  content: ' ';
+  display: block;
+  height: 1px;
+  position: relative;
+  top: 13px;
+}
+
+body footer {
+  border-top: 1px solid #eee;
+  margin-top: 16px;
+  /* min-width and max-width should match the header */
+  max-width: 638px;
+  min-width: 600px;
+  padding: 8px 0;
+}
+
+/* Sections are used in options pages, help page and history page. This defines
+ * the section metrics to match the header metrics above. */
+body section {
+  -webkit-padding-start: 18px;
+  margin-bottom: 24px;
+  margin-top: 8px;
+  max-width: 600px;
+}
+
+body section:last-of-type {
+  margin-bottom: 0;
+}
+
+body section > h3 {
+  -webkit-margin-start: -18px;
+}
+
+body section > div:only-of-type {
+  -webkit-box-flex: 1;
+}
+
+body .section-header {
+  -webkit-margin-start: -18px;
+  margin-bottom: 0.8em;
+  margin-top: 1.2em;
+}
+
+body .section-header > h3 {
+  display: inline;
+}
+
+/* Styles for a hideable notification banner at the top of a page. */
+.page.showing-banner {
+  margin-top: 45px;
+}
+
+.page-banner {
+  background-color: white;
+  width: 100%;
+  z-index: 2;
+}
+
+.page:not(.showing-banner) .page-banner {
+  display: none;
+}
+
+.page-banner-gradient {
+  background: -webkit-linear-gradient(rgb(255, 242, 183),
+                                      rgb(250, 230, 145));
+  border: 1px solid rgb(201, 189, 141);
+  border-radius: 3px;
+  margin: 9px 9px 0 9px;
+  min-height: 25px;
+}
+
+.page-banner .page-banner-gradient {
+  -webkit-margin-end: 20px;
+  -webkit-margin-start: 0;
+  margin-bottom: 9px;
+}
+
+.page-banner-text {
+  -webkit-padding-end: 8px;
+  -webkit-padding-start: 26px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OHB4IiBoZWlnaHQ9IjQ4cHgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0iIzYyNjI2MiI+CiAgICA8cGF0aCBkPSJNMCAwaDQ4djQ4SDB6IiBmaWxsPSJub25lIi8+CiAgICA8cGF0aCBkPSJNMjQgMTRWNkg0djM2aDQwVjE0SDI0ek0xMiAzOEg4di00aDR2NHptMC04SDh2LTRoNHY0em0wLThIOHYtNGg0djR6bTAtOEg4di00aDR2NHptOCAyNGgtNHYtNGg0djR6bTAtOGgtNHYtNGg0djR6bTAtOGgtNHYtNGg0djR6bTAtOGgtNHYtNGg0djR6bTIwIDI0SDI0di00aDR2LTRoLTR2LTRoNHYtNGgtNHYtNGgxNnYyMHptLTQtMTZoLTR2NGg0di00em0wIDhoLTR2NGg0di00eiIvPgo8L3N2Zz4K);
+  background-position: 0 center;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  display: block;
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+
+.page-banner.clickable:active .page-banner-text {
+  background: -webkit-linear-gradient(rgb(250, 230, 145),
+                                      rgb(255, 242, 183));
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+body {
+  position: relative;
+}
+
+#main-content {
+  bottom: 0;
+  display: -webkit-box;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#mainview {
+  -webkit-box-align: stretch;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+#mainview-content {
+  min-height: 100%;
+  position: relative;
+}
+
+#page-container {
+  box-sizing: border-box;
+  max-width: 888px;
+  min-width: 600px;
+}
+
+body #searchBox {
+  position: fixed;
+  z-index: 4;
+}
+
+div.disabled {
+  color: #999;
+}
+
+.settings-row {
+  display: block;
+  margin: 0.65em 0;
+}
+
+.hbox {
+  -webkit-box-orient: horizontal;
+  display: -webkit-box;
+}
+
+.vbox {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+
+.box-align-center {
+  -webkit-box-align: center;
+}
+
+.stretch {
+  -webkit-box-flex: 1;
+}
+
+.raw-button,
+.raw-button:hover,
+.raw-button:active {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  box-shadow: none;
+  min-width: 0;
+  padding: 1px 6px;
+}
+
+.bottom-strip {
+  border-top: none;
+  bottom: 0;
+  padding: 12px;
+  position: absolute;
+  right: 0;
+}
+
+/* Omit top padding (currently only on #settings) whenever the search page is
+ * showing. */
+#searchPage:not([hidden]) + #settings {
+  padding-top: 0;
+}
+
+.page list {
+  /* Min height is a multiple of the list item height (32) */
+  min-height: 192px;
+}
+
+.option {
+  margin-top: 0;
+}
+
+.touch-slider {
+  -webkit-appearance: slider-horizontal;
+}
+
+.settings-list,
+.settings-list-empty {
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+}
+
+.settings-list-empty {
+  background-color: #f4f4f4;
+  box-sizing: border-box;
+  min-height: 125px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+
+/* Editable text field properties */
+.editable-text-field > * {
+  -webkit-box-align: center;
+  -webkit-transition: 150ms background-color;
+  border: none;
+  box-sizing: border-box;
+  display: -webkit-box;
+  height: 20px;
+  margin: 0;
+}
+
+.editable-text-field > .spacer {
+  /* The above height rule should not apply to spacers. */
+  height: 0;
+}
+
+.editable-text-field .editable-text {
+  padding: 2px 3px;
+}
+
+.editable-text-field .static-text {
+  height: 24px;
+  overflow: hidden;
+  padding: 3px 4px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.editable-text-field:not([editable]) > [displaymode='edit'] {
+  display: none;
+}
+
+.editable-text-field[editable] > [displaymode='static'] {
+  display: none;
+}
+
+.editable-text-field[empty] > input[type='text'] {
+  color: #ccc;
+  font-style: italic;
+}
+
+.editable-text-field[disabled] {
+  opacity: 0.6;
+}
+
+/* Editable List properties */
+list > * {
+  -webkit-box-align: center;
+  -webkit-transition: 150ms background-color;
+  border: none;
+  border-radius: 0;  /* TODO(dbeam): Is this necessary? */
+  box-sizing: border-box;
+  display: -webkit-box;
+  height: 32px;
+  margin: 0;
+}
+
+list > .spacer {
+  /* The above height rule should not apply to spacers. When redraw is called
+     on the list they will be given an explicit element height but this ensures
+     they have 0 height to begin with. */
+  height: 0;
+}
+
+list:not([disabled]) > :hover {
+  background-color: rgb(228, 236, 247);
+}
+
+/* Note: If this becomes the list style for other WebUI pages these rules can be
+ * simplified (since they wont need to override other rules). */
+
+list:not([has-element-focus]) > [selected],
+list:not([has-element-focus]) > [lead][selected] {
+  background-color: #d0d0d0;
+  background-image: none;
+}
+
+list[has-element-focus] > [selected],
+list[has-element-focus] > [lead][selected],
+list:not([has-element-focus]) > [selected]:hover,
+list:not([has-element-focus]) > [selected][lead]:hover {
+  background-color: rgb(187, 206, 233);
+  background-image: none;
+}
+
+.settings-list[has-element-focus] > [lead],
+.settings-list[has-element-focus] > [lead][selected] {
+  border-bottom: 1px solid rgb(120, 146, 180);
+  border-top: 1px solid rgb(120, 146, 180);
+}
+
+.settings-list[has-element-focus] > [lead]:nth-child(2),
+.settings-list[has-element-focus] > [lead][selected]:nth-child(2) {
+  border-top: 1px solid transparent;
+}
+
+.settings-list[has-element-focus] > [lead]:nth-last-child(2),
+.settings-list[has-element-focus] > [lead][selected]:nth-last-child(2) {
+  border-bottom: 1px solid transparent;
+}
+
+.settings-list[disabled] > [lead][selected],
+.settings-list[disabled]:focus > [lead][selected] {
+  border: none;
+}
+
+list[disabled] {
+  opacity: 0.6;
+}
+
+list > .heading {
+  color: #666;
+}
+
+list > .heading:hover {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+list .deletable-item {
+  -webkit-box-align: center;
+  outline: none;
+}
+
+list .deletable-item > :first-child {
+  -webkit-box-align: center;
+  -webkit-box-flex: 1;
+  -webkit-padding-end: 5px;
+  display: -webkit-box;
+}
+
+list .row-delete-button {
+  -webkit-transition: 150ms opacity;
+  background-color: transparent;
+  background-image: -webkit-image-set(
+      url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAiElEQVR42r2RsQrDMAxEBRdl8SDcX8lQPGg1GBI6lvz/h7QyRRXV0qUULwfvwZ1tenw5PxToRPWMC52eA9+WDnlh3HFQ/xBQl86NFYJqeGflkiogrOvVlIFhqURFVho3x1moGAa3deMs+LS30CAhBN5nNxeT5hbJ1zwmji2k+aF6NENIPf/hs54f0sZFUVAMigAAAABJRU5ErkJggg==) 1x);
+  border: none;
+  display: block;
+  height: 16px;
+  opacity: 1;
+  width: 16px;
+}
+
+list > *:not(:hover):not([selected]):not([lead]) .row-delete-button,
+list:not([has-element-focus]) > *:not(:hover):not([selected])
+    .row-delete-button,
+list[disabled] .row-delete-button,
+list .row-delete-button[disabled] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* HostedApp entries use the disabled closing button to display the App's
+ * favicon, as an indicator that instead of deleting the permission here
+ * the user has to remove the hosted app.*/
+list div[role='listitem'][managedby='HostedApp'] .row-delete-button {
+  opacity: 1;
+}
+
+list .row-delete-button:hover {
+  background-image: -webkit-image-set(
+      url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAqUlEQVR4XqWRMQqEMBBF/1E8Ra6x6V3FRnS9QbCxtJg6Z7CzE9lTiIXXyUb3C8EULixDIMM8Zt4kcDfxM5A45U+cgeXnC1tREgkzAgob3hiq3CUHvGLG4FTQoSgxQGDrzN8WTLBGnx2IVDksen9GH7Z9hA5E6uxABMJyCHDMCEGHzugLQPPlBCBNGq+5YtpnGw1Bv+te15ypljTpVzdak5Opy+z+qf//zQ+Lg+07ay5KsgAAAABJRU5ErkJggg==) 1x);
+}
+
+list .row-delete-button:active {
+  background-image: -webkit-image-set(
+      url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAQklEQVR4AWP4TwBSTQGDHcMZIIYAKA9VwRkwtINJgyCaCTAlCBaKAoQ+hFmoCqBKENKkK8C0gpAjCXuTyICiQ2QBAPSwyG3ByZlCAAAAAElFTkSuQmCC)
+          1x,
+      url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAA/ElEQVR4Xu3UsWrCUBiG4efGlIBoIMFbcnYolYJ3pg4iKGrGYFTRwaUFhYAekiDt0EG++X2W83N8/3J/DbwBMJJSsdQItcDY1VlCOImzq3Ed8OmicHASB3ns5KBw8VUNpDJrW7uAiJ3sbK1l0mqArpmFTUlQ5jYWZrrUAUSmT0SZm4qoA56JvVhs/5g3A7RLolA85A1ASOTye65NMxASK6syfxGITMzvMxG9CvRkliWwlOm9AsSOcitzU1NzK7mjuBkQvHtLK7iLBiB5PhttJSGpB8I8vM6kDuiHeUjoVwMfYR4SRtUAw1veIZzOjRhSBzCoyKFjgH/3K7+BHzg+Cgw0eSW3AAAAAElFTkSuQmCC)
+          2x);
+}
+
+list .static-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+list[type='text'][inlineeditable] input {
+  box-sizing: border-box;
+  margin: 0;
+  width: 100%;
+}
+
+list > :not([editing]) [displaymode='edit'] {
+  display: none;
+}
+
+list > [editing] [displaymode='static'] {
+  /* Don't use display:none or visibility:hidden because we need to keep an
+   * element focusable.
+   * We shrink only height.  We don't shrink width to avoid to change the size
+   * of containing boxes. */
+  border-bottom: 0 !important;
+  border-top: 0 !important;
+  height: 0 !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+list > [editing] input:invalid {
+  background-color: pink;
+}
+
+.list-inline-button {
+  -webkit-appearance: none;
+  -webkit-transition: opacity 150ms;
+  background: rgb(138, 170, 237);
+  border: none;
+  border-radius: 2px;
+  color: white;
+  font-weight: bold;
+  opacity: 0.7;
+}
+
+.list-inline-button:hover {
+  opacity: 1;
+}
+
+.option-name {
+  -webkit-padding-end: 5px;
+}
+
+.favicon-cell {
+  -webkit-padding-start: 20px;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 16px;
+}
+
+input[type='url'].favicon-cell {
+  -webkit-padding-start: 22px;
+  background-position-x: 4px;
+}
+
+html[dir=rtl] input.favicon-cell,
+input[dir=rtl].favicon-cell {
+  background-position-x: -webkit-calc(100% - 4px);
+}
+
+list .favicon-cell {
+  -webkit-margin-start: 7px;
+  -webkit-padding-start: 26px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+html[dir=rtl] list .favicon-cell {
+  background-position: right;
+}
+
+html[enable-background-mode=false] #background-mode-section {
+ display: none;
+}
+
+/* UI Controls */
+
+/* LIST */
+.settings-list[has-element-focus] {
+outline: 1px solid rgba(0, 128, 256, 0.5);
+  outline-offset: -2px;
+
+}
+
+.suboption {
+  -webkit-margin-start: 23px;
+}
+
+list.autocomplete-suggestions {
+  background-color: white;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  min-height: 0;
+  opacity: 0.9;
+  position: fixed;
+  z-index: 3;
+}
+
+list.autocomplete-suggestions > div {
+  height: auto;
+}
+
+list.autocomplete-suggestions:not([has-element-focus]) > [selected],
+list.autocomplete-suggestions:not([has-element-focus]) > [lead][selected] {
+  background-color: rgb(187, 206, 233);
+}
+
+html:not(.focus-outline-visible)
+:enabled:focus:-webkit-any(input[type='checkbox'], input[type='radio']) {
+  /* Cancel border-color for :focus specified in widgets.css. */
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+html:not([hasFlashPlugin]) .flash-plugin-area,
+/* If the Flash plug-in supports the NPP_ClearSiteData API, we don't need to
+ * show the link to the Flash storage settings manager: */
+html[flashPluginSupportsClearSiteData] .flash-plugin-area,
+html:not([flashPluginSupportsClearSiteData]) .clear-plugin-lso-data-enabled,
+html[flashPluginSupportsClearSiteData] .clear-plugin-lso-data-disabled,
+html:not([enablePepperFlashSettings]) .pepper-flash-settings {
+  display: none;
+}
+
+.standalone-action-link {
+  padding: 0;
+}
+
+:-webkit-any(.checkbox, .radio) label ~ a {
+  display: inline-block;
+  /* Matches padding of -webkit-any(.checkbox, .radio) */
+  padding-bottom: 7px;
+  vertical-align: bottom;
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#alertOverlayMessage {
+  width: 400px;
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#autofill-edit-address-overlay {
+  min-width: 55em;
+}
+
+#autofill-edit-credit-card-overlay {
+  min-width: 500px;
+}
+
+#autofill-edit-address-overlay .long div[role='listitem'] > div > div,
+#autofill-edit-address-overlay .long input,
+#autofill-edit-address-overlay textarea.long,
+#autofill-edit-address-overlay input.long {
+  width: 16em;
+}
+
+#autofill-edit-address-overlay .short div[role='listitem'] > div > div,
+#autofill-edit-address-overlay .short input,
+#autofill-edit-address-overlay textarea.short,
+#autofill-edit-address-overlay input.short {
+  width: 14em;
+}
+
+#autofill-edit-address-overlay .country {
+  max-width: 450px;
+}
+
+#autofill-edit-address-overlay list {
+  -webkit-margin-start: -3px;
+  /* Min height is a multiple of the list item height (32px). */
+  min-height: 32px;
+}
+
+#autofill-edit-address-overlay list div.static-text {
+  -webkit-box-flex: 1;
+  -webkit-padding-end: 4px;
+  -webkit-padding-start: 4px;
+  border: 1px solid darkGray;
+  border-radius: 2px;
+  /* Border should go "inside" the height. */
+  box-sizing: border-box;
+  /* Set the line-height and min-height to match the height of an input element,
+   * so that even empty cells renderer with the correct height. */
+  height: 2em;
+  line-height: 2em;
+}
+
+#autofill-edit-address-overlay list:not([has-element-focus]) >
+    [selected]:not(:hover) {
+  background-color: transparent;
+}
+
+#autofill-edit-address-overlay list:not([has-element-focus]) > *:not(:hover)
+    .row-delete-button {
+  opacity: 0;
+  pointer-events: none;
+}
+
+:-webkit-any(#autofill-edit-credit-card-overlay, #autofill-edit-address-overlay)
+    .settings-row label > :-webkit-any(input, select, textarea, list) {
+  margin-top: 4px;
+}
+
+.input-group > * {
+  -webkit-box-orient: vertical;
+  -webkit-margin-end: 2px;
+  display: -webkit-inline-box;
+  vertical-align: top;
+}
+
+#autofill-edit-credit-card-overlay .content-area > *:first-child {
+  margin-top: 0;
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#autofill-options {
+  width: 550px;
+}
+
+#autofill-options list {
+  height: 192px;  /* This is the min-height for lists from WebUI.*/
+}
+
+.autofill-list-item {
+  -webkit-padding-start: 8px;
+  max-width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.autofill-list-item + .deemphasized {
+  -webkit-box-flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#autofill-options > div:last-child {
+  margin-top: 15px;
+}
+
+#autofill-options .deemphasized {
+  color: #777;
+}
+
+#autofill-options > div.settings-list > div:last-child {
+  border-top: 1px solid #d9d9d9;
+  padding: 5px 10px;
+}
+
+#autofill-add-address,
+#autofill-add-creditcard {
+  margin: 5px 0;
+}
+
+#autofill-options .list-inline-button {
+  -webkit-margin-start: 12px;
+  margin-top: 0;
+  vertical-align: top;
+}
+
+#autofill-options div[role='listitem']:not(:hover):not([selected])
+    .hide-until-hover {
+  display: none;
+}
+
+#autofill-options div[role='listitem']:-webkit-any(:hover,[selected])
+    .hides-on-hover {
+  display: none;
+}
+
+.settings-list + .autofill-section-header {
+  margin-top: 20px;
+}
+
+#autofill-options .autofill-section-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}</style>
+<style>/* Copyright 2014 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+.settings-banner {
+  background-color: #f5f5f5;
+  border-color: #c8c8c8;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: 24px;
+  margin-top: 20px;
+  max-width: 716px;
+  position: relative;
+}
+
+.settings-banner > .close-button {
+  background-image: url(chrome://theme/IDR_CLOSE_DIALOG);
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 14px;
+  opacity: 0.5;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  width: 14px;
+}
+
+html[dir='rtl'] .settings-banner > .close-button {
+  left: 4px;
+  right: auto;
+}
+
+.settings-banner > .close-button:hover {
+  background-image: url(chrome://theme/IDR_CLOSE_DIALOG_H);
+}
+
+.settings-banner > .close-button:active {
+  background-image: url(chrome://theme/IDR_CLOSE_DIALOG_P);
+}
+
+.settings-banner .content-area {
+  align-items: center;
+  display: flex;
+  padding: 17px;
+}
+
+.settings-banner .content-area .badge {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA3CAMAAABq+6nEAAAB11BMVEX8wzv////6wTr7wjv5wTr3vzr4wDr7wzv0vTn2vzr6wjv2vjrxuzj//v3yvDn+/fn2vjnxujj46sj5wDrptTfzvDn989r1vjn1zWzyuzn+/Pb81Hb00HrwzXr6xkf//Pb46cX8wzz31YX66b/73pj6wjz21ID++e////7//Pfz2p7468v57tLvznz7z2X7x0vz2Zv9+Ov++/X78djstzf81Hf87sz7xkXz0X/8zmH6yE798tb6z2j+/Pfux2j99N75zGDy1Yz//vz7xknsuUDtvEf54ab89ujwuzv71n7xyWr23qb88NL203/81n3uuDj7xEHrukX4wT/qtjf746r458D88dbwwlP9787uxmf85a734arwujjxwEj//fr6wTv97sn2wkP+/Pj2wkL99+j97sv61X7uxmTuxWP89un72on31YT746n31YP+9uL52o/3037zy2r989n+9eL75Kz72or79OH61X3525DwvD71zGr6xUb75rPuy3X20XrvwEz3wDrwuz/swFbttzfuy3Tz2Jj02pv78tz78t7tuDfsv1Xz2Jnvv0zsuDn89OL75rTvzXvsuDr89+r6xUT9+e/9+fDzy2vwzXv99uf568vuuTj02pzvuTjmJ7RoAAACQElEQVR4Xu3RRY/eMBSG0XsNST6EYWZmZmZm5jIzMzMz/tjOSJabRI6irLronOUj2a9kw/9lX/WRUtxVulMNHtHLKJym4A1bQmGJgTe8GIViDt4cQukAeJHb2IRSU2MuuGtOb90LVe1o0V61V1vTm8FR1lnEpCu3CvrQpq/g08mLiJeywAFdwD1baCfjAgW1nhC6CPWAUuEEupooBAX9Gtp1dqLdUV0xSrrRorxyNiFhtrLcWruJYvV+LZrUZTYEjWjUCDZk1pl7LVes8pYQSpFjMU4oACU8dvwgSqEW1VGW2nVCjvamsr+9V+aPXaJb6fHhwRwxOjyigaSNDIucMxiO10GFGGNidDyZgkSTx0UeMwg4YJNiNUMzZy1D5EkGTrbPiNWblttJisinCDghRWL1rt+c/edFLnI+Kq8fsq4OiZzivOrPE6uH58x57rvIeX5wMLOGAl43v/A5mddmQKktCaWtDpA6tlBKagMFehtN0kbF3+ujaeb+jqo+NR8tVqb6AfqnVqw1X/W18RfQLjsb7b5qqudNXERXi2HlI/PlCLqILHNQocZTdPHLoKCk3biKWBJ3pyyENqGyx3EliG8faKBGA/dqnjx8tDG9+gwtnq9Ob7x4+armdYCCA380GDM408JvvlWgVPH+Q1hj3IgFk/3giBJGAWDbFxxAaSDoIwBAGaPgTieJn1H4kkh08MJXj0K9D7zh6yisc/CGbf6I4K5I3CYDb2jg53zCrvnfAQoeUc0XiEYDPo3CP7LvD6mdSSJhpnIuAAAAAElFTkSuQmCC);
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 55px;
+  width: 58px;
+}
+
+.settings-banner .content-area .text {
+  -webkit-margin-start: 18px;
+  flex: 1;
+}
+
+.settings-banner .content-area .text p {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.settings-banner .content-area .button-area  {
+  -webkit-margin-start: 54px;
+}
+
+.settings-banner .nowrap  {
+  white-space: nowrap;
+}
+
+.settings-banner button {
+  margin-bottom: 1px;
+  margin-right: 0;
+}
+
+#secondary-user-banner .content-area .badge {
+  background-color: rgb(210, 210, 212);
+  background-image: url(chrome://theme/IDR_SECONDARY_USER_SETTINGS);
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#change-home-page-section {
+  -webkit-margin-start: 30px;
+}
+
+#home-page-url {
+  display: inline-block;
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+
+#default-browser-state,
+#profiles-supervised-dashboard-tip {
+  margin-top: 6px;
+}
+
+#sync-overview p {
+  display: inline;
+}
+
+#account-picture-wrapper {
+  float: left;
+  margin: 0 2px 10px 0;
+}
+
+html[dir=rtl] #account-picture-wrapper {
+  float: right;
+}
+
+#account-picture-control {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  display: inline-block;
+  padding: 3px;
+  position: relative;
+}
+
+#account-picture {
+  height: 56px;
+  object-fit: cover;
+  vertical-align: middle;
+  width: 56px;
+}
+
+#account-picture:disabled {
+  cursor: default;
+}
+
+#change-picture-caption {
+  background: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  color: white;
+  cursor: pointer;
+  font-size: small;
+  margin: 3px 0;
+  position: absolute;
+  text-align: center;
+  visibility: hidden;
+  /* Width of #account-picture. */
+  width: 56px;
+}
+
+#account-picture:not(:disabled):hover + #change-picture-caption,
+#account-picture:not(:disabled) + #change-picture-caption:hover {
+  visibility: visible;
+}
+
+#account-picture-indicator {
+  -webkit-margin-end: 3px;
+}
+
+#sync-general {
+  -webkit-margin-start: 76px;
+  margin-bottom: 10px;
+}
+
+#sync-buttons {
+  clear: both;
+}
+
+#profiles-list {
+  margin-bottom: 10px;
+  min-height: 0;
+}
+
+#profiles-list .profile-container {
+  -webkit-box-align: center;
+  display: -webkit-box;
+  max-width: 100%;
+}
+
+#profiles-list .profile-name {
+  -webkit-box-flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#profiles-list .profile-supervised {
+  color: #999;
+  margin-left: 5px;
+}
+
+#profiles-list > * {
+  height: 40px;
+}
+
+#profiles-list:focus {
+  border-color: rgb(77, 144, 254);
+}
+
+.profile-img {
+  height: 31px;
+  padding: 3px;
+  vertical-align: middle;
+  width: 38px;
+}
+
+.profile-item-current {
+  font-weight: bold;
+}
+
+#profiles-buttons {
+  white-space: nowrap;
+}
+
+.sync-error {
+  background: rgb(255, 219, 219);
+  border: 1px solid rgb(206, 76, 76);
+  border-radius: 2px;
+  padding: 10px;
+}
+
+.sync-error [is='action-link'] {
+  margin: 0 1ex;
+  padding: 0;
+}
+
+#mac-passwords-warning {
+  margin-top: 10px;
+}
+
+input[type='range'] {
+  vertical-align: middle;
+}
+
+.extension-controlled-warning-box {
+  background-color: #fbfbfb;
+  border: 1px solid #cecece;
+  border-radius: 3px;
+  padding: 19px;
+}
+
+.extension-controlled-warning {
+  -webkit-padding-start: 35px;
+  background-repeat: no-repeat;
+  padding-bottom: 20px;
+  padding-top: 3px;
+}
+
+.setting-extra-description {
+  -webkit-margin-start: 1.8em;
+  color: #999;
+}
+
+.hotword-settings {
+  -webkit-margin-start: 22px;
+}
+
+.hotword-audio-history {
+  -webkit-margin-start: 1.8em;
+}
+
+#audio-history {
+  margin-top: 1.5em;
+}
+
+#hotword-retrain-link {
+  text-decoration: none;
+}
+
+/* Internet settings */
+
+#network-settings {
+  position: relative;
+}
+
+#network-list {
+  min-height: 0;
+  width: 320px;
+}
+
+#download-location-label.disabled {
+  color: #999;
+}
+
+.network-group {
+  -webkit-box-orient: horizontal;
+  height: 42px;
+  overflow: visible;
+}
+
+list:not([disabled]) > .network-group:hover,
+list:not([disabled]) > .network-group[selected] {
+  background-color: #f8f8f8 !important;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.8),
+                                            rgba(255, 255, 255, 0)) !important;
+  box-shadow: inset 0 0 1px 1px #f0f0f0;
+}
+
+.network-group-labels {
+  -webkit-box-flex: 1;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  padding-top: 3px;
+}
+
+.network-icon {
+  -webkit-margin-end: 8px;
+  background-position: left top;
+  background-size: 25px;
+  height: 25px;
+  line-height: normal;
+  white-space: normal;
+  width: 25px;
+}
+
+.network-icon cr-network-icon {
+  height: 100%;
+  width: 100%;
+}
+
+@-webkit-keyframes connecting-animation {
+  0% {
+    background-position: 0 25%;
+  }
+  12.5% {
+    background-position: 0 50%;
+  }
+  25%  {
+    background-position: 0 75%;
+  }
+  37.5%  {
+    background-position: 0 100%;
+  }
+  50%  {
+    background-position: 0 100%;
+  }
+  62.5%  {
+    background-position: 0 75%;
+  }
+  75%  {
+    background-position: 0 50%;
+  }
+  87.5%  {
+    background-position: 0 25%;
+  }
+}
+
+.network-add-connection {
+  background-image: url(chrome://theme/IDR_NETWORK_ADD_CONNECTION);
+  background-position: center center !important;
+  background-repeat: no-repeat;
+  background-size: 16px;
+}
+
+.network-options-button {
+  -webkit-box-flex: 0;
+  -webkit-transform: scale(0.6);
+  background-image: none;
+  background-position: center center;
+  display: block;
+  opacity: 0.5;
+  vertical-align: middle;
+  width: 19px;
+}
+
+.network-group > .controlled-setting-indicator,
+.network-menu-item > .controlled-setting-indicator {
+  -webkit-margin-end: 5px;
+}
+
+.network-options-button:hover {
+  opacity: 1;
+}
+
+@-webkit-keyframes vpn-connecting-animation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.2;
+  }
+}
+
+.network-connecting {
+  -webkit-animation: connecting-animation 1s step-end infinite;
+}
+
+.network-vpn.network-connecting {
+  -webkit-animation: vpn-connecting-animation 500ms alternate infinite;
+}
+
+.network-title {
+  font-weight: 600;
+  line-height: 120%;
+}
+
+.network-subtitle {
+  color: #333;
+  display: inline-block;
+  line-height: 100%;
+  max-width: 260px;
+  opacity: 0.4;
+  overflow: hidden;
+  padding-bottom: 3px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.network-selector {
+  background: right center no-repeat;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAICAQAAACxSAwfAAAAUklEQVQY02P4z0AMRGZGMaShwCisyhITmb8huMzfEhOxKvuvsGAh208Ik+3ngoX/FbBbClcIUcSAw21QhXxfIIrwKAMpfNsEUYRXGVCEFc6CQwBqq4CCCtU4VgAAAABJRU5ErkJggg==);
+  padding-right: 20px;
+}
+
+.network-menu {
+  background: #fff;
+  box-shadow:
+      0 0 0 1px rgba(0,0,0,0.1),
+      0 5px 1px 1px rgba(0,0,0,0.1),
+      0 5px 2px 1px rgba(0,0,0,0.1),
+      0 5px 12px 1px rgba(0,0,0,0.5);
+  display: block;
+  position: absolute;
+  width: 320px;
+  z-index: 1;
+}
+
+.network-menu-item {
+  -webkit-box-align: center;
+  -webkit-box-orient: horizontal;
+  display: -webkit-box;
+  height: 32px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.network-menu-item-label {
+  -webkit-box-flex: 1;
+  color: #555;
+  display: block;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.active-network {
+   color: black;
+   font-weight: bold;
+}
+
+.network-disabled-control {
+  color: #999;
+}
+
+/* Restrict the size of the networks menu, by limiting the number of
+   visible networks. */
+.network-menu-group {
+    max-height: 192px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-overflow: ellipsis;
+}
+
+.network-menu-item:hover,
+.network-menu-item[selected] {
+  background-color: #eee;
+}
+
+.network-menu > hr {
+  opacity: 0.4;
+}
+
+#shared-proxies {
+  margin-top: 12px;
+}
+
+#web-content-section select,
+.web-content-select-label {
+  min-width: 145px;
+}
+
+.web-content-select-label > span:only-of-type {
+  display: inline-block;
+  min-width: 100px;
+}
+
+#timezone-value {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.loading #timezone-value select {
+  color: transparent;
+  text-shadow: none;
+}
+
+#privacy-explanation {
+  line-height: 1.8em;
+}
+
+#advanced-settings {
+  height: 0;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.sliding {
+  -webkit-transition: height 200ms;
+  overflow-y: hidden;
+}
+
+#keyboard-overlay .option-value > select {
+  width: 100%;
+}
+
+#keyboard-overlay table,
+#power-overlay table {
+  /* Same as .settings-row {margin}. */
+  -webkit-border-horizontal-spacing: 0;
+  -webkit-border-vertical-spacing: 0.65em;
+}
+
+#stylus-settings-link,
+#power-settings-link {
+  /* Match the spacing of the touchpad/mouse slider. */
+  line-height: 25px;
+}
+
+#accessibility-autoclick .controlled-setting-with-label {
+  -webkit-box-align: baseline;
+}
+
+#accessibility-autoclick-dropdown,
+#accessibility-autoclick-label {
+  /* Same as .controlled-setting-with-label > input + span. */
+  -webkit-margin-start: 0.6em;
+}
+
+#accessibility-screen-magnifier-center-focus-check {
+  -webkit-margin-start: 0.4em;
+}
+
+div[guestmode=true] :-webkit-any(
+#searchBox,
+    #appearance-section,
+    #startup-section,
+    #reset-profile-settings-section) {
+  display: none;
+}
+
+div[supervisedMode=true] :-webkit-any(
+    #profiles-enable-guest,
+    #profiles-enable-add-person) {
+  display: none;
+}
+
+footer {
+  display: flex;
+}
+
+#about-button {
+  -webkit-margin-end: 30px;
+}
+
+/* An input that has no function except to take up the same amount of space as
+ * a checkbox. */
+.spacer-checkbox {
+  visibility: hidden;
+}
+
+#android-apps-settings {
+  -webkit-margin-start: 30px;
+}
+</style>
+
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#clear-browser-data-overlay {
+  width: 500px;
+}
+
+#clear-data-checkboxes {
+  -webkit-padding-start: 8px;
+  margin: 5px 0;
+}
+
+#cbd-throbber {
+  /* This should be changed to align-self: center; when the parent is changed to
+   * display: flex; */
+  position: relative;
+  top: 5px;
+  visibility: hidden;
+}
+
+#flash-storage-settings {
+  padding-top: 5px;
+}
+
+#clear-browser-data-info-banner {
+  background-color: rgb(249, 237, 184);
+  border: solid 1px rgb(237, 201, 103);
+  border-radius: 2px;
+  font-weight: bold;
+  margin: 0 20px 11px 17px;
+  padding: 6px 8px;
+}
+
+.clear-browser-data-counter {
+  color: #999;
+}
+
+input[type=checkbox] ~ span {
+  line-height: 1.4em;
+}
+
+.clear-browser-data-counter:not(:empty)::before {
+  content: '\00a0–\00a0\00a0';
+}
+
+input[type=checkbox]:not(:checked) ~ span > .clear-browser-data-counter {
+  display: none;
+}
+
+#clear-browser-data-info-banner:empty {
+  display: none;
+}
+
+#some-stuff-remains-footer {
+  display: block;
+}
+
+#some-stuff-remains-footer > p {
+  -webkit-padding-start: 33px;
+}
+
+#some-stuff-remains-footer button {
+  padding: 0;
+}
+
+#clear-browser-data-history-footer {
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9IjAgMCAxNiAxNiI+CiAgICA8cGF0aCBmaWxsPSIjNDI4NUY0IiBkPSJNMTQuNzIgOC4xNmMwLS40Ni0uMDUtLjgxLS4xMS0xLjE2SDh2Mi40aDMuOTdjLS4xLjYyLS41MiAxLjU5LTEuNDUgMi4yNnYxLjY0aDIuMTJjMS4zMi0xLjIxIDIuMDgtMy4wMSAyLjA4LTUuMTR6Ii8+CiAgICA8cGF0aCBmaWxsPSIjMzRBODUzIiBkPSJNOCAxNWMxLjg5IDAgMy40Ny0uNjMgNC42My0xLjY5bC0yLjEyLTEuNjRjLS42LjQzLTEuNDIuNzUtMi41MS43NS0xLjg5IDAtMy40OC0xLjI0LTQuMDgtMi45NkgxLjc1djEuNjlDMi45IDEzLjQzIDUuMjYgMTUgOCAxNXoiLz4KICAgIDxwYXRoIGZpbGw9IiNGQkJDMDUiIGQ9Ik0zLjkyIDkuNDVDMy43NyA5IDMuNjYgOC41MSAzLjY2IDhzLjEtMSAuMjYtMS40NVY0Ljg2SDEuNzVDMS4yNyA1LjgxIDEgNi44NyAxIDhzLjI3IDIuMTkuNzUgMy4xNGwyLjE3LTEuNjl6Ii8+CiAgICA8cGF0aCBmaWxsPSIjRUE0MzM1IiBkPSJNOCAzLjU4YzEuMzYgMCAyLjI3LjU4IDIuNzkgMS4wOGwxLjktMS44M0MxMS40NyAxLjY5IDkuODkgMSA4IDEgNS4yNiAxIDIuOSAyLjU3IDEuNzUgNC44NmwyLjE3IDEuNjlDNC41MiA0LjgzIDYuMTEgMy41OCA4IDMuNTh6Ii8+CiAgICA8cGF0aCBmaWxsPSJub25lIiBkPSJNMSAxaDE0djE0SDF6Ii8+Cjwvc3ZnPgo=) left no-repeat;
+  margin: 0 0 0.8em 0;
+  min-height: 16px;
+}
+
+#clear-browser-data-general-footer {
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOHB4IiBoZWlnaHQ9IjE4cHgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0iIzc1NzU3NSI+CiAgICA8cGF0aCBkPSJNMCAwaDQ4djQ4SDB6IiBmaWxsPSJub25lIi8+CiAgICA8cGF0aCBkPSJNMjQgNEMxMi45NSA0IDQgMTIuOTUgNCAyNHM4Ljk1IDIwIDIwIDIwIDIwLTguOTUgMjAtMjBTMzUuMDUgNCAyNCA0em0yIDMwaC00VjIyaDR2MTJ6bTAtMTZoLTR2LTRoNHY0eiIvPgo8L3N2Zz4K) left no-repeat;
+  margin: 0;
+  min-height: 18px;
+}
+
+html[dir='rtl'] #clear-browser-data-history-footer,
+html[dir='rtl'] #clear-browser-data-general-footer {
+  background-position: right center;
+}
+
+#clear-browser-data-history-notice {
+  width: 300px;
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#content-settings-page {
+  min-width: 620px;
+}
+
+#content-settings-exceptions-area {
+  min-width: 540px;
+}
+
+.exception-pattern {
+  -webkit-box-flex: 1;
+  -webkit-margin-end: 10px;
+  -webkit-margin-start: 14px;
+}
+
+.exception-setting {
+  display: inline-block;
+  width: 120px;
+}
+
+.settings-list div[role='listitem'][controlled-by='policy'] .exception-setting,
+.settings-list div[role='listitem'][controlled-by='extension']
+    .exception-setting {
+  width: calc(120px - 8px);
+}
+
+select.exception-setting {
+  vertical-align: middle;
+}
+
+.overruled .exception-setting {
+  width: calc(120px - 24px);
+}
+
+.overruled .overruleable {
+  text-decoration: line-through;
+}
+
+#exception-column-headers {
+  -webkit-margin-start: 17px;
+  display: -webkit-box;
+  margin-top: 17px;
+}
+
+#exception-column-headers > div {
+  font-weight: bold;
+}
+
+#exception-pattern-column {
+  -webkit-box-flex: 1;
+}
+
+.exception-value-column-header {
+  width: 145px;
+}
+
+.otr-explanation {
+  font-style: italic;
+}
+
+#content-settings-exceptions-area list {
+  margin-bottom: 10px;
+  margin-top: 4px;
+}
+
+#group-indicator {
+  margin-left: 5px;
+}
+
+div[role='listitem'][controlled-by] {
+  color: #666;
+  font-style: italic;
+  position: relative;
+}
+
+.settings-list div[role='listitem'][controlled-by='policy'],
+.settings-list div[role='listitem'][controlled-by='extension'] {
+  background: rgb(250, 230, 146);
+  border-bottom: 1px solid rgb(201, 189, 141);
+  border-top: 0;
+}
+
+.sublabel {
+  -webkit-margin-start: 2em;
+}
+
+select.media-device-control {
+  margin: 5px 0;
+  width: 12em;
+}
+
+select.media-device-control:empty {
+  display: none;
+}
+
+.exception-setting.media-audio-setting {
+  width: 6em;
+}
+
+.exception-setting.media-video-setting {
+  width: 6.5em;
+}
+
+#media-column-header {
+  display: -webkit-box;
+}
+
+#media-audio-column {
+  width: 6em;
+}
+
+#media-video-column {
+  width: 8.5em;
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+/* Styles for the cookies list page. */
+.cookies-view-page {
+  height: 90%;
+  margin-left: -15px;
+  width: 720px;
+}
+
+/* Styles for the cookies list elements in cookies_view.html. */
+.cookies-list {
+  -webkit-box-flex: 1;
+  /* This property overrides the |min-height: 192px;| property above due to
+   * special behavior of the cookies list. */
+  border: 1px solid #D9D9D9;
+  margin: 0;
+  margin-top: 5px;
+  min-height: 0;
+}
+
+.cookies-list-content-area {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow-y: hidden;
+}
+
+.cookies-column-headers {
+  -webkit-box-align: baseline;
+  -webkit-box-orient: horizontal;
+  display: -webkit-box;
+  position: relative;
+  width: 100%;
+}
+
+.cookies-column-headers > * {
+  display: block;
+}
+
+.cookies-column-headers h3 {
+  font-size: 105%;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* Notice the width and padding for these columns match up with those below. */
+.cookies-site-column {
+  -webkit-padding-start: 7px;
+  width: 14em;
+}
+
+.cookies-data-column {
+  -webkit-box-flex: 1;
+  -webkit-padding-start: 7px;
+}
+
+/* Enable animating the height of items. */
+list.cookie-list .deletable-item {
+  -webkit-transition: height 150ms ease-in-out;
+}
+
+/* Disable webkit-box display. */
+list.cookie-list .deletable-item > :first-child {
+  display: block;
+}
+
+/* Force the X for deleting an origin to stay at the top. */
+list.cookie-list > .deletable-item > .close-button {
+  position: absolute;
+  right: 2px;
+  top: 8px;
+}
+
+html[dir=rtl] list.cookie-list > .deletable-item > .close-button {
+  left: 2px;
+  right: auto;
+}
+
+/* Styles for the site (aka origin) and its summary. */
+.cookie-site {
+  /* Notice that the width, margin, and padding match up with those above. */
+  -webkit-margin-end: 2px;
+  -webkit-padding-start: 5px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 14em;
+}
+
+list.cookie-list > .deletable-item[selected] .cookie-site {
+  -webkit-user-select: text;
+}
+
+.cookie-data {
+  display: inline-block;
+  max-width: 410px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cookie-size {
+  display: inline-block;
+  float: right;
+  margin-right: 0;
+}
+
+list.cookie-list > .deletable-item[selected] .cookie-data {
+  -webkit-user-select: text;
+}
+
+
+/* Styles for the individual items (cookies, etc.). */
+.cookie-items {
+  /* Notice that the margin and padding match up with those above. */
+  -webkit-margin-start: 14em;
+  -webkit-padding-start: 7px;
+  -webkit-transition: 150ms ease-in-out;
+  display: none;
+  height: 0;
+  opacity: 0;
+  /* Make the cookie items wrap correctly. */
+  white-space: normal;
+}
+
+.measure-items .cookie-items {
+  -webkit-transition: none;
+  height: auto;
+  visibility: hidden;
+}
+
+.show-items .cookie-items {
+  display: block;
+  opacity: 1;
+}
+
+.cookie-items .cookie-item {
+  background: rgb(224, 233, 245);
+  border: 1px solid rgb(131, 146, 174);
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 85%;
+  height: auto;
+  margin: 2px 4px 2px 0;
+  max-width: 120px;
+  min-width: 40px;
+  overflow: hidden;
+  padding: 0 3px;
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
+.cookie-items .cookie-item:hover {
+  background: rgb(238, 243, 249);
+  border-color: rgb(100, 113, 135);
+}
+
+.cookie-items .cookie-item[selected] {
+  background: rgb(245, 248, 248);
+  border-color: #B2B2B2;
+}
+
+.cookie-items .cookie-item[selected]:hover {
+  background: rgb(245, 248, 248);
+  border-color: rgb(100, 113, 135);
+}
+
+.cookie-items .cookie-item .protecting-app,
+.cookie-data .protecting-app {
+  margin-bottom: -3px;
+  margin-left: 4px;
+}
+
+/* Styles for the cookie details box. */
+.cookie-details {
+  background: rgb(245, 248, 248);
+  border: 1px solid #B2B2B2;
+  border-radius: 5px;
+  margin-top: 2px;
+  padding: 5px;
+}
+
+list.cookie-list > .deletable-item[selected] .cookie-details {
+  -webkit-user-select: text;
+}
+
+.cookie-details-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.cookie-details-label {
+  vertical-align: top;
+  white-space: pre;
+  width: 10em;
+}
+
+.cookie-details-value {
+  word-wrap: break-word;
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#do-not-track-confirm-overlay {
+  width: 500px;
+}
+</style>
+<style>/* Copyright 2014 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#easy-unlock-turn-off-overlay {
+  max-width: 480px;
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#font-settings > section {
+  overflow: hidden;
+}
+
+#font-settings .action-area {
+  -webkit-box-pack: start;
+}
+
+#font-settings .action-area .spacer {
+  -webkit-box-flex: 1;
+  display: -webkit-box;
+}
+
+#font-settings .button-strip {
+  width: 100%;
+}
+
+.font-setting-container {
+  display: -webkit-box;
+}
+
+#font-settings input[type='range'] {
+  width: 100%;
+}
+
+#minimum-font-sample {
+  height: 35px;
+  overflow: hidden;
+  width: 270px;
+}
+
+.font-input-div {
+  -webkit-margin-end: 3em;
+  width: 12em;
+}
+
+.font-input-div > div > select {
+  margin-bottom: 10px;
+}
+
+.font-input {
+  width: 100%;
+}
+
+.font-sample-div {
+  direction: ltr;
+  height: 70px;
+  overflow: hidden;
+  width: 270px;
+}
+
+.font-settings-huge {
+  float: right;
+}
+
+html[dir=rtl] .font-settings-huge {
+  float: left;
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+.handlers-column-headers {
+  display: -webkit-box;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.handlers-type-column {
+  -webkit-margin-end: 10px;
+  -webkit-margin-start: 14px;
+  width: 100px;
+}
+
+.handlers-site-column {
+  max-width: 180px;
+}
+
+.handlers-site-column select {
+  max-width: 170px;
+}
+
+.handlers-remove-column {
+  -webkit-box-flex: 1;
+}
+
+.handlers-remove-link {
+  -webkit-transition: 150ms opacity;
+  color: #555;
+  cursor: pointer;
+  opacity: 0;
+  padding-left: 14px;
+  text-decoration: underline;
+}
+
+div > .handlers-remove-column {
+  opacity: 0;
+}
+
+div:not(.none):hover > .handlers-remove-column {
+  opacity: 1;
+}
+
+#handlers {
+  min-height: 250px;
+}
+
+#handler-options list {
+  border: solid 1px #D9D9D9;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  margin-top: 4px;
+}
+</style>
+<style>/* Copyright 2014 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#hotword-confirm-overlay {
+  width: 500px;
+}
+</style>
+<style>/* Copyright 2014 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+/* Hotword extension-specific controlled setting indicator and bubble. */
+
+#hotword-search-setting-indicator > div,
+#hotword-always-on-search-setting-indicator > div,
+#hotword-no-dsp-search-setting-indicator > div {
+  background: url(chrome://theme/IDR_WARNING) left top no-repeat;
+  background-size: 18px;
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#import-data-overlay {
+  width: 400px;
+}
+
+#import-from-div {
+  margin-bottom: 20px;
+}
+
+#import-checkboxes > div:not(:first-child) {
+  -webkit-padding-start: 8px;
+}
+
+#import-throbber {
+  margin: 4px 10px;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+#import-success-header {
+  font-size: 1.2em;
+}
+
+#import-success-image {
+  -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOHB4IiBoZWlnaHQ9IjE4cHgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0iIzQyODVGNCI+CiAgICA8cGF0aCBkPSJNMCAwaDQ4djQ4SDB6IiBmaWxsPSJub25lIi8+CiAgICA8cGF0aCBkPSJNMjQgNEMxMi45NSA0IDQgMTIuOTUgNCAyNGMwIDExLjA0IDguOTUgMjAgMjAgMjAgMTEuMDQgMCAyMC04Ljk2IDIwLTIwIDAtMTEuMDUtOC45Ni0yMC0yMC0yMHptLTQgMzBMMTAgMjRsMi44My0yLjgzTDIwIDI4LjM0bDE1LjE3LTE1LjE3TDM4IDE2IDIwIDM0eiIvPgo8L3N2Zz4K);
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 96px;
+  background-color: rgb(15, 157, 88);
+  height: 96px;
+  margin: 20px 0;
+  width: 100%;
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#language-dictionary-overlay-no-matches {
+  line-height: 2.5em;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0 3px;
+}
+
+#language-dictionary-overlay-page h1 {
+  margin-right: 16em;
+  padding-top: 25px;
+}
+
+html[dir=rtl] #language-dictionary-overlay-page h1 {
+  margin-left: 16em;
+  margin-right: auto;
+}
+
+#language-dictionary-overlay-search-field {
+  position: absolute;
+  right: 32px;
+  top: 21px;
+}
+
+html[dir=rtl] #language-dictionary-overlay-search-field {
+  left: 32px;
+  right: auto;
+}
+
+#language-dictionary-overlay-word-list {
+  height: 20em;
+}
+
+#language-dictionary-overlay-word-list.no-search-matches {
+  height: 17.5em;
+}
+
+#language-dictionary-overlay-word-list > * {
+  height: 2.5em;
+}
+
+.language-dictionary-overlay-word-list-item {
+  width: 30em;
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#languagePage .content-area {
+  width: 660px;
+}
+
+.language-options {
+  display: -webkit-box;
+  margin: 10px 0;
+}
+
+.language-options-lower-left button,
+#language-options-details button {
+  min-width: 70px;
+}
+
+.language-options h3 {
+  -webkit-margin-start: 12px;
+  font-size: 100%;
+  font-weight: bold;
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+.language-options-contents  {
+  min-height: 28px;
+  padding: 0 12px 4px;
+}
+
+.language-options-contents >
+    span:not(.input-method-label):not(.controlled-setting-indicator) {
+  display: inline-block;
+  margin: 1px;
+  padding: 0.42em 10px;
+}
+
+.language-options-header,
+.language-options-footer {
+  margin: 10px 0;
+}
+
+#language-options-languages,
+#language-options-details {
+  border: 1px solid #ccc;
+  height: 369px;
+  padding: 0;
+  vertical-align: top;
+}
+
+#language-options-languages {
+  -webkit-box-orient: vertical;
+  background-color: rgb(235, 239, 249);
+  display: -webkit-box;
+  width: 300px;
+}
+
+.language-options-lower-left {
+  -webkit-box-flex: 0;
+  -webkit-padding-start: 12px;
+  padding-bottom: 10px;
+}
+
+#language-options-details {
+  -webkit-box-flex: 1;
+  /* To share the center line with the left pane. */
+  -webkit-margin-start: -1px;
+  overflow-y: auto;
+}
+
+#language-options-details h3:not(:first-of-type) {
+  margin-top: 24px;
+}
+
+.language-options-notification  {
+  background-color: rgb(255, 247, 193);
+  margin: 0 0 4px;
+  padding: 8px 30px 8px 12px;
+}
+
+.language-options-notification > div {
+  margin-bottom: 4px;
+}
+
+#language-options-input-method-list button {
+  -webkit-margin-start: 20px;
+  display: block;
+  /* Same margin as .settings-row. */
+  margin-bottom: 0.65em;
+  margin-top: 0.65em;
+}
+
+#language-options-list {
+  -webkit-box-flex: 1;
+  outline: none;
+  padding: 0;
+  width: 100%;
+}
+
+#language-options-list .language-name {
+  -webkit-box-flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#language-options-list li {
+  -webkit-padding-start: 12px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+}
+
+#language-options-list-dropmarker {
+  background-clip: padding-box;
+  background-color: hsl(214, 91%, 65%);
+  border: 3px solid hsl(214, 91%, 65%);
+  border-bottom-color: transparent;
+  border-radius: 0;
+  border-top-color: transparent;
+  box-sizing: border-box;
+  display: none;
+  height: 8px;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  z-index: 10;
+}
+
+/* TODO(kochi): This is temporary copy from new_tab.css */
+/* Notification */
+
+#notification {
+  -webkit-transition: opacity 150ms;
+  background-color: hsl(52, 100%, 80%);
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 6px;
+  color: black;
+  display: table;
+  font-weight: bold;
+  /* Set the height and margin so that the element does not use any vertical
+    space. */
+  height: 16px;
+  margin: -44px auto 12px auto;
+  opacity: 0;
+  padding: 7px 15px;
+  pointer-events: none;
+  position: relative;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+#notification > * {
+  display: table-cell;
+  max-width: 500px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#notification.show {
+  -webkit-transition: opacity 1s;
+  opacity: 1;
+  pointer-events: all;
+}
+
+#notification .link {
+  -webkit-appearance: none;
+  -webkit-padding-start: 20px;
+  background: none;
+  border: 0;
+  color: rgba(0, 102, 204, 0.3);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#notification .link-color {
+  color: rgb(0, 102, 204);
+}
+
+#chewing-max-chi-symbol-len {
+  height: 30%;
+  width: 100px;
+}
+
+#add-language-overlay-page .content-area {
+  padding-bottom: 10px;
+}
+
+/* TODO(hshi): Remove this temporary hack once the bug is fixed in Chrome. */
+#add-language-overlay-language-list {
+  width: -webkit-calc(100% - 4px);
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#manage-profile-overlay {
+  width: 616px;
+}
+
+.profile-icon-grid-item {
+  height: 31px;
+  margin: 2px 4px;
+  padding: 4px;
+  width: 38px;
+}
+
+.profile-icon {
+  height: 31px;
+  width: 38px;
+}
+
+#create-profile-name-input-container,
+#manage-profile-name-input-container {
+  margin-top: 5px;
+}
+
+#create-profile-name-input-container {
+  margin-bottom: 5px;
+}
+
+#create-profile-name,
+#manage-profile-name {
+  margin-left: 10px;
+}
+
+#create-profile-name:invalid,
+#manage-profile-name:invalid {
+  background-color: pink;
+}
+
+#disconnect-managed-profile-domain-name {
+  font-weight: bold;
+}
+
+#disconnect-managed-profile-domain-information {
+  background-color: #f0f0f0;
+  padding: 14px 0 14px 17px;
+}
+
+#disconnect-managed-profile-message {
+  padding-top: 9px;
+}
+
+#create-profile-error-bubble,
+#manage-profile-error-bubble {
+  -webkit-transition: max-height 200ms, padding 200ms;
+  background-color: rgb(238, 185, 57);
+  border-radius: 4px;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 50px;
+  overflow: hidden;
+  padding: 10px 10px;
+  text-align: center;
+  width: 80%;
+}
+
+html[dir='ltr'] #create-profile-error-bubble {
+  margin-left: 20px;
+  width: 90%;
+}
+
+html[dir='rtl'] #create-profile-error-bubble {
+  margin-right: 20px;
+  width: 90%;
+}
+
+#create-profile-error-bubble[hidden],
+#manage-profile-error-bubble[hidden] {
+  display: block !important;
+  max-height: 0;
+  padding: 0 10px;
+}
+
+#create-profile-icon-grid,
+#manage-profile-icon-grid {
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 2px;
+}
+
+:-webkit-any(#create-profile-content, #manage-profile-content) >
+    :not(:last-child) {
+  margin-bottom: 10px;
+}
+
+:-webkit-any(#create-profile-content, #manage-profile-content) >
+    :not(:first-child) {
+  margin-top: 10px;
+}
+
+:-webkit-any(#create-profile-content, #manage-profile-content) >
+    .name-input-container {
+  margin-top: 5px;
+}
+
+:-webkit-any(#create-profile-content, #manage-profile-content) >
+    .name-label-container {
+  margin-bottom: 5px;
+}
+
+#create-profile-content {
+  padding-bottom: 0;
+}
+
+.action-area-shortcut-container {
+  -webkit-box-flex: 1;
+}
+
+/* Proper spacing for the buttons. */
+#remove-shortcut-button,
+#add-shortcut-button {
+  -webkit-margin-end: 10px;
+}
+
+#delete-supervised-profile-addendum {
+  -webkit-padding-start: 48px;
+  margin-top: 10px;
+}
+
+html[dir='ltr'] #delete-profile-icon {
+  float: left;
+  margin-right: 10px;
+}
+
+html[dir='rtl'] #delete-profile-icon {
+  float: right;
+  margin-left: 10px;
+}
+
+#create-profile-supervised-not-signed-in {
+  color: #999;
+}
+
+#create-profile-supervised-not-signed-in-label,
+#create-profile-supervised-account-details-out-of-date-label {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+#create-profile-supervised-content-area {
+  padding-top: 5px;
+}
+
+#import-existing-supervised-user-link {
+  bottom: 25px;
+  left: 17px;
+  position: absolute;
+}
+
+#supervised-user-import-existing {
+  margin: 0;
+  padding: 0;
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#password-manager > div.content-area {
+  width: 600px;
+}
+
+#password-search-column {
+  bottom: 10px;
+  position: absolute;
+  right: 0;
+}
+
+html[dir=rtl] #password-search-column {
+  left: 0;
+  right: auto;
+}
+
+#password-list-headers {
+  position: relative;
+  width: 100%;
+}
+
+#passwords-title {
+  display: inline-block;
+}
+
+#saved-passwords-list,
+#password-exceptions-list {
+  max-height: 192px;  /* For performance (crbug.com/651049). */
+  min-height: 128px;  /* Smallest value rendering enough initial list items. */
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#saved-passwords-list .list-inline-button {
+  -webkit-transition: opacity 150ms;
+  background: rgb(138, 170, 237);
+  font-size: 0.9em;
+  height: 18px;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding: 0 2px;
+  position: absolute;
+  top: 3px;
+}
+
+html[dir='ltr'] #saved-passwords-list .list-inline-button {
+  right: 2px;
+}
+
+html[dir='rtl'] #saved-passwords-list .list-inline-button {
+  left: 2px;
+}
+
+input.inactive-item {
+  background: transparent;
+  border: none;
+}
+
+#saved-passwords-list .url {
+  box-sizing: border-box;
+  width: 40%;
+}
+
+#saved-passwords-list .deletable-item:not(:hover) a:not(:focus) {
+  color: black;
+  text-decoration: none;
+}
+
+#saved-passwords-list .name {
+  -webkit-box-flex: 1;
+  width: 30%;
+}
+
+#saved-passwords-list .url,
+#password-exceptions-list .url {
+  -webkit-user-select: text;
+}
+
+#saved-passwords-list .password,
+#saved-passwords-list .federation {
+  -webkit-box-flex: 1;
+  position: relative;
+  width: 30%;
+}
+
+#saved-passwords-list .password input[type='password'],
+#saved-passwords-list .password input[type='text'] {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#password-exceptions-list .url {
+  -webkit-box-flex: 1;
+}
+
+#saved-passwords-list .url,
+#saved-passwords-list .name,
+#saved-passwords-list .federation,
+#password-exceptions-list .url {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+html[dir='ltr'] #saved-passwords-list .url,
+html[dir='ltr'] #password-exceptions-list .url {
+  -webkit-margin-end: 1em;
+  -webkit-margin-start: 0;
+  -webkit-padding-end: 2em;
+  -webkit-padding-start: 1em;
+  direction: rtl;
+  text-align: left;
+}
+
+html[dir='rtl'] #saved-passwords-list .url,
+html[dir='rtl'] #password-exceptions-list .url {
+  -webkit-margin-end: 0;
+  -webkit-margin-start: 1em;
+  -webkit-padding-end: 1em;
+  -webkit-padding-start: 2em;
+  /* Explicitly mention the direction, which, while the same, is independent of
+   * the surrounding text the for URLs. */
+  direction: rtl;
+  text-align: right;
+}
+</style>
+<style>/* Copyright 2013 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#reset-profile-settings-overlay {
+  width: 500px;
+}
+
+#reset-profile-settings-content-area {
+  -webkit-box-flex: 0;
+}
+
+#reset-profile-settings-throbber {
+  margin: 4px 10px;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+#feedback-bar {
+  -webkit-box-flex: 1;
+  -webkit-box-orient: vertical;
+}
+
+#feedback-template {
+  -webkit-box-flex: 1;
+  overflow-y: auto;
+}
+
+#feedback-template table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+#feedback-template table td {
+  word-wrap: break-word;
+}
+
+#feedback-template .key {
+  padding-right: 5px;
+  text-align: right;
+  vertical-align: top;
+}
+
+#feedback-template .value {
+  color: #333;
+  text-align: left;
+  white-space: pre-line;
+}
+
+#feedback-bar span {
+  vertical-align: middle;
+}
+
+#expand-feedback {
+  -webkit-mask-box-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0iIzAwMDAwMCI+CiAgICA8cGF0aCBkPSJNMCAwaDQ4djQ4SDB6IiBmaWxsPSJub25lIi8+CiAgICA8cGF0aCBkPSJNMjQgNEMxMi45NSA0IDQgMTIuOTUgNCAyNHM4Ljk1IDIwIDIwIDIwIDIwLTguOTUgMjAtMjBTMzUuMDUgNCAyNCA0em0yIDM0aC00di00aDR2NHptNC4xMy0xNS40OWwtMS43OSAxLjg0QzI2LjkgMjUuNzkgMjYgMjcgMjYgMzBoLTR2LTFjMC0yLjIxLjktNC4yMSAyLjM0LTUuNjZsMi40OS0yLjUyQzI3LjU1IDIwLjEgMjggMTkuMSAyOCAxOGMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNGgtNGMwLTQuNDIgMy41OC04IDgtOHM4IDMuNTggOCA4YzAgMS43Ni0uNzEgMy4zNS0xLjg3IDQuNTF6Ii8+Cjwvc3ZnPgo=);
+  background-color: #828282;
+  display: inline-block;
+  height: 14px;
+  opacity: 0.33;
+  width: 14px;
+}
+
+#expand-feedback:hover {
+  opacity: 1;
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#search-engine-manager-page {
+  width: 700px;
+}
+
+.search-engine-list input {
+  width: 100%;
+}
+
+.search-engine-list > div {
+  display: -webkit-box;
+}
+
+.search-engine-list .favicon {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  height: 16px;
+  line-height: 16px;
+  padding: 0 7px;
+  width: 16px;
+}
+
+.search-engine-list .name-column {
+  -webkit-box-align: center;
+  -webkit-padding-end: 1ex;
+  box-sizing: border-box;
+  display: -webkit-box;
+  width: 30%;
+}
+
+.search-engine-list .name-column :last-child {
+  -webkit-box-flex: 1;
+}
+
+.search-engine-list .keyword-column {
+  -webkit-padding-end: 1ex;
+  box-sizing: border-box;
+  width: 26%;
+}
+
+.search-engine-list .url-column {
+  box-sizing: border-box;
+  width: 44%;
+}
+
+.search-engine-list .keyword-column,
+.search-engine-list .url-column {
+  color: #666;
+}
+
+.search-engine-list .default .name-column,
+.search-engine-list .default .keyword-column {
+  font-weight: bold;
+}
+
+/* For temporary Make Default button */
+.search-engine-list .url-column {
+  -webkit-box-align: center;
+  display: -webkit-box;
+}
+
+.search-engine-list .url-column :first-child {
+  -webkit-box-flex: 1;
+}
+
+.search-engine-list .url-column .list-inline-button {
+  -webkit-margin-start: 1ex;
+  margin-top: 0;
+  padding: 1px 6px 2px 6px;
+}
+
+.search-engine-list > :not(:hover):not([editing]) .url-column
+    .list-inline-button {
+  display: none;
+}
+
+#default-search-engine-list {
+  z-index: 2;
+}
+
+#other-search-engine-list {
+  z-index: 1;
+}
+
+/* End temporary Make Default button styling */
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+.search-hidden {
+  display: none !important;
+}
+
+.search-highlighted {
+  background-color: rgba(255, 240, 120, 0.9);
+}
+
+/* Container for the elements that make up the search bubble. */
+.search-bubble {
+  left: 0;
+  position: absolute;
+  top: -1000px;  /* Minor hack: position off-screen by default. */
+  /* Create a z-context for search-bubble-innards, its after and before. */
+  z-index: 1;
+}
+
+/* Contains the text content of the bubble.  */
+.search-bubble-innards {
+  background: -webkit-linear-gradient(rgba(255, 248, 172, 0.9),
+                                      rgba(255, 243, 128, 0.9));
+  border-radius: 2px;
+  padding: 4px 10px;
+  text-align: center;
+  width: 100px;
+}
+
+/* Provides the border around the bubble (has to be behind ::after). */
+.search-bubble-innards::before {
+  border: 1px solid rgb(220, 198, 72);
+  border-radius: 2px;
+  bottom: -1px;
+  content: '';
+  left: -1px;
+  position: absolute;
+  right: -1px;
+  top: -1px;
+  z-index: -2;
+}
+
+/* Provides the arrow which points at the anchor element. */
+.search-bubble-innards::after {
+  -webkit-transform: rotate(45deg);
+  background:
+      -webkit-linear-gradient(-45deg, rgb(251, 255, 181),
+                                      rgb(255, 248, 172) 50%,
+                                      rgba(255, 248, 172, 0));
+  border: 1px solid rgb(220, 198, 72);
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  content: '';
+  height: 12px;
+  left: 53px;
+  position: absolute;
+  top: -7px;
+  width: 12px;
+  z-index: -1;
+}
+
+/* Turns the arrow direction downwards, when the bubble is placed above the
+ * anchor element */
+.search-bubble-innards.above::after {
+  -webkit-transform: rotate(-135deg);
+  bottom: -7px;
+  top: auto;
+}
+
+.search-bubble-wrapper {
+  position: relative;
+}
+
+/* #mainview is here to win specificity. :( */
+#mainview #searchPage.page,
+#mainview #searchBox.page {
+  padding-bottom: 0;
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#spelling-confirm-overlay {
+  width: 500px;
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#startup-overlay {
+  min-width: 500px;
+}
+
+#startupPagesList {
+  margin-bottom: 20px;
+  min-height: 64px;
+}
+
+#startupPagesList .title {
+  width: 40%;
+}
+
+#startupPagesList .url {
+  -webkit-box-flex: 1;
+  color: #666;
+}
+
+#startupPagesList > * {
+  max-width: 700px;
+}
+
+#startupPagesList .url input {
+  width: 100%;
+}
+
+#startupPagesListDropmarker {
+  background-clip: padding-box;
+  background-color: hsl(214, 91%, 65%);
+  border: 2px solid hsl(214, 91%, 65%);
+  border-bottom-color: transparent;
+  border-radius: 0;
+  border-top-color: transparent;
+  box-sizing: border-box;
+  display: none;
+  height: 6px;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  z-index: 10;
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+.subpages-nav-tabs .tab {
+  padding: 4px 8px;
+  position: relative;
+}
+
+.subpages-nav-tabs .active-tab {
+  background: white;
+  border: 1px solid #ddd;
+  border-bottom: 2px solid white;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  box-shadow: 8px -8px 12px -6px rgb(240, 240, 240);
+  position: relative;
+}
+
+/* To avoid tabs changing size when they are clicked and their labels become
+ * bold, we actually put two labels inside each tab: an inactive label and an
+ * active label. Only one is visible at a time, but the bold label is used to
+ * size the tab even when it's not visible. This keeps the tab size constant. */
+.subpages-nav-tabs .active-tab-label,
+.subpages-nav-tabs .tab-label:hover {
+  font-weight: bold;
+}
+
+.subpages-nav-tabs .tab-label {
+  left: 9px;
+  position: absolute;
+  top: 5px;
+}
+
+html[dir=rtl] .subpages-nav-tabs .tab-label {
+  right: 9px;
+}
+
+.subpages-nav-tabs .active-tab-label,
+.subpages-nav-tabs .active-tab .tab-label {
+  visibility: hidden;
+}
+
+/* .tab is not removed when .active-tab is added, so we must override the hidden
+ * visibility above in the active tab case. */
+.subpages-nav-tabs .active-tab .active-tab-label {
+  visibility: visible;
+}
+
+.subpages-nav-tabs {
+  background-image: linear-gradient(
+                        to bottom,
+                        rgb(255,255,255),
+                        rgb(255,255,255) 60%,
+                        rgb(250, 250, 250) 80%,
+                        rgb(242,242,242)
+  );
+  border-bottom: 1px solid #ddd;
+  padding: 4px 20px;
+}
+
+.subpages-tab-contents {
+   -webkit-padding-start: 10px;
+  display: none;
+  padding-top: 15px;
+}
+
+.active-tab-contents {
+  display: block;
+}
+</style>
+<style>/* Copyright 2014 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#supervised-user-created {
+  width: 722px;
+}
+
+#supervised-user-created-title {
+  padding: 20px;
+  word-wrap: break-word;
+}
+
+@media only screen and (max-height:400px) {
+
+/* Omit the image on very small screens. */
+#supervised-user-created-image {
+  display: none;
+}
+
+} /* @media only screen and (max-height:400px) */
+
+#supervised-user-created-image {
+  background-image: -webkit-image-set(
+      url(data:image/png;base64,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) 1x);
+  background-position: center;
+  border-radius: 3px 3px 0 0;
+  flex: 5;
+  height: 344px;
+}
+
+#supervised-user-created-text {
+  padding: 0 20px 0 20px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+#supervised-user-created-switch {
+  max-width: 600px;
+  word-wrap: break-word;
+}
+
+#supervised-user-created-action-area {
+  padding: 20px;
+}
+</style>
+<style>/* Copyright 2014 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#supervised-user-import {
+  width: 612px;
+}
+
+#supervised-user-import-text,
+#supervised-user-select-avatar-text {
+  padding-bottom: 10px;
+  padding-left: 17px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+#supervised-user-list {
+  height: 240px;
+  margin-bottom: 10px;
+}
+
+#supervised-user-list .list-item {
+  align-items: center;
+  display: flex;
+}
+
+#supervised-user-list .profile-img {
+  flex-shrink: 0;
+}
+
+#supervised-user-list .profile-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#supervised-user-list .already-on-this-device {
+  flex-shrink: 0;
+}
+
+#supervised-user-list > * {
+  height: 40px;
+}
+
+#supervised-user-list:focus {
+  border-color: rgb(77, 144, 254);
+}
+
+#select-avatar-grid {
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 2px;
+}
+
+#supervised-user-import-error-bubble {
+  -webkit-transition: max-height 200ms, padding 200ms;
+  background-color: rgb(238, 185, 57);
+  border-radius: 4px;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  max-height: 50px;
+  overflow: hidden;
+  padding: 1px 10px;
+  text-align: center;
+  width: 80%;
+}
+
+#supervised-user-import-error-bubble[hidden] {
+  max-height: 0;
+}
+
+.profile-img-disabled {
+  opacity: 0.4;
+}
+
+.profile-name-disabled {
+  color: rgb(153, 153, 153);
+}
+
+.already-on-this-device {
+  padding-left: 20px;
+  padding-right: 6px;
+}
+</style>
+<style>/* Copyright 2014 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#supervised-user-learn-more {
+  display: flex;
+  flex-direction: column;
+  width: 722px;
+}
+
+#supervised-user-learn-more-title {
+  padding: 20px;
+}
+
+#supervised-user-learn-more-text {
+  padding: 0 20px 0 20px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+@media only screen and (max-height:500px) {
+
+/* Omit the image on very small screens. */
+#supervised-user-learn-more-image {
+  display: none;
+}
+
+} /* @media only screen and (max-height:500px) */
+
+#supervised-user-learn-more-image {
+  background-image: -webkit-image-set(
+      url(data:image/png;base64,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) 1x);
+  background-position: center;
+  border-radius: 3px 3px 0 0;
+  height: 344px;
+}
+
+#supervised-user-learn-more-action-area {
+  padding: 20px;
+}
+</style>
+<style>/* Copyright 2014 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+#about-container {
+  align-items: center;
+  display: flex;
+}
+
+#page-container #about-container {
+  margin-top: 10px;
+}
+
+#product-description {
+  -webkit-margin-start: 10px;
+}
+
+#version-container {
+  margin-top: 30px;
+}
+
+#update-buttons-container {
+  margin-top: 5px;
+}
+
+#update-status-container {
+  margin-bottom: 12px;
+  margin-top: 10px;
+}
+
+#update-status {
+  vertical-align: middle;
+}
+
+#update-percentage {
+  font-size: 90%;
+}
+
+#get-help,
+#promote {
+  -webkit-margin-end: 4px;
+}
+
+#help-container {
+  margin-top: 16px;
+}
+
+#product-container {
+  line-height: 1.8em;
+  margin-top: 200px;
+}
+
+.overlay #product-container {
+  margin-top: 30px;
+}
+
+.help-page-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 18px;
+  vertical-align: middle;
+  width: 18px;
+}
+
+#update-status-icon.up-to-date {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOHB4IiBoZWlnaHQ9IjE4cHgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0iIzQyODVGNCI+CiAgICA8cGF0aCBkPSJNMCAwaDQ4djQ4SDB6IiBmaWxsPSJub25lIi8+CiAgICA8cGF0aCBkPSJNMjQgNEMxMi45NSA0IDQgMTIuOTUgNCAyNGMwIDExLjA0IDguOTUgMjAgMjAgMjAgMTEuMDQgMCAyMC04Ljk2IDIwLTIwIDAtMTEuMDUtOC45Ni0yMC0yMC0yMHptLTQgMzBMMTAgMjRsMi44My0yLjgzTDIwIDI4LjM0bDE1LjE3LTE1LjE3TDM4IDE2IDIwIDM0eiIvPgo8L3N2Zz4K);
+  background-size: 18px;
+}
+
+#update-status-icon.working {
+  background-image: url(chrome://resources/images/throbber_small.svg);
+  background-size: 16px;
+}
+
+#update-status-icon.failed {
+  background-image: url(chrome://resources/images/error.svg);
+  background-size: 18px;
+}
+
+#update-status-icon.disabled-by-admin {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OHB4IiBoZWlnaHQ9IjQ4cHgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0iIzYyNjI2MiI+CiAgICA8cGF0aCBkPSJNMCAwaDQ4djQ4SDB6IiBmaWxsPSJub25lIi8+CiAgICA8cGF0aCBkPSJNMjQgMTRWNkg0djM2aDQwVjE0SDI0ek0xMiAzOEg4di00aDR2NHptMC04SDh2LTRoNHY0em0wLThIOHYtNGg0djR6bTAtOEg4di00aDR2NHptOCAyNGgtNHYtNGg0djR6bTAtOGgtNHYtNGg0djR6bTAtOGgtNHYtNGg0djR6bTAtOGgtNHYtNGg0djR6bTIwIDI0SDI0di00aDR2LTRoLTR2LTRoNHYtNGgtNHYtNGgxNnYyMHptLTQtMTZoLTR2NGg0di00em0wIDhoLTR2NGg0di00eiIvPgo8L3N2Zz4K);
+  background-size: 18px;
+}
+
+#controlled-feature-icon {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OHB4IiBoZWlnaHQ9IjQ4cHgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0iIzYyNjI2MiI+CiAgICA8cGF0aCBkPSJNMCAwaDQ4djQ4SDB6IiBmaWxsPSJub25lIi8+CiAgICA8cGF0aCBkPSJNMjQgMTRWNkg0djM2aDQwVjE0SDI0ek0xMiAzOEg4di00aDR2NHptMC04SDh2LTRoNHY0em0wLThIOHYtNGg0djR6bTAtOEg4di00aDR2NHptOCAyNGgtNHYtNGg0djR6bTAtOGgtNHYtNGg0djR6bTAtOGgtNHYtNGg0djR6bTAtOGgtNHYtNGg0djR6bTIwIDI0SDI0di00aDR2LTRoLTR2LTRoNHYtNGgtNHYtNGgxNnYyMHptLTQtMTZoLTR2NGg0di00em0wIDhoLTR2NGg0di00eiIvPgo8L3N2Zz4K);
+  background-size: 18px;
+}
+
+#eol-status-icon {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iTm90aWZpY2F0aW9uLUljb24iIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJBcnRib2FyZC00LUNvcHktMyIgZmlsbD0iI0RCNDQzNyI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik00LjU3NDAzNjYxLDIuOTE2Mzg1MTcgTDQuNTUwMzE2OTcsMi45MTYzODUxNyBMNC41NjA1NzQxMSwyLjkyNjY0NzI4IEM0LjU2NTA2MTYxLDIuOTIzNDQwMzcgNC41Njk1NDkxMSwyLjkxOTU5MjA4IDQuNTc0MDM2NjEsMi45MTYzODUxNyBaIE0yLjUwMDQyNzM4LDQuOTY3NjUyOTcgTDIuNTAwNDI3MzgsNC45OTA3NDI3MiBDMi41MDM2MzI3NCw0Ljk4NjI1MzA1IDIuNTA2ODM4MDksNC45ODI0MDQ3NSAyLjUxMDY4NDUyLDQuOTc3OTE1MDggTDIuNTAwNDI3MzgsNC45Njc2NTI5NyBaIE0xNy4wODQ3OTk1LDE1LjQ1NzI2MjYgTDE3LjA4NDc5OTUsMTUuNDMzNTMxNCBDMTcuMDgxNTk0MSwxNS40MzgwMjExIDE3LjA3Nzc0NzcsMTUuNDQyNTEwOCAxNy4wNzQ1NDIzLDE1LjQ0NzAwMDUgTDE3LjA4NDc5OTUsMTUuNDU3MjYyNiBaIE0xNy4zMDc1NzE4LDE3LjI3NTMyMzkgTDE2LjM3NTQ1NDEsMTYuMzI0MTU0NCBMMTIuMjY4NzUxMywxMi4yMTU0NjE2IEw4LjAyNjE0MTQ2LDcuOTg5Mzk1ODIgTDMuNjc0NTQ5NDcsMy42MzUwNTM2NiBMMi43MzI4MTU3MywyLjY5MzUwNDk0IEwyLjAyMDU4NTUxLDEuOTgwOTI5NTggTDEsMy4wMDIwMDk2NiBMMi43MzI4MTU3Myw0LjczNTAyMzczIEMxLjY3NzYxMjM3LDYuMjMwNzI2NDcgMS4wNTAwMDM1Niw4LjAyOTgwMjg4IDEuMDUwMDAzNTYsOS45Nzk2MDQwNSBDMS4wNTAwMDM1NiwxMS45Mjk0MDUyIDEuNjc3NjEyMzcsMTMuNzI4NDgxNiAyLjczMjgxNTczLDE1LjIwMDQ1MzIgQzMuMzA2NTc0NTQsMTYuMDAwODk3OSA0LjAwNjYyNDQsMTYuNzAxMjg3IDQuODA2NjgxMzksMTcuMjc1MzIzOSBDNi4yNzc5NDAwMiwxOC4zMzEwMzg2IDguMDc2MTQ1MDIsMTguOTU4OTUxNiAxMC4wMjUwMDE4LDE4Ljk1ODk1MTYgQzExLjk3Mzg1ODUsMTguOTU4OTUxNiAxMy43NzIwNjM1LDE4LjMzMTAzODYgMTUuMjQzMzIyMiwxNy4yNzUzMjM5IEwxNi45OTA4ODI1LDE5IEwxOC4wMTE0NjgxLDE3Ljk3ODkxOTkgTDE3LjMwNzU3MTgsMTcuMjc1MzIzOSBaIE0xNS4yNDMzMjIyLDIuNjgzNjI3NjYgQzEzLjc3MjA2MzUsMS42Mjg1NTQzMyAxMS45NzM4NTg1LDEgMTAuMDI1MDAxOCwxIEM4LjA3NjE0NTAyLDEgNi4yNzc5NDAwMiwxLjYyODU1NDMzIDQuODA2NjgxMzksMi42ODM2Mjc2NiBDNC44MDE1NTI4MiwyLjY4NzQ3NTk1IDguOTQxNTkxMjgsNi44NDQ5MTM4NCA4Ljk0MTU5MTI4LDYuODQ0OTEzODQgTDEwLjAyNTAwMTgsNS4wMzAwMjkzIEwxNS4wNDE1NjQ3LDExIEwxMy4xOTYzODE1LDExIEwxNy4zMDY5MzA3LDE1LjIxNDMwNzEgQzE4LjM3MjM5MTIsMTMuNzI4ODY2NSAxOSwxMS45MjkxNDg3IDE5LDkuOTc5MzQ3NSBDMTksOC4wMzAxODc3MSAxOC4zNzIzOTEyLDYuMjMwNDY5OTIgMTcuMzE3MTg3OCw0Ljc1ODQ5ODMxIEMxNi43NDM0MjksMy45NTgwNTM2MiAxNi4wNDMzNzkyLDMuMjU3NjY0NTEgMTUuMjQzMzIyMiwyLjY4MzYyNzY2IFogTTEyLDE1IEw3LjAxMjE0NiwxNSBMNy4wMTIxNDYwNywxMS4wMTExMDgzIEw0LjUsMTEgTDYuNzI2NzY3OSw5LjEyNDAwMDUxIEwxMiwxNC42MDAwMDA0IEwxMiwxNSBaIiBpZD0iQ29tYmluZWQtU2hhcGUiPjwvcGF0aD4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo=);
+  background-size: 18px;
+}
+
+#eol-status-container {
+  margin-bottom: 12px;
+  margin-top: 10px;
+}
+
+#eol-status-message-container {
+  -webkit-margin-start: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#update-status-message-container {
+  -webkit-margin-start: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#more-info-expander {
+  -webkit-padding-start: 0;
+  margin-top: 10px;
+}
+
+#more-info-container.visible {
+  margin-bottom: 10px;
+}
+
+#more-info-container {
+  -webkit-transition: all 200ms;
+  height: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+#build-date-container.empty {
+  visibility: hidden;
+}
+
+#channel-change-confirmation {
+  margin-top: 5px;
+}
+
+#change-channel {
+  margin-top: 8px;
+}
+
+#channel-change-disallowed-icon,
+.channel-change-error-icon {
+  -webkit-margin-start: 4px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OHB4IiBoZWlnaHQ9IjQ4cHgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0iIzYyNjI2MiI+CiAgICA8cGF0aCBkPSJNMCAwaDQ4djQ4SDB6IiBmaWxsPSJub25lIi8+CiAgICA8cGF0aCBkPSJNMjQgMTRWNkg0djM2aDQwVjE0SDI0ek0xMiAzOEg4di00aDR2NHptMC04SDh2LTRoNHY0em0wLThIOHYtNGg0djR6bTAtOEg4di00aDR2NHptOCAyNGgtNHYtNGg0djR6bTAtOGgtNHYtNGg0djR6bTAtOGgtNHYtNGg0djR6bTAtOGgtNHYtNGg0djR6bTIwIDI0SDI0di00aDR2LTRoLTR2LTRoNHYtNGgtNHYtNGgxNnYyMHptLTQtMTZoLTR2NGg0di00em0wIDhoLTR2NGg0di00eiIvPgo8L3N2Zz4K);
+  background-size: 18px;
+}
+
+.channel-change-error-bubble {
+  display: flex;
+}
+
+.channel-change-error-bubble .channel-change-error-icon {
+  vertical-align: top;
+}
+
+.channel-change-error-text {
+  -webkit-margin-start: 4px;
+  display: block;
+  vertical-align: top;
+  width: 240px;
+}
+
+#regulatory-label-container {
+  padding-top: 32px;
+}
+
+#regulatory-label {
+  display: block;
+  width: 330px;
+}
+</style>
+<style>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+/* TODO(jhawkins): Organize these by page. */
+
+#sync-setup-overlay * h4 {
+  margin: 15px 0 5px;
+}
+
+#sync-setup-overlay * form {
+  -webkit-user-select: none;
+}
+
+#sync-setup-overlay * .content-area {
+  padding: 10px 15px;
+}
+
+.action-area-link-container {
+  -webkit-box-flex: 1;
+}
+
+.sync-customize-section-container {
+  margin: 5px 0 10px 0;
+}
+
+#sync-custom-passphrase {
+  margin: 0 25px;
+}
+
+#sync-passphrase-message {
+  color: gray;
+}
+
+.sync-custom-passphrase-input {
+  margin: 10px 0;
+}
+
+#sync-existing-passphrase-container {
+  background: rgb(255, 242, 158);
+  border: 1px solid rgb(212, 205, 173);
+  padding: 10px;
+}
+
+#sync-instructions-container {
+  line-height: 1.8em;
+  margin-bottom: 30px;
+}
+
+#choose-data-types-body {
+  -webkit-column-count: 3;
+  margin: 10px 0 0 0;
+}
+
+#choose-data-types-body > .checkbox:first-child {
+  margin-top: 0;
+}
+
+#choose-data-types-body > .checkbox:last-child {
+  margin-bottom: 0;
+}
+
+#sync-setup-overlay {
+  -webkit-user-select: none;
+  background-color: white;
+  margin-bottom: 6px;
+  margin-top: 6px;
+  width: 500px;
+}
+
+#sync-setup-overlay * a:link {
+  color: rgb(0, 0, 204);
+}
+
+#sync-setup-overlay * a:visited {
+  color: rgb(85, 26, 139);
+}
+
+#sync-setup-overlay * a:active {
+  color: rgb(255, 0, 0);
+}
+
+#sync-setup-delete-profile {
+  margin: 10px 0 0 0;
+}
+
+#email-readonly {
+  font-size: 15px;
+  height: 29px;
+  line-height: 29px;
+  margin: 0;
+}
+
+#encryption-section-message {
+  color: gray;
+  margin-bottom: 5px;
+}
+
+#basic-encryption-body,
+#full-encryption-body {
+  display: table;
+}
+
+#customize-sync-encryption-new,
+#personalize-google-services {
+  border-top: 1px solid #ddd;
+  margin-top: 5px;
+}
+
+#personalize-google-services {
+  line-height: 1.6em;
+}
+
+#personalize-google-services .title {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+#googleg-logo {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA0FJREFUeNrMmctrE1EUxk/GSW3TlsbnxlamuHEjJtB2IUJmtEsXKUWQLmwEV27SrLIQ0UBdp/kLWnfdFOOiu2pSEFxUSFwrNAjigyLTZqrGNNFzw5mQx0xyZzJ5HDhkkZs7v/nOvd99xAU24sftWQk/ZMwApo/SKLKYOcxdzOTF13s5q89yWQRjUGHMINiLNGYCQZOOAhLYU1LNiWDKRhA03REggnkJbAW6E2sIGbEFSHCpFuMLHFRTQVDV6EvBBI5B7fcADugZMreCpByD80Jv4gGqt2H2pZGCqUGBYyE2qBe3UVZmGa+Y3+mzkma9RD4ZNHnhtnB1JaZOU1ZmIGbMbHA3DJkVcgNLcI2AKU6fY6vBAj4ga9HkfSRAhBeuCljcccu/di6lCnsXOrKEboQ+ScKe+S8wtrgPruGSWVuVlOsZXEVBVE8iW6lE+XAItK1pKH0faWy7YGUNdVLBunEnTPyF8aVPMHTtZ90i3w84HTDQJCuWefTO50pSxKBPIbbyPaaiOHmcO31XS/N2eOu5lnIK7s3jMUVsZ8zCmULaYr9ObcnYy/oEjnYfoH/h5QHM9hEQBBjw4AH0DTrg9X4DZns1K22EKhKgYRm1f26IHs1JM5vn5Pf3tnjtRuFst4wZauODWZEO1U0NP55MQDQ/C19LHqC9HBcgdsrVDj0uzuMeAu2I62K7MAX31YAOVynzzOZi0Km6IZzMMfkqLyq454uqDslKuqr5YTXvN/rBOkJKDjHGOdrs1s7iBCvpo8MbsP1nytTVMV8ipLdD9dY51MvhUElWAVHFNJY0zSA5PDGDkD4bYF6CC3E0f2Hkg7xbKokg47xqYrvQ0ZXlTOFskgdOpQNZ88GdPdTGPUz12KlbEfYj05DQj53VsSv+vgoj38LgKnvM+otheZ+Z3ixg55luL2/CyfkK5KnC5SZrQTh/u6VOIZm7FmXxAI4nn0Bx/G3ToYzrdosmQU+uQNz5mzB8sKS6yqMKWzm4AAmyV9dvqlubU949jGYt7WZwwKtU7rUuwrFJNW0G11LBBjVlcPYKmL18DEVo+/KWLtEJtJNLdHavk8DcoAqBo4A1oBLw/Q2Rg5q/IRDK8vnmvwADAC1EJb+1uYE/AAAAAElFTkSuQmCC);
+  background-size: cover;
+  height: 20px;
+  width: 20px;
+}
+
+#passphrase-input {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+#incorrect-passphrase {
+  margin-top: 5px;
+}
+
+#sync-setup-overlay * .error {
+  color: red;
+}
+
+.overlay-warning {
+  background: white;
+  border: 2px solid #888;
+  border-radius: 8px;
+  box-shadow: 0.2em 0.2em 0.5em #888;
+  left: 25px;
+  padding: 15px;
+  position: absolute;
+  right: 25px;
+  top: 100px;
+}
+
+#cancel-warning-header {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.overlay-warning input {
+  float: right;
+  margin-left: 5px;
+  margin-top: 12px;
+}
+
+#sync-passphrase-warning {
+  margin-bottom: 5px;
+}
+
+#asp-warning-div {
+  text-align: left;
+}
+
+#logging-in-throbber {
+  margin: 0 10px;
+}
+
+#password-row {
+  margin-bottom: 0;
+  margin-top: 2px;
+}
+
+#action-area {
+  margin: 1em 0;
+}
+
+#sync-setup-configure {
+  background: white;
+}
+
+#choose-data-types-form {
+  -webkit-user-select: none;
+}
+
+#chooseDataTypesRadio {
+  vertical-align: top;
+}
+
+#chooseDataTypes > div {
+  display: inline-block;
+}
+
+.sync-data-types {
+  margin-left: 5px;
+}
+
+#learn-more-link {
+  float: right;
+}
+
+html[dir='rtl'] #learn-more-link {
+  float: left;
+}
+
+#customize-link,
+#use-default-link {
+  -webkit-transition: opacity 250ms;
+}

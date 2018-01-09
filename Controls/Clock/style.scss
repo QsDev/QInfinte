@@ -1,0 +1,88 @@
+$clockSize: 250px; $clockBorderSize: 10px; $clockCenterSize: 20px; $clockHandSize: 8px; $clockTickSize: $clockHandSize; $clockColor: white; $clockBorderColor: black; $clockHandColor: black; $clockHandSecColor: red; $clockTickColor: lightgray; $clockTickLgColor: black; body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: lightgray;
+}
+
+.clock {
+    position: relative;
+    width: $clockSize;
+    height: $clockSize;
+    background-color: $clockColor;
+    border: $clockBorderSize solid $clockBorderColor;
+    border-radius: 100%;
+    transform: rotate(180deg);
+    &:before
+
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: $clockCenterSize;
+    height: $clockCenterSize;
+    border: $clockBorderSize / 2 solid $clockColor;
+    background-color: $clockHandColor;
+    border-radius: 100%;
+    z-index: 99;
+}
+
+}
+
+.clock__hand {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin: auto;
+    height: $clockHandSize;
+    background-color: $clockHandColor;
+    transform-origin: 0;
+    transition: transform cubic-bezier(0.1, 2.5, 0.5, 1);
+    &--hour
+
+{
+    width: calc(50% - #{$clockSize} / 4);
+}
+
+&--minute {
+    width: calc(50% - #{$clockSize} / 6);
+}
+
+&--second {
+    width: calc(50% - #{$clockSize} / 10);
+    height: $clockHandSize / 2;
+    background-color: $clockHandSecColor;
+}
+
+}
+
+.clock__tick {
+    display: block;
+    position: absolute;
+    top: $clockBorderSize;
+    left: 50%;
+    width: $clockTickSize / 4;
+    height: $clockTickSize;
+    background-color: $clockTickColor;
+    transform-origin: 0 $clockSize / 2 - $clockBorderSize;
+    transform: translateX(-50%);
+    &:nth-child(5n + 1)
+
+{
+    width: $clockTickSize / 2;
+    height: $clockTickSize * 2;
+    background-color: $clockTickLgColor;
+}
+
+@for $i from 1 through 60 {
+    &:nth-child(#{$i}) {
+        transform: rotate(#{(6 * $i) - 6}deg) translateX(-50%);
+    }
+}
+}

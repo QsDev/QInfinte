@@ -1,0 +1,239 @@
+.webix_view.webix_form {
+    background-color: #fff;
+}
+.webix_input_icon, .webix_view {
+    box-sizing: content-box;
+}
+.webix_view {
+    font-family: 'PT Sans',Tahoma;
+    font-size: 13px;
+    color: #666;
+    cursor: default;
+    overflow: hidden;
+    border: 0 solid #ddd;
+    background-color: #fff;
+    white-space: normal;
+    -webkit-appearance: none;
+}
+.webix_view {
+    font-family: 'PT Sans',Tahoma;
+    font-size: 13px;
+    color: #666;
+    cursor: default;
+    overflow: hidden;
+    border: 0 solid #ddd;
+    background-color: #fff;
+    white-space: normal;
+    -webkit-appearance: none;
+}
+.webix_scroll_cont {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    clear: both;
+}
+.webix_header>div {
+    padding-left: 10px;
+    color: #fff;
+    font-size: 16px;
+    background: #3498db;
+    line-height: 32px;
+    line-height: 34px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.webix_template {
+    height: 100%;
+    padding: 5px;
+    padding-left: 5px 2px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.webix_input_icon, .webix_view {
+    box-sizing: content-box;
+}
+.webix_control {
+    background: 0 0;
+}
+.webix_inp_label, .webix_inp_top_label, .webix_label_right {
+    margin-bottom: 0;
+}
+.webix_el_label, .webix_inp_label, .webix_inp_top_label, .webix_label_right {
+    text-transform: none;
+    font-size: 13px;
+}
+.webix_inp_top_label {
+    float: none;
+    padding: 3px 2px 0;
+}
+.webix_inp_label, .webix_inp_top_label, .webix_label_right {
+    color: #666;
+}
+.webix_control button, .webix_control input, .webix_control textarea, .webix_el_label, .webix_inp_bottom_label, .webix_inp_label, .webix_inp_top_label {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'PT Sans',Tahoma;
+}
+.webix_el_box {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 3px 2px;
+    height: 100%;
+    width: 100%;
+    font-size: 13px;
+    overflow: hidden;
+}
+.webix_el_combo input, .webix_el_search input, .webix_el_text input {
+    border-radius: 6px;
+}
+.webix_el_colorpicker input, .webix_el_combo input, .webix_el_datepicker input, .webix_el_search input, .webix_el_text input {
+    height: 100%;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    color: #666;
+    font-size: 13px;
+    background: #fff;
+    font-family: 'PT Sans',Tahoma;
+    border-color: #ccc;
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+.webix_control button, .webix_control input, .webix_control textarea, .webix_el_label, .webix_inp_bottom_label, .webix_inp_label, .webix_inp_top_label {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'PT Sans',Tahoma;
+}
+.webix_view a.webix_list_item:active, .webix_view div.webix_inp_static:focus, .webix_view div:active, .webix_view span:active, button, input, select, textarea {
+    outline: 0;
+}
+input:not([type]), input[type="email" i], input[type="number" i], input[type="password" i], input[type="tel" i], input[type="url" i], input[type="text" i] {
+    padding: 1px 0px;
+}
+user agent stylesheet
+input {
+    -webkit-appearance: textfield;
+    background-color: white;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    cursor: auto;
+    padding: 1px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+}
+input, textarea, keygen, select, button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em 0em 0em 0em;
+    font: 13.3333px Arial;
+}
+input, textarea, keygen, select, button, meter, progress {
+    -webkit-writing-mode: horizontal-tb;
+}
+.webix_el_box {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 3px 2px;
+    height: 100%;
+    width: 100%;
+    font-size: 13px;
+    overflow: hidden;
+}
+.webix_inp_counter_next:hover, .webix_inp_counter_prev:hover, .webix_input_icon:hover, .webix_segment_0:hover, .webix_segment_1:hover, .webix_segment_N:hover, .webixbutton:hover, .webixtype_base:hover {
+    background-color: #268fd5;
+}
+.webix_view button, .webix_view input[type=button] {
+    -webkit-appearance: none;
+}
+.webix_control button, .webix_control input, .webix_control textarea, .webix_el_label, .webix_inp_bottom_label, .webix_inp_label, .webix_inp_top_label {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'PT Sans',Tahoma;
+}
+.webix_el_button button, .webix_el_button input, .webix_el_toggle button, .webix_el_toggle input, .webixbutton {
+    border-radius: 6px;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    color: #fff;
+    font-size: 13px;
+    padding: auto 6px;
+    font-family: 'PT Sans',Tahoma;
+    border: 1px solid #3498db;
+    border-bottom: 1px solid #268fd5;
+    outline: 0;
+    -webkit-appearance: none;
+}
+.webixbutton, .webixtype_base, .webixtype_next, .webixtype_prev {
+    background: #3498db;
+    color: #fff;
+    font-size: 13px;
+    font-family: 'PT Sans',Tahoma;
+    outline: 0;
+    padding: 0;
+    border: 0;
+}
+.webix_view a.webix_list_item:active, .webix_view div.webix_inp_static:focus, .webix_view div:active, .webix_view span:active, button, input, select, textarea {
+    outline: 0;
+}
+input[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button {
+    padding: 1px 6px;
+}
+input[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button {
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    color: buttontext;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    background-color: buttonface;
+    box-sizing: border-box;
+    padding: 2px 6px 3px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+}
+
+input, textarea, keygen, select, button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em 0em 0em 0em;
+    font: 13.3333px Arial;
+}
+input, textarea, keygen, select, button, meter, progress {
+    -webkit-writing-mode: horizontal-tb;
+}
+button {
+    -webkit-appearance: button;
+}
+.webix_el_combo input, .webix_el_search input, .webix_el_text input {
+    border-radius: 6px;
+}

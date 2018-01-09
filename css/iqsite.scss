@@ -1,0 +1,42 @@
+﻿.q-grid {
+    display: grid;
+}
+.q-bar {
+    @extend .q-grid;
+    height: 50px;
+    max-height: 50px;
+}
+.q-app {
+    @extend .q-grid;
+    grid-template-columns: minmax(100px,auto) 1fr;
+    grid-template-rows: 50px minmax(0px,50px) 1fr 50px;
+    grid-template-areas: "header header" "sidebar subheader" "sidebar main" "footer footer";
+    height: 100%;
+    width: 100%;
+}
+
+.q-header {
+    @extend .q-bar;
+    grid-area: header;
+    grid-template-columns: 50px minmax(auto, 120), 1fr, 50px;
+    grid-template-areas: "icon brand items menu";
+}
+
+.q-subheader {
+    @extend .q-bar;
+    grid-area: subheader;
+    justify-self: center;
+}
+
+.q-page {
+    grid-area: main;
+}
+
+.q-sidebar {
+    @extend .q-grid;
+    grid-area: sidebar;
+}
+
+.q-footer {
+    grid-area: footer;
+}

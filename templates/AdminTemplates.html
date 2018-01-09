@@ -1,0 +1,492 @@
+﻿<?xml version="5.0" ?>
+<templates>
+    <descriptor type="bind.DObject" name="templates">
+        <template name="transferHeader">
+            <section style="padding-bottom:1em;padding-top:.5em">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">                        <div class="input-group">                            <span class="input-group-btn">                                <label class="btn btn-success">Total Entree</label>                            </span>                            <label type="text" class="form-control" db-job="price" db-bind="TotalEntree" />                        </div>                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="input-group">                            
+                            <span class="input-group-btn">
+                                <label class="btn btn-danger" >Total Sortee</label>
+                            </span>
+                            <label type="text" class="form-control" db-job="price" db-bind="TotalSortie" />
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <label class="btn btn-primary">Sold</label>
+                            </span>
+                            <label type="text" class="form-control" db-job="price" db-bind="Sold" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+        <template name="Observation"><div class="ki fitWidth fit-left">
+                <div class="kirow">
+                    <label class="kicnt kibtn">Observation</label>
+                    <textarea class="kicnt kitext kirichtext" db-job="input" placeholder="Make an Observation for you can remember later" db-bind="Observation" db-twoway="true" db-check="text"></textarea>
+                </div>
+            </div>
+        </template>
+        <template name="backup"><div class="ki fitWidth fit-left">
+                <div class="kirow">
+                    <label class="kicnt kibtn">Backup File Name</label>
+                    <input class="kicnt kitext" type="text" db-job="input" db-check="username" style="text-transform:uppercase" db-bind="FileName" db-twoway="true" />
+                </div>
+                <div class="kirow">
+                    <label class="kicnt kibtn">Password</label>
+                    <input class="kicnt kitext" type="password" db-job="input" db-check="any" style="text-transform:uppercase" db-bind="Password" db-twoway="true" />
+                </div>
+            </div>
+        </template>
+        <template name="factureInfo"><div class="ki fitWidth fit-left">
+                <section>
+                    <div class="kirow">
+                        <label class="kicnt kibtn">Ref</label>
+                        <input class="kicnt kitext" type="text" db-job="input" db-check="ref" style="text-transform:uppercase" db-bind="Ref" db-twoway="true" />
+                    </div>
+                    <div class="kirow">
+                        <label class="kicnt kibtn">Date</label>
+                        <input class="kicnt kitext" type="date" db-job="date" db-bind="Date" db-twoway="true" />
+                    </div>
+                    <div class="kirow" db-job="show" ofType="models.Facture" target="0">
+                        <label class="kicnt kibtn" db-job="selectclient" db-bind="Pour" db-twoway="true">Pour Client</label>
+                        <input class="kicnt kitext" db-job="input" db-check="any" db-bind="Pour" db-twoway="false" contenteditable="false" disabled />
+                    </div>
+                    <div class="kirow">
+                        <label class="kicnt kibtn">Observation</label>
+                        <textarea class="kicnt kitext kirichtext" db-job="input" placeholder="Make an Observation for you can remember later" db-bind="Observation" db-twoway="true" db-bind="input" db-check="text"></textarea>
+                    </div>
+                </section>    
+            </div>
+        </template>
+    </descriptor>
+    <descriptor type="models.Versment" name="Versment">
+        <template name="cart"><div class="ki">
+                <div class="kirow">
+                    <label class="kicnt kibtn">Type</label>
+                    <input class="kicnt kitext" db-bind="Type" db-job="enumoption" enum="models.VersmentType" value="1" disabled contenteditable="false" db-twoway="false">
+                </div>
+                <div class="kirow">
+                    <label class="kicnt kibtn">Monatnt</label>
+                    <input class="kicnt kitext" db-bind="Montant" db-job="number"  db-twoway="true">
+                </div>
+                <div class="kirow">
+                    <label class="kicnt kibtn">Date</label>
+                    <input class="kicnt kitext" db-bind="Date" db-twoway='true' db-job="date" type="date">
+                </div>
+                <div class="kirow">
+                    <label class="kicnt kibtn">Observation</label>
+                    <textarea class="kicnt kitext kirichtext" db-job="input" placeholder="Make an Observation for you can remember later" db-bind="Observation" db-twoway="true" db-bind="input" db-check="text"></textarea>
+                </div>
+            </div>
+        </template>
+    </descriptor>
+    <descriptor type="models.Versments" name="Versments">
+        <template name="table"><div style="padding:5px" item-style="list-group-item row ki-left">
+                <div class="panel panel-default">
+                    <div class="panel-body" db-content>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </descriptor>
+
+    <descriptor type="models.Versments" name="Versments">
+
+        <template name="list"><div style="padding:5px" item-style="list-group-item row ki-left" xitem-template="Versments.item">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Client
+                                    </th>
+                                    <th>
+                                        Cassier
+                                    </th>
+                                    <th>
+                                        Montant
+                                    </th>
+                                    <th>
+                                        Type Payment
+                                    </th>
+                                    <th>
+                                        Date
+                                    </th>
+                                    <th>
+                                        Observation
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody db-content>
+                                <template name="item"><tr scope="row">
+                                        <td db-job="label" db-bind="Client.FullName" db-twoway="1"></td>
+                                        <td db-job="label" db-bind="Cassier.Login.Client.FullName" db-twoway="1"></td>
+                                        <td db-job="number" db-bind="Montant" db-twoway="1"></td>
+                                        <td db-job="enumstring" db-bind="Type" type="models.VersmentType" db-twoway="1"></td>
+                                        <td db-job="date" db-bind="Date" db-twoway="1"></td>
+                                        <td db-job="input" db-bind="Observation" db-twoway="1" style="max-width:300px"></td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </descriptor>
+
+    <descriptor type="models.SVersment" name="SVersment">
+        <template name="cart"><section class="ki">
+                <div class="kirow" contenteditable="false">
+                    <label class="col-xs-4  kicnt kibtn"> Type </label>
+                    <input class="col-xs-8  kicnt kitext" db-bind="Type" db-job="enumoption" enum="models.VersmentType" value="1" disabled contenteditable="false" db-twoway="false" />
+                </div>
+                <div class="kirow">
+                    <label class="col-xs-4      kicnt kibtn">Monatnt</label>
+                    <input class="col-xs-8      kicnt kitext" db-bind="Montant" db-job="number" db-twoway="true">
+                </div>
+                <div class="kirow">
+                    <label class="col-xs-4      kicnt kibtn">Date</label>
+                    <input class="col-xs-8      kicnt kitext" db-bind="Date" db-twoway='true' db-job="date" type="date">
+                </div>
+                <div class="kirow">
+                    <label class="col-xs-4     kicnt kibtn">Observation</label>
+                    <textarea class="col-xs-8  kicnt kitext kirichtext" db-job="input" placeholder="Make an Observation for you can remember later" db-bind="Observation" db-twoway="true" db-bind="input" db-check="text"></textarea>
+                </div>
+            </section>
+        </template>
+    </descriptor>
+    <descriptor type="models.SVersments" name="SVersments"><template name="item"><tr>
+                <td db-job="label" db-bind="Fournisseur.Client.FullName" db-twoway="1"></td>
+                <td db-job="label" db-bind="Cassier.Login.Client.FullName" db-twoway="1"></td>
+                <td db-job="number" db-bind="Montant" db-twoway="false"></td>
+                <td db-job="enumstring" db-bind="Type" type="models.VersmentType" db-twoway="1"></td>
+                <td db-job="date" db-bind="Date" db-twoway="1"></td>
+                <td db-job="label" db-bind="Observation" db-twoway="1"></td>
+            </tr>
+        </template>
+        <template name="list"><div style="padding:5px" item-style="list-group-item row ki-left" item-template="Versments.item">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Fournisseur
+                                    </th>
+                                    <th>
+                                        Cassier
+                                    </th>
+                                    <th>
+                                        Montant
+                                    </th>
+                                    <th>
+                                        Type Payment
+                                    </th>
+                                    <th>
+                                        Date
+                                    </th>
+                                    <th>
+                                        Observation
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody db-content></tbody>
+                            <tfoot>
+
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </descriptor>
+    <descriptor type="bind.DObject" name="templates">
+        <template name="labelText"><div class="kirow">
+                <label class="col-xs-4 kicnt kibtn" db-bind="*label" db-cmd="write"> Label </label>
+                <input class="col-xs-8  kicnt kitext" db-job="input" db-check="text" db-twoway="true" />
+            </div>
+        </template>
+        <template name="crtText"><div class="kirow">
+                <label class="col col-xs-4 kicnt kibtn" db-bind="*label" db-cmd="write|activateCrt">Fournisseur</label>
+                <input class="col col-xs-8  kicnt kitext" db-bind="Value" db-job="input" db-check="text" db-twoway="true" />
+            </div>
+        </template>
+        <template name="crtBool"><div class="kirow">
+                <label class="col col-xs-4  kicnt kibtn" db-bind="*label" db-cmd="write|activateCrt">Fournisseur</label>
+                <div class="col col-xs-8 kicnt kitext" style="padding:0 0 0 0">
+                    <label class="switch" contenteditable="false">
+                        <input type="checkbox" db-bind="Value" db-cmd="checkbox" db-job="checkbox" db-twoway="true" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </template>
+        <template name="crtVector"><div class="row">
+                <span db-bind="*title" db-cmd="write|activateCrt" class="kibtn" style="padding-left: 15PX;">DateLivraison</span>
+                <span class="kicnt kitext row" style="padding:0">
+                    <input class="col col-md-5 cntfit" db-bind="X" db-job="number" db-twoway='true' />
+                    <span class="col col-md-2 cntfit textCenter">à</span>
+                    <input class="col col-md-5 cntfit" db-bind="Y" db-job="number" db-twoway='true' />
+                </span>
+            </div>
+        </template>
+
+
+        <template name="crtPeriod"><div class="row">
+                <span db-bind="*title" db-cmd="write|activateCrt" class="kibtn" style="padding-left: 15PX;">DateLivraison</span>
+                <span class="kicnt kitext row" style="padding:0">
+                    <input type="date" class="col col-md-5 cntfit" db-bind="X" db-job="date" db-twoway='true' />
+                    <span class="col col-md-2 cntfit textCenter">à</span>
+                    <input type="date" class="col col-md-5 cntfit" db-bind="Y" db-job="date" db-twoway='true' />
+                </span>
+            </div>
+        </template>
+    </descriptor>
+    <descriptor type="models.Factures" name="Factures">
+        <template name="search"><section class="">
+                <div class="kirow">
+                    <label class="col-xs-4">Client</label>
+                    <input class="col-xs-8" db-bind="Client" db-job="autocomplet" db-source="$qdata.Costumers" />
+                </div>
+                <div class="kirow">
+                    <label class="col-xs-4">For</label>
+                    <input class="col-xs-8" db-bind="For" db-job="autocomplet" db-source="$qdata.Costumers" />
+                </div>
+                <div class="kirow">
+                    <label class="col-xs-4">Vendeur</label>
+                    <input class="col-xs-8" db-bind="Vendeur" db-job="autocomplet" db-source="$qdata.Agents">
+                </div>
+
+                <div class="kirow" db-bind="Date" db-cmd="template" as="templates.period" db-init='{"title":"Date"}' />
+                <div class="kirow" db-bind="DateLivraison" db-cmd="template" as="templates.period" db-init='{"title":"Date Livraison"}' />
+                <div class="kirow" db-bind="Total" db-cmd="template" as="templates.vector" db-init='{"title":"Montant"}' />
+            </section>
+        </template>
+    </descriptor>
+
+    <descriptor type="models.SFactures" name="SFactures">
+        <template name="search"><section class="">
+                <div class="kirow">
+                    <label class="col-xs-4">Fournisseur</label>
+                    <input class="col-xs-8" db-bind="Client" db-job="autocomplet" db-source="$qdata.Fournisseurs" />
+                </div>
+                <div class="kirow">
+                    <label class="col-xs-4">Achteur</label>
+                    <input class="col-xs-8" db-bind="For" db-job="autocomplet" db-source="$qdata.Agents" />
+                </div>
+                <div class="kirow">
+                    <label class="col-xs-4">Validateur</label>
+                    <input class="col-xs-8" db-bind="Vendeur" db-job="autocomplet" db-source="$qdata.Agents">
+                </div>
+
+                <div class="kirow" db-bind="Date" db-cmd="template" as="templates.period" db-init='{"title":"Date"}' />
+                <div class="kirow" db-bind="DateLivraison" db-cmd="template" as="templates.period" db-init='{"title":"Date Livraison"}' />
+                <div class="kirow" db-bind="Total" db-cmd="template" as="templates.vector" db-init='{"title":"Montant"}' />
+
+            </section>
+        </template>
+    </descriptor>
+    <descriptor name="SVersment" type="models.SVersment">
+        <template name="list"><div style="padding:5px" item-style="row ki-left">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table">
+                            <thead>
+                                <tr class="row">
+                                    <th>
+                                        Fournisseur
+                                    </th>
+                                    <th>
+                                        Cassier
+                                    </th>
+                                    <th>
+                                        Montant
+                                    </th>
+                                    <th>
+                                        Type Payment
+                                    </th>
+                                    <th>
+                                        Date
+                                    </th>
+                                    <th>
+                                        Observation
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody db-content>
+                                <template name="item"><tr scope="row">
+                                        <td db-job="label" db-bind="Fournisseur.Name" db-twoway="false"></td>
+                                        <td db-job="label" db-bind="Cassier.Login.Client.FullName" db-twoway="false"></td>
+                                        <td db-job="price" db-bind="Montant" db-twoway="true"></td>
+                                        <td db-job="enumstring" db-bind="Type" type="models.VersmentType" db-twoway="false"></td>
+                                        <td db-job="date" db-bind="Date" db-twoway="true"></td>
+                                        <td db-job="label" db-bind="Observation" db-twoway="false" style="max-width:300px"></td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template name="table"><div class="panel panel-default" id="test">
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Fournisseur
+                                </th>
+                                <th>
+                                    Date
+                                </th>
+                                <th>
+                                    Montant
+                                </th>
+                                <th>
+                                    Observation
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody db-content><template><tr>
+                                    <td db-job="label" db-bind="Fournisseur.FullName" db-twoway="1"></td>
+                                    <td db-job="label" db-bind="Date" db-twoway="1"></td>
+                                    <td db-job="label" db-bind="Montant" db-twoway="1"></td>
+                                    <td db-job="label" db-bind="Observation" db-twoway="1"></td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </template>
+    </descriptor>
+    <descriptor name="Versment" type="models.Versment">
+        <template name="table"><div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Client
+                                </th>
+                                <th>
+                                    Date
+                                </th>
+                                <th>
+                                    Montant
+                                </th>
+                                <th>
+                                    Observation
+                                </th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody db-content><template><tr>
+                                    <td db-job="label" db-bind="Client.FullName" db-twoway="1"></td>
+                                    <td db-job="date" db-bind="Date" db-twoway="1"></td>
+                                    <td db-job="label" db-bind="Montant" db-twoway="1"></td>
+                                    <td db-job="label" db-bind="Observation" db-twoway="1"></td>
+                                    <td><button db-job="versmentDetail" style="font:900 Arial; font-weight:900">D</button></td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </template>
+    </descriptor>
+    <descriptor type="models.EtatTransfers" name="etatTransfers">
+        <template name="table"><div style="padding:5px" item-style="row">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Type
+                                    </th>
+                                    <th>
+                                        Date
+                                    </th>
+                                    <th>
+                                        Entree
+                                    </th>
+                                    <th>
+                                        Sortie
+                                    </th>
+                                    <th>Sold Actual</th>
+                                    <th>
+                                        Transaction 
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody db-content>
+                                <template name="item"><tr scope="row">
+                                        <td db-job="enumstring" db-bind="Type" type="models.TransferType" db-twoway="false"></td>
+                                        <td db-job="date" db-bind="Date" db-twoway="false"></td>
+                                        <td db-job="price" db-bind="MontantEntree" db-twoway="false"></td>
+                                        <td db-job="price" db-bind="MontantSortie" db-twoway="false"></td>
+                                        <td db-job="price" db-bind="ActualSold" db-twoway="false"></td>
+                                        <td db-twoway="false">
+                                            <button class="label-control webix_button fitWidth" db-cmd="openTransaction">Open</button>
+                                        </td></tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template name="atable">
+            <div style="padding:5px" item-style="row">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Type
+                                    </th>
+                                    <th>
+                                        Date
+                                    </th>
+                                    <th>
+                                        Entree
+                                    </th>
+                                    <th>
+                                        Sortie
+                                    </th>
+                                    <th>Sold Actual</th>
+                                    <th>
+                                        Transaction
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody db-content=db-content><template name="item"><tr scope="row">
+                                        <td db-job="enumstring" db-bind="Type" type="models.TransferType" db-twoway="false"></td>
+                                        <td db-job="date" db-bind="Date" db-twoway="false"></td>
+                                        <td db-job="price" db-bind="MontantEntree" db-twoway="false"></td>
+                                        <td db-job="price" db-bind="MontantSortie" db-twoway="false"></td>
+                                        <td db-job="price" db-bind="ActualSold" db-twoway="false"></td>
+                                        <td db-twoway="false">
+                                            <button class="label-control webix_button fitWidth" db-cmd="openaTransaction">Open</button>
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </descriptor>
+</templates>

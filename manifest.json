@@ -1,0 +1,35 @@
+{
+  "name": "WWW",
+  "description": "A simple calculator.",
+  "manifest_version": 2,
+  "minimum_chrome_version": "23",
+  "version": "1.2",
+  "offline_enabled": true,
+  "app": {
+
+    "background": {
+      "scripts": [ "./ext.js" ]
+    }
+  },
+  "permissions": [
+    "clipboardWrite"
+  ],
+  "icons": {
+    "16": "clock.png"
+  },
+  "permissions": [
+    "serial",
+    "storage",
+    "videoCapture",
+    "audioCapture",
+    "background",
+    "browser",
+    "clipboardRead",
+    "clipboardWrite",
+    "serial",
+    "system.network",
+    "webview",
+    "videoCapture",
+    "usb"
+  ]
+}

@@ -1,0 +1,7050 @@
+﻿img {
+    border: none;
+}
+
+.ci {
+    display: inline-block;
+}
+
+html,body,.bodyContainer {
+    min-height: 100%;
+}
+
+html,body {
+    height: 100%;
+}
+
+.bodyContent {
+    padding: 50px 0 40px;
+}
+
+.bodyContent.HeaderPopupShown {
+    padding-top: 90px;
+}
+
+@media all and (max-width: 540px) {
+    .ResizableBodyContent {
+        padding:50px 0 70px;
+    }
+}
+
+.headBar {
+    white-space: nowrap;
+    height: 50px;
+    overflow: visible;
+    background-color: #000;
+    color: #fff;
+    position: absolute;
+    min-width: 800px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 997;
+}
+
+.headBar.HeaderPopupShown {
+    height: 90px;
+}
+
+.headBar a,.headBar a:visited {
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+}
+
+.headBar a:hover {
+    text-decoration: none;
+    color: #fff;
+    background-color: #444;
+}
+
+.headTLC {
+    height: 50px;
+    position: absolute;
+}
+
+.headLogo {
+    height: 50px;
+    display: inline-block;
+    padding: 0;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+}
+
+.brandedLogo {
+    margin-left: 10px;
+    float: left;
+}
+
+.AppRtl .brandedLogo {
+    margin-left: 0px;
+    margin-right: 10px;
+    float: right;
+}
+
+.headBrand {
+    line-height: 50px;
+    font-size: 22px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: 'Segoe UI Light','Segoe UI Web Light','Segoe UI Web Regular','Segoe UI','Segoe UI Web','Segoe UI Symbol',HelveticaNeue-Light,'Helvetica Neue',Arial,sans-serif;
+}
+
+.headLogoPipe {
+    border-left: solid 1px #fff;
+    margin: 0;
+    cursor: default;
+    width: 0px;
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+    height: 50px;
+}
+
+.headChevLink {
+    padding: 0;
+    height: 50px;
+    width: 50px;
+    background-color: #E83F24;
+}
+
+.headBar .headChevLink:hover {
+    background-color: #AA2D00;
+}
+
+.headChev {
+    display: block;
+    vertical-align: top;
+    margin-top: 21px;
+}
+
+.headChev img {
+    display: block;
+    margin: 0 auto;
+}
+
+.headTRC {
+    height: 50px;
+    position: absolute;
+    right: 0;
+}
+
+.HeaderRtl .headTRC {
+    right: auto;
+    left: 0;
+}
+
+.headTRC a,.headTRC .headMeName {
+    padding: 10px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.headTRC a {
+    cursor: pointer;
+}
+
+.headMeContainer {
+    display: inline-block;
+    height: 50px;
+}
+
+.headMeNameContainer.headSignedIn {
+    display: inline-block;
+    height: 50px;
+    background-color: #E1E1E1;
+}
+
+.headMeLink,.headMeName,.headMyAccountLink,.headXLinks,.headLogoPipe,.headChevLink,.headXContent {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.headMeName {
+    color: #444444;
+    padding-left: 15px;
+}
+
+.HeaderRtl .headMeName {
+    padding-left: 10px;
+    padding-right: 15px;
+}
+
+.headUsernamePipe {
+    display: none;
+    width: 1px;
+    height: 16px;
+    margin-top: 17px;
+    background-color: #777777;
+}
+
+.headSignedIn a.headMeLink,.headSignedIn a.headMeLink:visited {
+    color: #444444;
+}
+
+.headSignedIn a.headMeLink:hover {
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.headXContent {
+    height: 50px;
+}
+
+a.headHighlight,a.headHighlight:visited,span.headHighlight {
+    background-color: #444444;
+}
+
+a.headHighlight:hover,span.headHighlight:hover {
+    background-color: #666666;
+}
+
+.headerMenusContainer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.linkWithMenu.selected {
+    background-color: #F2F2F2;
+}
+
+.dropDownMenu {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: #F2F2F2;
+    display: none;
+}
+
+.dropDownMenuRowList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.alignMenuLeft .dropDownMenuRowList {
+    text-align: left;
+}
+
+.alignMenuCenter .dropDownMenuRowList {
+    text-align: center;
+}
+
+.alignMenuRight .dropDownMenuRowList {
+    text-align: right;
+}
+
+.HeaderRtl .alignMenuLeft .dropDownMenuRowList {
+    text-align: right;
+}
+
+.HeaderRtl .alignMenuRight .dropDownMenuRowList {
+    text-align: left;
+}
+
+.dropDownMenuRow {
+    list-style: none;
+}
+
+.dropDownMenuLinkList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropDownMenuLinkContainer {
+    display: inline;
+}
+
+.dropDownMenuLink {
+    padding: 10px;
+}
+
+.headPopup {
+    position: relative;
+    display: table;
+    text-align: right;
+    white-space: normal;
+    width: 100%;
+    background-color: #fff;
+    color: #707070;
+}
+
+.HeaderRtl .headPopup {
+    text-align: left;
+}
+
+.headPopup a,.headPopup a:visited,.headPopup span {
+    color: #707070;
+    display: inline-block;
+}
+
+.headBar .headPopup a:hover {
+    color: #000;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.headBar .headPopup a:hover img {
+    background-color: #ddd;
+}
+
+.popupOuterCellLeft,.popupOuterCellRight {
+    display: table-cell;
+    vertical-align: middle;
+    height: 40px;
+}
+
+.popupOuterCellLeft {
+    text-align: left;
+}
+
+.HeaderRtl .popupOuterCellLeft {
+    text-align: right;
+}
+
+.popupOuterCellRight {
+    text-align: right;
+}
+
+.HeaderRtl .popupOuterCellRight {
+    text-align: left;
+}
+
+.popupOuterCellRight .popupInnerCell {
+    white-space: nowrap;
+}
+
+.popupInnerCell {
+    display: inline-block;
+    max-height: 40px;
+}
+
+.popupOuterCellLeft .popupInnerCell {
+    overflow-y: auto;
+}
+
+.popupMessage {
+    margin: 0 10px 0;
+}
+
+.popupLink {
+    margin: -2px 2px 0;
+    vertical-align: top;
+}
+
+.popupClose {
+    margin: -5px 8px 0;
+    line-height: 1px;
+    vertical-align: middle;
+}
+
+.popupClose img {
+    padding: 4px;
+    margin: -3px;
+}
+
+.footerContainer {
+    display: table;
+    border-top: solid 1px transparent;
+    height: 39px;
+    min-width: 800px;
+    margin-top: -40px;
+    background-color: #fff;
+    width: 100%;
+    color: #707070;
+    position: relative;
+    z-index: 997;
+}
+
+.footerContainer.DarkColorPalette {
+    background-color: #333;
+    color: #b3b3b3;
+    border-top-color: transparent;
+}
+
+.footerContainer a,.footerContainer a:visited {
+    text-decoration: none;
+    display: inline-block;
+    color: #707070;
+    padding: 10px;
+    padding-top: 11px;
+    height: 18px;
+}
+
+.footerContainer a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+.footerContainer.DarkColorPalette a,.footerContainer.DarkColorPalette a:visited {
+    color: #b3b3b3;
+}
+
+.footerContainer.DarkColorPalette a:hover {
+    color: #f2f2f2;
+}
+
+.footerBLC {
+    display: inline-block;
+    height: 100%;
+    float: left;
+}
+
+.FooterRtl .footerBLC {
+    float: right;
+}
+
+.footerBRC {
+    display: inline-block;
+    height: 100%;
+    float: right;
+    white-space: normal;
+}
+
+.FooterRtl .footerBRC {
+    float: left;
+}
+
+.footerBRCoutercell {
+    display: inline-block;
+    height: 100%;
+}
+
+.footerBRCinnerrow {
+    display: inline-block;
+    height: 100%;
+}
+
+.footerGlobe {
+    vertical-align: top;
+    margin: -1px 6px 0 0;
+}
+
+.FooterRtl .footerGlobe {
+    margin: -1px 0 0 6px;
+}
+
+@media all and (max-width: 540px) {
+    .ResizableFooterContainer .footerBLC,.ResizableFooterContainer.FooterRtl .footerBLC {
+        display:block;
+        float: none;
+    }
+
+    .ResizableFooterContainer {
+        margin-top: -70px;
+    }
+
+    .ResizableFooterContainer .footerBRC {
+        float: left;
+    }
+
+    .ResizableFooterContainer.FooterRtl .footerBRC {
+        float: right;
+    }
+}
+
+.headerBlurbpanel {
+    background-color: #ffffff;
+    position: absolute;
+    height: 350px;
+    margin-top: -175px;
+    top: 50%;
+    min-width: 800px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    display: none;
+    z-index: 996;
+}
+
+.signinframe {
+    width: 800px;
+    height: 350px;
+}
+
+.iframeloading {
+    background-image: url('./progress.gif');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.headerOverlay {
+    background-color: #262626;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    z-index: 995;
+}
+
+img {
+    border: none;
+}
+
+.ci {
+    display: inline-block;
+}
+
+.swBar {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    background-color: #fff;
+    padding: 20px 10px 10px 20px;
+    top: 30px;
+    left: auto;
+    right: auto;
+    border: 1px solid #b6b6b6;
+    margin: 10px;
+    box-sizing: content-box;
+    box-shadow: 0px 1px 15px rgba(0,0,0,0.4);
+    opacity: 0;
+    transition-property: opacity,top;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0,0,0,1);
+    transition-delay: 0s;
+    width: 600px;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.swBar:focus {
+    outline: none;
+}
+
+.swBar.closeAnimation {
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.33,0,0.67,1);
+}
+
+.swBar.HeaderRtl.O365Switcher {
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+@media (min-width: 660px) {
+    .swBar,.swBar.O365Switcher {
+        width:600px;
+    }
+}
+
+@media (min-width: 900px) {
+    .swBar.O365Switcher {
+        width:840px;
+    }
+}
+
+@media (max-width: 899px) and (min-width:780px) {
+    .swBar.O365Switcher {
+        width:720px;
+    }
+}
+
+@media (max-width: 659px) {
+    .swBar,.swBar.O365Switcher {
+        width:480px;
+    }
+}
+
+@media (max-width: 539px) {
+    .swBar,.swBar.O365Switcher {
+        width:360px;
+    }
+}
+
+@media (max-width: 419px) {
+    .swBar,.swBar.O365Switcher {
+        width:240px;
+    }
+}
+
+.swBar.SwitcherLoading {
+    width: 270px;
+    height: 130px;
+    text-align: center;
+    padding: 0;
+}
+
+.swBar.SwitcherError {
+    width: 250px;
+    padding: 20px;
+}
+
+.swBar .swLoadingErrorText {
+    display: none;
+}
+
+.swBar.SwitcherError .swLoadingErrorText {
+    display: inline;
+}
+
+.swBar .swLoadingText {
+    display: none;
+}
+
+.swBar.SwitcherLoading .swLoadingText {
+    display: inline;
+}
+
+.swLoadingText {
+    color: #000;
+    font-size: 20px;
+    line-height: 130px;
+}
+
+.swLoadingErrorText {
+    color: #000;
+}
+
+.swErrorTitle {
+    font-size: 20px;
+}
+
+.swErrorBody {
+    font-size: 14px;
+}
+
+.swBar a {
+    text-decoration: none;
+}
+
+.swBar .arrow {
+    display: block;
+    position: absolute;
+    top: -8px;
+    left: 6px;
+    margin: 0;
+    border-bottom: 8px solid #fff;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 0;
+    padding: 0;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+}
+
+.HeaderRtl.swBar .arrow {
+    left: auto;
+    right: 6px;
+}
+
+.swBar .border-arrow {
+    border-bottom-color: #b6b6b6;
+    top: -9px;
+}
+
+.swTileList {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.swTile {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.swTileLink {
+    border: 0px solid transparent;
+    margin: 0px;
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+
+.swTileLink:hover,.swTileLink:focus {
+    border: 2px solid;
+    margin: -2px;
+    text-decoration: none;
+}
+
+.swTileLink:focus {
+    outline: 0;
+}
+
+.swTile,.swTileLink {
+    display: inline-block;
+    width: 110px;
+    height: 110px;
+}
+
+.swTile.tilePressed {
+    transform: scale(.9215);
+}
+
+.swTileText {
+    max-width: 90px;
+    position: absolute;
+    bottom: 6px;
+    left: 10px;
+    line-height: 110%;
+    text-align: left;
+}
+
+.HeaderRtl .swTileText {
+    left: auto;
+    right: 10px;
+    text-align: right;
+}
+
+.headerBarBG {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    position: absolute;
+    z-index: 998;
+}
+
+.clip110x110 {
+    position: relative;
+    overflow: hidden;
+}
+
+.clip110x110 {
+    width: 110px;
+    height: 110px;
+}
+
+.clip110x110 img,.clip110x110 input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: auto;
+}
+
+.wapsw_ODC_TileExcel_110x110x32 {
+    top: -1px;
+    left: -1px;
+}
+
+.wapsw_ODC_TileOneNote_110x110x32 {
+    top: -1px;
+    left: -113px;
+}
+
+.wapsw_ODC_TilePeople_110x110x32 {
+    top: -113px;
+    left: -1px;
+}
+
+.wapsw_ODC_TileSway_110x110x32 {
+    top: -113px;
+    left: -113px;
+}
+
+.wapsw_ODC_TileWord_110x110x32 {
+    top: -1px;
+    left: -225px;
+}
+
+.wapsw_ODC_TileDocsDocCom_110x110x32 {
+    top: -113px;
+    left: -225px;
+}
+
+.wapsw_ODC_TilePowerPoint_110x110x32 {
+    top: -225px;
+    left: -1px;
+}
+
+.wapsw_ODC_TileOutlook_110x110x32 {
+    top: -225px;
+    left: -113px;
+}
+
+.wapsw_ODC_TileOfficeOnline_110x110x32 {
+    top: -225px;
+    left: -225px;
+}
+
+.wapsw_ODC_TileCloudLogo_110x110x32 {
+    top: -1px;
+    left: -337px;
+}
+
+.wapsw_ODC_TileCalendar_110x110x32 {
+    top: -113px;
+    left: -337px;
+}
+
+/*#region Second */
+
+
+/*
+	Copyright (c) Microsoft Corporation.  All rights reserved.
+*/
+#perpetualHelpAndSupportIcon {
+    -moz-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    filter: FlipH;
+    -ms-filter: "FlipH"
+}
+
+@font-face {
+    font-family: Office365Icons;
+    src: url(/fonts/fabric/office365icons.eot?);
+    src: url(/fonts/fabric/office365icons.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/office365icons.woff?) format('woff'),url(/fonts/fabric/office365icons.ttf?) format('truetype'),url(/fonts/fabric/office365icons.svg?#office365icons) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Leelawadee UI Bold";
+    src: url(/fonts/fabric/LeelawadeeUI-Thai/LeelawadeeUI-Bold.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/LeelawadeeUI-Thai/LeelawadeeUI-Bold.woff) format('woff'),url(/fonts/fabric/LeelawadeeUI-Thai/LeelawadeeUI-Bold.ttf) format('truetype'),url(/fonts/fabric/LeelawadeeUI-Thai/LeelawadeeUI-Bold#LeelawadeeUI-Bold) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Leelawadee UI";
+    src: url(/fonts/fabric/LeelawadeeUI-Thai/LeelawadeeUI-Regular.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/LeelawadeeUI-Thai/LeelawadeeUI-Regular.woff) format('woff'),url(/fonts/fabric/LeelawadeeUI-Thai/LeelawadeeUI-Regular.ttf) format('truetype'),url(/fonts/fabric/LeelawadeeUI-Thai/LeelawadeeUI-Regular#LeelawadeeUI-Regular) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Leelawadee UI Semilight";
+    src: url(/fonts/fabric/LeelawadeeUI-Thai/LeelawadeeUI-Semilight.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/LeelawadeeUI-Thai/LeelawadeeUI-Semilight.woff) format('woff'),url(/fonts/fabric/LeelawadeeUI-Thai/LeelawadeeUI-Semilight.ttf) format('truetype'),url(/fonts/fabric/LeelawadeeUI-Thai/LeelawadeeUI-Semilight#LeelawadeeUI-Semilight) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Light Arabic";
+    src: url(/fonts/fabric/SegoeUI-Arabic/SegoeUI-Light.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Arabic/SegoeUI-Light.woff) format('woff'),url(/fonts/fabric/SegoeUI-Arabic/SegoeUI-Light.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Arabic/SegoeUI-Light.svg#SegoeUI-Light) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Regular Arabic";
+    src: url(/fonts/fabric/SegoeUI-Arabic/SegoeUI-Regular.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Arabic/SegoeUI-Regular.woff) format('woff'),url(/fonts/fabric/SegoeUI-Arabic/SegoeUI-Regular.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Arabic/SegoeUI-Regular.svg#SegoeUI-Regular) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Semibold Arabic";
+    src: url(/fonts/fabric/SegoeUI-Arabic/SegoeUI-Semibold.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Arabic/SegoeUI-Semibold.woff) format('woff'),url(/fonts/fabric/SegoeUI-Arabic/SegoeUI-Semibold.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Arabic/SegoeUI-Semibold.svg#SegoeUI-Semibold) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Semilight Arabic";
+    src: url(/fonts/fabric/SegoeUI-Arabic/SegoeUI-Semilight.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Arabic/SegoeUI-Semilight.woff) format('woff'),url(/fonts/fabric/SegoeUI-Arabic/SegoeUI-Semilight.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Arabic/SegoeUI-Semilight.svg#SegoeUI-Semilight) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Light Cyrillic";
+    src: url(/fonts/fabric/SegoeUI-Cyrillic/SegoeUI-Light.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Cyrillic/SegoeUI-Light.woff) format('woff'),url(/fonts/fabric/SegoeUI-Cyrillic/SegoeUI-Light.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Cyrillic/SegoeUI-Light.svg#SegoeUI-Light) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Regular Cyrillic";
+    src: url(/fonts/fabric/SegoeUI-Cyrillic/SegoeUI-Regular.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Cyrillic/SegoeUI-Regular.woff) format('woff'),url(/fonts/fabric/SegoeUI-Cyrillic/SegoeUI-Regular.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Cyrillic/SegoeUI-Regular.svg#SegoeUI-Regular) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Semibold Cyrillic";
+    src: url(/fonts/fabric/SegoeUI-Cyrillic/SegoeUI-Semibold.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Cyrillic/SegoeUI-Semibold.woff) format('woff'),url(/fonts/fabric/SegoeUI-Cyrillic/SegoeUI-Semibold.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Cyrillic/SegoeUI-Semibold.svg#SegoeUI-Semibold) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Semilight Cyrillic";
+    src: url(/fonts/fabric/SegoeUI-Cyrillic/SegoeUI-Semilight.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Cyrillic/SegoeUI-Semilight.woff) format('woff'),url(/fonts/fabric/SegoeUI-Cyrillic/SegoeUI-Semilight.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Cyrillic/SegoeUI-Semilight.svg#SegoeUI-Semilight) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Light EastEuropean";
+    src: url(/fonts/fabric/SegoeUI-EastEuropean/SegoeUI-Light.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-EastEuropean/SegoeUI-Light.woff) format('woff'),url(/fonts/fabric/SegoeUI-EastEuropean/SegoeUI-Light.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-EastEuropean/SegoeUI-Light.svg#SegoeUI-Light) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Regular EastEuropean";
+    src: url(/fonts/fabric/SegoeUI-EastEuropean/SegoeUI-Regular.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-EastEuropean/SegoeUI-Regular.woff) format('woff'),url(/fonts/fabric/SegoeUI-EastEuropean/SegoeUI-Regular.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-EastEuropean/SegoeUI-Regular.svg#SegoeUI-Regular) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Semibold EastEuropean";
+    src: url(/fonts/fabric/SegoeUI-EastEuropean/SegoeUI-Semibold.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-EastEuropean/SegoeUI-Semibold.woff) format('woff'),url(/fonts/fabric/SegoeUI-EastEuropean/SegoeUI-Semibold.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-EastEuropean/SegoeUI-Semibold.svg#SegoeUI-Semibold) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Semilight EastEuropean";
+    src: url(/fonts/fabric/SegoeUI-EastEuropean/SegoeUI-Semilight.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-EastEuropean/SegoeUI-Semilight.woff) format('woff'),url(/fonts/fabric/SegoeUI-EastEuropean/SegoeUI-Semilight.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-EastEuropean/SegoeUI-Semilight.svg#SegoeUI-Semilight) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Light Greek";
+    src: url(/fonts/fabric/SegoeUI-Greek/SegoeUI-Light.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Greek/SegoeUI-Light.woff) format('woff'),url(/fonts/fabric/SegoeUI-Greek/SegoeUI-Light.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Greek/SegoeUI-Light.svg#SegoeUI-Light) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Regular Greek";
+    src: url(/fonts/fabric/SegoeUI-Greek/SegoeUI-Regular.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Greek/SegoeUI-Regular.woff) format('woff'),url(/fonts/fabric/SegoeUI-Greek/SegoeUI-Regular.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Greek/SegoeUI-Regular.svg#SegoeUI-Regular) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Semibold Greek";
+    src: url(/fonts/fabric/SegoeUI-Greek/SegoeUI-Semibold.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Greek/SegoeUI-Semibold.woff) format('woff'),url(/fonts/fabric/SegoeUI-Greek/SegoeUI-Semibold.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Greek/SegoeUI-Semibold.svg#SegoeUI-Semibold) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Semilight Greek";
+    src: url(/fonts/fabric/SegoeUI-Greek/SegoeUI-Semilight.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Greek/SegoeUI-Semilight.woff) format('woff'),url(/fonts/fabric/SegoeUI-Greek/SegoeUI-Semilight.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Greek/SegoeUI-Semilight.svg#SegoeUI-Semilight) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Light Hebrew";
+    src: url(/fonts/fabric/SegoeUI-Hebrew/SegoeUI-Light.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Hebrew/SegoeUI-Light.woff) format('woff'),url(/fonts/fabric/SegoeUI-Hebrew/SegoeUI-Light.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Hebrew/SegoeUI-Light.svg#SegoeUI-Light) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Regular Hebrew";
+    src: url(/fonts/fabric/SegoeUI-Hebrew/SegoeUI-Regular.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Hebrew/SegoeUI-Regular.woff) format('woff'),url(/fonts/fabric/SegoeUI-Hebrew/SegoeUI-Regular.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Hebrew/SegoeUI-Regular.svg#SegoeUI-Regular) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Semibold Hebrew";
+    src: url(/fonts/fabric/SegoeUI-Hebrew/SegoeUI-Semibold.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Hebrew/SegoeUI-Semibold.woff) format('woff'),url(/fonts/fabric/SegoeUI-Hebrew/SegoeUI-Semibold.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Hebrew/SegoeUI-Semibold.svg#SegoeUI-Semibold) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Semilight Hebrew";
+    src: url(/fonts/fabric/SegoeUI-Hebrew/SegoeUI-Semilight.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Hebrew/SegoeUI-Semilight.woff) format('woff'),url(/fonts/fabric/SegoeUI-Hebrew/SegoeUI-Semilight.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Hebrew/SegoeUI-Semilight.svg#SegoeUI-Semilight) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Light Vietnamese";
+    src: url(/fonts/fabric/SegoeUI-Vietnamese/SegoeUI-Light.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Vietnamese/SegoeUI-Light.woff) format('woff'),url(/fonts/fabric/SegoeUI-Vietnamese/SegoeUI-Light.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Vietnamese/SegoeUI-Light.svg#SegoeUI-Light) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Regular Vietnamese";
+    src: url(/fonts/fabric/SegoeUI-Vietnamese/SegoeUI-Regular.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Vietnamese/SegoeUI-Regular.woff) format('woff'),url(/fonts/fabric/SegoeUI-Vietnamese/SegoeUI-Regular.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Vietnamese/SegoeUI-Regular.svg#SegoeUI-Regular) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Semibold Vietnamese";
+    src: url(/fonts/fabric/SegoeUI-Vietnamese/SegoeUI-Semibold.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Vietnamese/SegoeUI-Semibold.woff) format('woff'),url(/fonts/fabric/SegoeUI-Vietnamese/SegoeUI-Semibold.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Vietnamese/SegoeUI-Semibold.svg#SegoeUI-Semibold) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Semilight Vietnamese";
+    src: url(/fonts/fabric/SegoeUI-Vietnamese/SegoeUI-Semilight.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-Vietnamese/SegoeUI-Semilight.woff) format('woff'),url(/fonts/fabric/SegoeUI-Vietnamese/SegoeUI-Semilight.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-Vietnamese/SegoeUI-Semilight.svg#SegoeUI-Semilight) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Light WestEuropean";
+    src: url(/fonts/fabric/SegoeUI-WestEuropean/SegoeUI-Light.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-WestEuropean/SegoeUI-Light.woff) format('woff'),url(/fonts/fabric/SegoeUI-WestEuropean/SegoeUI-Light.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-WestEuropean/SegoeUI-Light.svg#SegoeUI-Light) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Regular WestEuropean";
+    src: url(/fonts/fabric/SegoeUI-WestEuropean/SegoeUI-Regular.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-WestEuropean/SegoeUI-Regular.woff) format('woff'),url(/fonts/fabric/SegoeUI-WestEuropean/SegoeUI-Regular.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-WestEuropean/SegoeUI-Regular.svg#SegoeUI-Regular) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Semibold WestEuropean";
+    src: url(/fonts/fabric/SegoeUI-WestEuropean/SegoeUI-Semibold.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-WestEuropean/SegoeUI-Semibold.woff) format('woff'),url(/fonts/fabric/SegoeUI-WestEuropean/SegoeUI-Semibold.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-WestEuropean/SegoeUI-Semibold.svg#SegoeUI-Semibold) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Segoe UI Semilight WestEuropean";
+    src: url(/fonts/fabric/SegoeUI-WestEuropean/SegoeUI-Semilight.eot?#iefix) format('embedded-opentype'),url(/fonts/fabric/SegoeUI-WestEuropean/SegoeUI-Semilight.woff) format('woff'),url(/fonts/fabric/SegoeUI-WestEuropean/SegoeUI-Semilight.ttf) format('truetype'),url(/fonts/fabric/SegoeUI-WestEuropean/SegoeUI-Semilight.svg#SegoeUI-Semilight) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+.UseSegoeUILight {
+    font-family: 'Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    font-weight: 200
+}
+
+[lang=ja-JP] .UseSegoeUILight {
+    font-family: YuGothic,"Meiryo UI",Meiryo,"MS Pgothic",Osaka,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ko-KR] .UseSegoeUILight {
+    font-family: "Malgun Gothic",Gulim,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHS] .UseSegoeUILight {
+    font-family: "Microsoft Yahei",Verdana,Simsun,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHT] .UseSegoeUILight {
+    font-family: "Microsoft Jhenghei",Pmingliu,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=hi-IN] .UseSegoeUILight {
+    font-family: "Nirmala UI",'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=th-TH] .UseSegoeUILight {
+    font-family: 'Leelawadee UI Semilight','Kmer UI','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ar] .UseSegoeUILight {
+    font-family: 'Segoe UI Light Arabic','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=bg-BG] .UseSegoeUILight,[lang=ru-RU] .UseSegoeUILight,[lang=uk-UA] .UseSegoeUILight {
+    font-family: 'Segoe UI Light Cyrillic','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=cs-CZ] .UseSegoeUILight,[lang=et-EE] .UseSegoeUILight,[lang=hr-HR] .UseSegoeUILight,[lang=hu-HU] .UseSegoeUILight,[lang=kk-KZ] .UseSegoeUILight,[lang=lt-LT] .UseSegoeUILight,[lang=lt-sr-SP] .UseSegoeUILight,[lang=lv-LV] .UseSegoeUILight,[lang=pl-PL] .UseSegoeUILight,[lang=sk-SK] .UseSegoeUILight,[lang=tr-TR] .UseSegoeUILight {
+    font-family: 'Segoe UI Light EastEuropean','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=el-GR] .UseSegoeUILight {
+    font-family: 'Segoe UI Light Greek','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=he-IL] .UseSegoeUILight {
+    font-family: 'Segoe UI Light Hebrew','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=vi-VN] .UseSegoeUILight {
+    font-family: 'Segoe UI Light Vietnamese','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+.UseSegoeUISemiLight {
+    font-family: 'Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    font-weight: 300
+}
+
+[lang=ja-JP] .UseSegoeUISemiLight {
+    font-family: YuGothic,"Meiryo UI",Meiryo,"MS Pgothic",Osaka,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ko-KR] .UseSegoeUISemiLight {
+    font-family: "Malgun Gothic",Gulim,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHS] .UseSegoeUISemiLight {
+    font-family: "Microsoft Yahei",Verdana,Simsun,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHT] .UseSegoeUISemiLight {
+    font-family: "Microsoft Jhenghei",Pmingliu,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=hi-IN] .UseSegoeUISemiLight {
+    font-family: "Nirmala UI",'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=th-TH] .UseSegoeUISemiLight {
+    font-family: 'Leelawadee UI Semilight','Kmer UI','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ar] .UseSegoeUISemiLight {
+    font-family: 'Segoe UI Semilight Arabic','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=bg-BG] .UseSegoeUISemiLight,[lang=ru-RU] .UseSegoeUISemiLight,[lang=uk-UA] .UseSegoeUISemiLight {
+    font-family: 'Segoe UI Semilight Cyrillic','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=cs-CZ] .UseSegoeUISemiLight,[lang=et-EE] .UseSegoeUISemiLight,[lang=hr-HR] .UseSegoeUISemiLight,[lang=hu-HU] .UseSegoeUISemiLight,[lang=kk-KZ] .UseSegoeUISemiLight,[lang=lt-LT] .UseSegoeUISemiLight,[lang=lt-sr-SP] .UseSegoeUISemiLight,[lang=lv-LV] .UseSegoeUISemiLight,[lang=pl-PL] .UseSegoeUISemiLight,[lang=sk-SK] .UseSegoeUISemiLight,[lang=tr-TR] .UseSegoeUISemiLight {
+    font-family: 'Segoe UI Semilight EastEuropean','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=el-GR] .UseSegoeUISemiLight {
+    font-family: 'Segoe UI Semilight Greek','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=he-IL] .UseSegoeUISemiLight {
+    font-family: 'Segoe UI Semilight Hebrew','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=vi-VN] .UseSegoeUISemiLight {
+    font-family: 'Segoe UI Semilight Vietnamese','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+.UseSegoeUIRegular {
+    font-family: 'Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    font-weight: 400
+}
+
+[lang=ja-JP] .UseSegoeUIRegular {
+    font-family: YuGothic,"Meiryo UI",Meiryo,"MS Pgothic",Osaka,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ko-KR] .UseSegoeUIRegular {
+    font-family: "Malgun Gothic",Gulim,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHS] .UseSegoeUIRegular {
+    font-family: "Microsoft Yahei",Verdana,Simsun,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHT] .UseSegoeUIRegular {
+    font-family: "Microsoft Jhenghei",Pmingliu,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=hi-IN] .UseSegoeUIRegular {
+    font-family: "Nirmala UI",'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=th-TH] .UseSegoeUIRegular {
+    font-family: 'Leelawadee UI Regular','Kmer UI','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ar] .UseSegoeUIRegular {
+    font-family: 'Segoe UI Regular Arabic','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=bg-BG] .UseSegoeUIRegular,[lang=ru-RU] .UseSegoeUIRegular,[lang=uk-UA] .UseSegoeUIRegular {
+    font-family: 'Segoe UI Regular Cyrillic','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=cs-CZ] .UseSegoeUIRegular,[lang=et-EE] .UseSegoeUIRegular,[lang=hr-HR] .UseSegoeUIRegular,[lang=hu-HU] .UseSegoeUIRegular,[lang=kk-KZ] .UseSegoeUIRegular,[lang=lt-LT] .UseSegoeUIRegular,[lang=lt-sr-SP] .UseSegoeUIRegular,[lang=lv-LV] .UseSegoeUIRegular,[lang=pl-PL] .UseSegoeUIRegular,[lang=sk-SK] .UseSegoeUIRegular,[lang=tr-TR] .UseSegoeUIRegular {
+    font-family: 'Segoe UI Regular EastEuropean','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=el-GR] .UseSegoeUIRegular {
+    font-family: 'Segoe UI Regular Greek','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=he-IL] .UseSegoeUIRegular {
+    font-family: 'Segoe UI Regular Hebrew','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=vi-VN] .UseSegoeUIRegular {
+    font-family: 'Segoe UI Regular Vietnamese','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+.UseSegoeUISemiBold {
+    font-family: 'Segoe UI Semibold WestEuropean','Segoe UI Semibold','Segoe WP Semibold','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    font-weight: 500
+}
+
+[lang=ja-JP] .UseSegoeUISemiBold {
+    font-family: YuGothic,"Meiryo UI",Meiryo,"MS Pgothic",Osaka,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ko-KR] .UseSegoeUISemiBold {
+    font-family: "Malgun Gothic",Gulim,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHS] .UseSegoeUISemiBold {
+    font-family: "Microsoft Yahei",Verdana,Simsun,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHT] .UseSegoeUISemiBold {
+    font-family: "Microsoft Jhenghei",Pmingliu,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=hi-IN] .UseSegoeUISemiBold {
+    font-family: "Nirmala UI",'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=th-TH] .UseSegoeUISemiBold {
+    font-family: 'Leelawadee UI Bold','Kmer UI','Segoe UI Semibold WestEuropean','Segoe UI Semibold','Segoe WP Semibold','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ar] .UseSegoeUISemiBold {
+    font-family: 'Segoe UI Semibold Arabic','Segoe UI Semibold WestEuropean','Segoe UI Semibold','Segoe WP Semibold','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=bg-BG] .UseSegoeUISemiBold,[lang=ru-RU] .UseSegoeUISemiBold,[lang=uk-UA] .UseSegoeUISemiBold {
+    font-family: 'Segoe UI Semibold Cyrillic','Segoe UI Semibold WestEuropean','Segoe UI Semibold','Segoe WP Semibold','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=cs-CZ] .UseSegoeUISemiBold,[lang=et-EE] .UseSegoeUISemiBold,[lang=hr-HR] .UseSegoeUISemiBold,[lang=hu-HU] .UseSegoeUISemiBold,[lang=kk-KZ] .UseSegoeUISemiBold,[lang=lt-LT] .UseSegoeUISemiBold,[lang=lt-sr-SP] .UseSegoeUISemiBold,[lang=lv-LV] .UseSegoeUISemiBold,[lang=pl-PL] .UseSegoeUISemiBold,[lang=sk-SK] .UseSegoeUISemiBold,[lang=tr-TR] .UseSegoeUISemiBold {
+    font-family: 'Segoe UI Semibold EastEuropean','Segoe UI Semibold WestEuropean','Segoe UI Semibold','Segoe WP Semibold','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=el-GR] .UseSegoeUISemiBold {
+    font-family: 'Segoe UI Semibold Greek','Segoe UI Semibold WestEuropean','Segoe UI Semibold','Segoe WP Semibold','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=he-IL] .UseSegoeUISemiBold {
+    font-family: 'Segoe UI Semibold Hebrew','Segoe UI Semibold WestEuropean','Segoe UI Semibold','Segoe WP Semibold','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=vi-VN] .UseSegoeUISemiBold {
+    font-family: 'Segoe UI Semibold Vietnamese','Segoe UI Semibold WestEuropean','Segoe UI Semibold','Segoe WP Semibold','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+.h1,.h2,.light,h1,h2,h3 {
+    font-family: 'Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    font-weight: 200
+}
+
+[lang=ja-JP] .h1,[lang=ja-JP] .h2,[lang=ja-JP] .light,[lang=ja-JP] h1,[lang=ja-JP] h2,[lang=ja-JP] h3 {
+    font-family: YuGothic,"Meiryo UI",Meiryo,"MS Pgothic",Osaka,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ko-KR] .h1,[lang=ko-KR] .h2,[lang=ko-KR] .light,[lang=ko-KR] h1,[lang=ko-KR] h2,[lang=ko-KR] h3 {
+    font-family: "Malgun Gothic",Gulim,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHS] .h1,[lang=ch-ZHS] .h2,[lang=ch-ZHS] .light,[lang=ch-ZHS] h1,[lang=ch-ZHS] h2,[lang=ch-ZHS] h3 {
+    font-family: "Microsoft Yahei",Verdana,Simsun,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHT] .h1,[lang=ch-ZHT] .h2,[lang=ch-ZHT] .light,[lang=ch-ZHT] h1,[lang=ch-ZHT] h2,[lang=ch-ZHT] h3 {
+    font-family: "Microsoft Jhenghei",Pmingliu,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=hi-IN] .h1,[lang=hi-IN] .h2,[lang=hi-IN] .light,[lang=hi-IN] h1,[lang=hi-IN] h2,[lang=hi-IN] h3 {
+    font-family: "Nirmala UI",'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=th-TH] .h1,[lang=th-TH] .h2,[lang=th-TH] .light,[lang=th-TH] h1,[lang=th-TH] h2,[lang=th-TH] h3 {
+    font-family: 'Leelawadee UI Semilight','Kmer UI','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ar] .h1,[lang=ar] .h2,[lang=ar] .light,[lang=ar] h1,[lang=ar] h2,[lang=ar] h3 {
+    font-family: 'Segoe UI Light Arabic','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=bg-BG] .h1,[lang=bg-BG] .h2,[lang=bg-BG] .light,[lang=bg-BG] h1,[lang=bg-BG] h2,[lang=bg-BG] h3,[lang=ru-RU] .h1,[lang=ru-RU] .h2,[lang=ru-RU] .light,[lang=ru-RU] h1,[lang=ru-RU] h2,[lang=ru-RU] h3,[lang=uk-UA] .h1,[lang=uk-UA] .h2,[lang=uk-UA] .light,[lang=uk-UA] h1,[lang=uk-UA] h2,[lang=uk-UA] h3 {
+    font-family: 'Segoe UI Light Cyrillic','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=cs-CZ] .h1,[lang=cs-CZ] .h2,[lang=cs-CZ] .light,[lang=cs-CZ] h1,[lang=cs-CZ] h2,[lang=cs-CZ] h3,[lang=et-EE] .h1,[lang=et-EE] .h2,[lang=et-EE] .light,[lang=et-EE] h1,[lang=et-EE] h2,[lang=et-EE] h3,[lang=hr-HR] .h1,[lang=hr-HR] .h2,[lang=hr-HR] .light,[lang=hr-HR] h1,[lang=hr-HR] h2,[lang=hr-HR] h3,[lang=hu-HU] .h1,[lang=hu-HU] .h2,[lang=hu-HU] .light,[lang=hu-HU] h1,[lang=hu-HU] h2,[lang=hu-HU] h3,[lang=kk-KZ] .h1,[lang=kk-KZ] .h2,[lang=kk-KZ] .light,[lang=kk-KZ] h1,[lang=kk-KZ] h2,[lang=kk-KZ] h3,[lang=lt-LT] .h1,[lang=lt-LT] .h2,[lang=lt-LT] .light,[lang=lt-LT] h1,[lang=lt-LT] h2,[lang=lt-LT] h3,[lang=lt-sr-SP] .h1,[lang=lt-sr-SP] .h2,[lang=lt-sr-SP] .light,[lang=lt-sr-SP] h1,[lang=lt-sr-SP] h2,[lang=lt-sr-SP] h3,[lang=lv-LV] .h1,[lang=lv-LV] .h2,[lang=lv-LV] .light,[lang=lv-LV] h1,[lang=lv-LV] h2,[lang=lv-LV] h3,[lang=pl-PL] .h1,[lang=pl-PL] .h2,[lang=pl-PL] .light,[lang=pl-PL] h1,[lang=pl-PL] h2,[lang=pl-PL] h3,[lang=sk-SK] .h1,[lang=sk-SK] .h2,[lang=sk-SK] .light,[lang=sk-SK] h1,[lang=sk-SK] h2,[lang=sk-SK] h3,[lang=tr-TR] .h1,[lang=tr-TR] .h2,[lang=tr-TR] .light,[lang=tr-TR] h1,[lang=tr-TR] h2,[lang=tr-TR] h3 {
+    font-family: 'Segoe UI Light EastEuropean','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=el-GR] .h1,[lang=el-GR] .h2,[lang=el-GR] .light,[lang=el-GR] h1,[lang=el-GR] h2,[lang=el-GR] h3 {
+    font-family: 'Segoe UI Light Greek','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=he-IL] .h1,[lang=he-IL] .h2,[lang=he-IL] .light,[lang=he-IL] h1,[lang=he-IL] h2,[lang=he-IL] h3 {
+    font-family: 'Segoe UI Light Hebrew','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=vi-VN] .h1,[lang=vi-VN] .h2,[lang=vi-VN] .light,[lang=vi-VN] h1,[lang=vi-VN] h2,[lang=vi-VN] h3 {
+    font-family: 'Segoe UI Light Vietnamese','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+.h4,.h5,.h6,.semilight,h4,h5,h6 {
+    font-family: 'Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    font-weight: 300
+}
+
+[lang=ja-JP] .h4,[lang=ja-JP] .h5,[lang=ja-JP] .h6,[lang=ja-JP] .semilight,[lang=ja-JP] h4,[lang=ja-JP] h5,[lang=ja-JP] h6 {
+    font-family: YuGothic,"Meiryo UI",Meiryo,"MS Pgothic",Osaka,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ko-KR] .h4,[lang=ko-KR] .h5,[lang=ko-KR] .h6,[lang=ko-KR] .semilight,[lang=ko-KR] h4,[lang=ko-KR] h5,[lang=ko-KR] h6 {
+    font-family: "Malgun Gothic",Gulim,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHS] .h4,[lang=ch-ZHS] .h5,[lang=ch-ZHS] .h6,[lang=ch-ZHS] .semilight,[lang=ch-ZHS] h4,[lang=ch-ZHS] h5,[lang=ch-ZHS] h6 {
+    font-family: "Microsoft Yahei",Verdana,Simsun,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHT] .h4,[lang=ch-ZHT] .h5,[lang=ch-ZHT] .h6,[lang=ch-ZHT] .semilight,[lang=ch-ZHT] h4,[lang=ch-ZHT] h5,[lang=ch-ZHT] h6 {
+    font-family: "Microsoft Jhenghei",Pmingliu,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=hi-IN] .h4,[lang=hi-IN] .h5,[lang=hi-IN] .h6,[lang=hi-IN] .semilight,[lang=hi-IN] h4,[lang=hi-IN] h5,[lang=hi-IN] h6 {
+    font-family: "Nirmala UI",'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=th-TH] .h4,[lang=th-TH] .h5,[lang=th-TH] .h6,[lang=th-TH] .semilight,[lang=th-TH] h4,[lang=th-TH] h5,[lang=th-TH] h6 {
+    font-family: 'Leelawadee UI Semilight','Kmer UI','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ar] .h4,[lang=ar] .h5,[lang=ar] .h6,[lang=ar] .semilight,[lang=ar] h4,[lang=ar] h5,[lang=ar] h6 {
+    font-family: 'Segoe UI Semilight Arabic','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=bg-BG] .h4,[lang=bg-BG] .h5,[lang=bg-BG] .h6,[lang=bg-BG] .semilight,[lang=bg-BG] h4,[lang=bg-BG] h5,[lang=bg-BG] h6,[lang=ru-RU] .h4,[lang=ru-RU] .h5,[lang=ru-RU] .h6,[lang=ru-RU] .semilight,[lang=ru-RU] h4,[lang=ru-RU] h5,[lang=ru-RU] h6,[lang=uk-UA] .h4,[lang=uk-UA] .h5,[lang=uk-UA] .h6,[lang=uk-UA] .semilight,[lang=uk-UA] h4,[lang=uk-UA] h5,[lang=uk-UA] h6 {
+    font-family: 'Segoe UI Semilight Cyrillic','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=cs-CZ] .h4,[lang=cs-CZ] .h5,[lang=cs-CZ] .h6,[lang=cs-CZ] .semilight,[lang=cs-CZ] h4,[lang=cs-CZ] h5,[lang=cs-CZ] h6,[lang=et-EE] .h4,[lang=et-EE] .h5,[lang=et-EE] .h6,[lang=et-EE] .semilight,[lang=et-EE] h4,[lang=et-EE] h5,[lang=et-EE] h6,[lang=hr-HR] .h4,[lang=hr-HR] .h5,[lang=hr-HR] .h6,[lang=hr-HR] .semilight,[lang=hr-HR] h4,[lang=hr-HR] h5,[lang=hr-HR] h6,[lang=hu-HU] .h4,[lang=hu-HU] .h5,[lang=hu-HU] .h6,[lang=hu-HU] .semilight,[lang=hu-HU] h4,[lang=hu-HU] h5,[lang=hu-HU] h6,[lang=kk-KZ] .h4,[lang=kk-KZ] .h5,[lang=kk-KZ] .h6,[lang=kk-KZ] .semilight,[lang=kk-KZ] h4,[lang=kk-KZ] h5,[lang=kk-KZ] h6,[lang=lt-LT] .h4,[lang=lt-LT] .h5,[lang=lt-LT] .h6,[lang=lt-LT] .semilight,[lang=lt-LT] h4,[lang=lt-LT] h5,[lang=lt-LT] h6,[lang=lt-sr-SP] .h4,[lang=lt-sr-SP] .h5,[lang=lt-sr-SP] .h6,[lang=lt-sr-SP] .semilight,[lang=lt-sr-SP] h4,[lang=lt-sr-SP] h5,[lang=lt-sr-SP] h6,[lang=lv-LV] .h4,[lang=lv-LV] .h5,[lang=lv-LV] .h6,[lang=lv-LV] .semilight,[lang=lv-LV] h4,[lang=lv-LV] h5,[lang=lv-LV] h6,[lang=pl-PL] .h4,[lang=pl-PL] .h5,[lang=pl-PL] .h6,[lang=pl-PL] .semilight,[lang=pl-PL] h4,[lang=pl-PL] h5,[lang=pl-PL] h6,[lang=sk-SK] .h4,[lang=sk-SK] .h5,[lang=sk-SK] .h6,[lang=sk-SK] .semilight,[lang=sk-SK] h4,[lang=sk-SK] h5,[lang=sk-SK] h6,[lang=tr-TR] .h4,[lang=tr-TR] .h5,[lang=tr-TR] .h6,[lang=tr-TR] .semilight,[lang=tr-TR] h4,[lang=tr-TR] h5,[lang=tr-TR] h6 {
+    font-family: 'Segoe UI Semilight EastEuropean','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=el-GR] .h4,[lang=el-GR] .h5,[lang=el-GR] .h6,[lang=el-GR] .semilight,[lang=el-GR] h4,[lang=el-GR] h5,[lang=el-GR] h6 {
+    font-family: 'Segoe UI Semilight Greek','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=he-IL] .h4,[lang=he-IL] .h5,[lang=he-IL] .h6,[lang=he-IL] .semilight,[lang=he-IL] h4,[lang=he-IL] h5,[lang=he-IL] h6 {
+    font-family: 'Segoe UI Semilight Hebrew','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=vi-VN] .h4,[lang=vi-VN] .h5,[lang=vi-VN] .h6,[lang=vi-VN] .semilight,[lang=vi-VN] h4,[lang=vi-VN] h5,[lang=vi-VN] h6 {
+    font-family: 'Segoe UI Semilight Vietnamese','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+.regular,body {
+    font-family: 'Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    font-weight: 400
+}
+
+[lang=ja-JP] .regular,[lang=ja-JP] body {
+    font-family: YuGothic,"Meiryo UI",Meiryo,"MS Pgothic",Osaka,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ko-KR] .regular,[lang=ko-KR] body {
+    font-family: "Malgun Gothic",Gulim,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHS] .regular,[lang=ch-ZHS] body {
+    font-family: "Microsoft Yahei",Verdana,Simsun,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHT] .regular,[lang=ch-ZHT] body {
+    font-family: "Microsoft Jhenghei",Pmingliu,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=hi-IN] .regular,[lang=hi-IN] body {
+    font-family: "Nirmala UI",'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=th-TH] .regular,[lang=th-TH] body {
+    font-family: 'Leelawadee UI Regular','Kmer UI','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ar] .regular,[lang=ar] body {
+    font-family: 'Segoe UI Regular Arabic','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=bg-BG] .regular,[lang=bg-BG] body,[lang=ru-RU] .regular,[lang=ru-RU] body,[lang=uk-UA] .regular,[lang=uk-UA] body {
+    font-family: 'Segoe UI Regular Cyrillic','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=cs-CZ] .regular,[lang=cs-CZ] body,[lang=et-EE] .regular,[lang=et-EE] body,[lang=hr-HR] .regular,[lang=hr-HR] body,[lang=hu-HU] .regular,[lang=hu-HU] body,[lang=kk-KZ] .regular,[lang=kk-KZ] body,[lang=lt-LT] .regular,[lang=lt-LT] body,[lang=lt-sr-SP] .regular,[lang=lt-sr-SP] body,[lang=lv-LV] .regular,[lang=lv-LV] body,[lang=pl-PL] .regular,[lang=pl-PL] body,[lang=sk-SK] .regular,[lang=sk-SK] body,[lang=tr-TR] .regular,[lang=tr-TR] body {
+    font-family: 'Segoe UI Regular EastEuropean','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=el-GR] .regular,[lang=el-GR] body {
+    font-family: 'Segoe UI Regular Greek','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=he-IL] .regular,[lang=he-IL] body {
+    font-family: 'Segoe UI Regular Hebrew','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=vi-VN] .regular,[lang=vi-VN] body {
+    font-family: 'Segoe UI Regular Vietnamese','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+.semibold,strong {
+    font-family: 'Segoe UI Semibold WestEuropean','Segoe UI Semibold','Segoe WP Semibold','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    font-weight: 500
+}
+
+[lang=ja-JP] .semibold,[lang=ja-JP] strong {
+    font-family: YuGothic,"Meiryo UI",Meiryo,"MS Pgothic",Osaka,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ko-KR] .semibold,[lang=ko-KR] strong {
+    font-family: "Malgun Gothic",Gulim,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHS] .semibold,[lang=ch-ZHS] strong {
+    font-family: "Microsoft Yahei",Verdana,Simsun,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHT] .semibold,[lang=ch-ZHT] strong {
+    font-family: "Microsoft Jhenghei",Pmingliu,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=hi-IN] .semibold,[lang=hi-IN] strong {
+    font-family: "Nirmala UI",'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=th-TH] .semibold,[lang=th-TH] strong {
+    font-family: 'Leelawadee UI Bold','Kmer UI','Segoe UI Semibold WestEuropean','Segoe UI Semibold','Segoe WP Semibold','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ar] .semibold,[lang=ar] strong {
+    font-family: 'Segoe UI Semibold Arabic','Segoe UI Semibold WestEuropean','Segoe UI Semibold','Segoe WP Semibold','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=bg-BG] .semibold,[lang=bg-BG] strong,[lang=ru-RU] .semibold,[lang=ru-RU] strong,[lang=uk-UA] .semibold,[lang=uk-UA] strong {
+    font-family: 'Segoe UI Semibold Cyrillic','Segoe UI Semibold WestEuropean','Segoe UI Semibold','Segoe WP Semibold','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=cs-CZ] .semibold,[lang=cs-CZ] strong,[lang=et-EE] .semibold,[lang=et-EE] strong,[lang=hr-HR] .semibold,[lang=hr-HR] strong,[lang=hu-HU] .semibold,[lang=hu-HU] strong,[lang=kk-KZ] .semibold,[lang=kk-KZ] strong,[lang=lt-LT] .semibold,[lang=lt-LT] strong,[lang=lt-sr-SP] .semibold,[lang=lt-sr-SP] strong,[lang=lv-LV] .semibold,[lang=lv-LV] strong,[lang=pl-PL] .semibold,[lang=pl-PL] strong,[lang=sk-SK] .semibold,[lang=sk-SK] strong,[lang=tr-TR] .semibold,[lang=tr-TR] strong {
+    font-family: 'Segoe UI Semibold EastEuropean','Segoe UI Semibold WestEuropean','Segoe UI Semibold','Segoe WP Semibold','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=el-GR] .semibold,[lang=el-GR] strong {
+    font-family: 'Segoe UI Semibold Greek','Segoe UI Semibold WestEuropean','Segoe UI Semibold','Segoe WP Semibold','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=he-IL] .semibold,[lang=he-IL] strong {
+    font-family: 'Segoe UI Semibold Hebrew','Segoe UI Semibold WestEuropean','Segoe UI Semibold','Segoe WP Semibold','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=vi-VN] .semibold,[lang=vi-VN] strong {
+    font-family: 'Segoe UI Semibold Vietnamese','Segoe UI Semibold WestEuropean','Segoe UI Semibold','Segoe WP Semibold','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+.oxbtn {
+    border: 0;
+    cursor: pointer;
+    font-family: 'Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    font-weight: 400;
+    margin: 0
+}
+
+[lang=ja-JP] .oxbtn {
+    font-family: YuGothic,"Meiryo UI",Meiryo,"MS Pgothic",Osaka,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ko-KR] .oxbtn {
+    font-family: "Malgun Gothic",Gulim,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHS] .oxbtn {
+    font-family: "Microsoft Yahei",Verdana,Simsun,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHT] .oxbtn {
+    font-family: "Microsoft Jhenghei",Pmingliu,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=hi-IN] .oxbtn {
+    font-family: "Nirmala UI",'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=th-TH] .oxbtn {
+    font-family: 'Leelawadee UI Regular','Kmer UI','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ar] .oxbtn {
+    font-family: 'Segoe UI Regular Arabic','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=bg-BG] .oxbtn,[lang=ru-RU] .oxbtn,[lang=uk-UA] .oxbtn {
+    font-family: 'Segoe UI Regular Cyrillic','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=cs-CZ] .oxbtn,[lang=et-EE] .oxbtn,[lang=hr-HR] .oxbtn,[lang=hu-HU] .oxbtn,[lang=kk-KZ] .oxbtn,[lang=lt-LT] .oxbtn,[lang=lt-sr-SP] .oxbtn,[lang=lv-LV] .oxbtn,[lang=pl-PL] .oxbtn,[lang=sk-SK] .oxbtn,[lang=tr-TR] .oxbtn {
+    font-family: 'Segoe UI Regular EastEuropean','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=el-GR] .oxbtn {
+    font-family: 'Segoe UI Regular Greek','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=he-IL] .oxbtn {
+    font-family: 'Segoe UI Regular Hebrew','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=vi-VN] .oxbtn {
+    font-family: 'Segoe UI Regular Vietnamese','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+.oxbtn:hover,a.oxbtn:hover {
+    background-color: #707070;
+    border: 1px solid #707070;
+    color: #fff;
+    text-decoration: none
+}
+
+.oxbtngreen,a.oxbtngreen {
+    background-color: #118b04;
+    border: 1px solid #118b04;
+    color: #fff
+}
+
+a.oxbtngreen:visited {
+    color: #fff
+}
+
+.oxbtngrey,a.oxbtngrey {
+    background-color: #d9d9d9;
+    border: 1px solid #d9d9d9;
+    color: #373737
+}
+
+a.oxbtngrey {
+    color: #373737
+}
+
+form a.oxbtnmedium,form button.oxbtnmedium {
+    font-size: 1.8em;
+    line-height: 31px;
+    min-width: 85px;
+    padding: 0 20px
+}
+
+.oxbtngrp {
+    margin-top: 30px;
+    max-width: 100%
+}
+
+.oxbtngrp>* {
+    float: left;
+    margin-bottom: 15px;
+    max-width: 915px
+}
+
+.oxbtngrp button {
+    max-width: 915px
+}
+
+.oxbtnrightgrp {
+    float: right
+}
+
+.oxbtnrightgrp>* {
+    margin-left: 25px
+}
+
+* {
+    scrollbar-base-color:#fff;scrollbar-track-color:#fff;scrollbar-darkshadow-color: #fff;
+    scrollbar-3dlight-color: #fff;
+    scrollbar-arrow-color:#757778;scrollbar-shadow-color:#bec1c4;scrollbar-highlight-color:#bec1c4}
+
+::-webkit-scrollbar {
+    width: 15px;
+    height: 15px
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: #fff
+}
+
+::-webkit-scrollbar-button:end:increment,::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border: solid 1px #bec1c4
+}
+
+.dvModalBackground {
+    background-color: #e1e1e1;
+    opacity: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 9999998;
+    position: fixed
+}
+
+.dvModal {
+    position: absolute;
+    display: none;
+    z-index: 9999999;
+    background-color: #fff;
+    max-width: 982px;
+    border: 1px solid #dedede
+}
+
+.dvModalToolbar {
+    height: 36px;
+    text-align: right
+}
+
+.ancModalToolbarX {
+    margin: 7px;
+    display: inline-block;
+    width: 18px;
+    height: 18px
+}
+
+.dvDialogTopPane>h4 {
+    font-size: 1.8em;
+    padding: 0 0 9px;
+    line-height: 1.1em;
+    font-family: 'Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    font-weight: 200;
+    color: #000
+}
+
+[lang=ja-JP] .dvDialogTopPane>h4 {
+    font-family: YuGothic,"Meiryo UI",Meiryo,"MS Pgothic",Osaka,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ko-KR] .dvDialogTopPane>h4 {
+    font-family: "Malgun Gothic",Gulim,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHS] .dvDialogTopPane>h4 {
+    font-family: "Microsoft Yahei",Verdana,Simsun,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHT] .dvDialogTopPane>h4 {
+    font-family: "Microsoft Jhenghei",Pmingliu,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=hi-IN] .dvDialogTopPane>h4 {
+    font-family: "Nirmala UI",'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=th-TH] .dvDialogTopPane>h4 {
+    font-family: 'Leelawadee UI Semilight','Kmer UI','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ar] .dvDialogTopPane>h4 {
+    font-family: 'Segoe UI Light Arabic','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=bg-BG] .dvDialogTopPane>h4,[lang=ru-RU] .dvDialogTopPane>h4,[lang=uk-UA] .dvDialogTopPane>h4 {
+    font-family: 'Segoe UI Light Cyrillic','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=cs-CZ] .dvDialogTopPane>h4,[lang=et-EE] .dvDialogTopPane>h4,[lang=hr-HR] .dvDialogTopPane>h4,[lang=hu-HU] .dvDialogTopPane>h4,[lang=kk-KZ] .dvDialogTopPane>h4,[lang=lt-LT] .dvDialogTopPane>h4,[lang=lt-sr-SP] .dvDialogTopPane>h4,[lang=lv-LV] .dvDialogTopPane>h4,[lang=pl-PL] .dvDialogTopPane>h4,[lang=sk-SK] .dvDialogTopPane>h4,[lang=tr-TR] .dvDialogTopPane>h4 {
+    font-family: 'Segoe UI Light EastEuropean','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=el-GR] .dvDialogTopPane>h4 {
+    font-family: 'Segoe UI Light Greek','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=he-IL] .dvDialogTopPane>h4 {
+    font-family: 'Segoe UI Light Hebrew','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=vi-VN] .dvDialogTopPane>h4 {
+    font-family: 'Segoe UI Light Vietnamese','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+.dvModalContent {
+    margin: 0 32px 36px
+}
+
+.dvDialogTopPane {
+    margin-bottom: 25px
+}
+
+.dvDialogContent {
+    margin-bottom: 36px;
+    color: #444
+}
+
+.dvDialogContent div p,.dvDialogContent p {
+    margin-top: 0
+}
+
+.dvDialogAltContent {
+    text-align: center
+}
+
+.dvDialogBottomPane {
+    text-align: right
+}
+
+.dvDialogButtonSeparator {
+    display: inline-block;
+    width: 25px;
+    height: 25px
+}
+
+.cdLightBody/*,body*/ {
+    background-color: #fff!important;
+    font-family: 'Segoe UI',SegoeUIWF,Arial,sans-serif;
+    font-size: 62.5%;
+    padding: 0;
+    color: #666;
+    margin: 0;
+    line-height: normal
+}
+
+input,textarea {
+    font-family: 'Segoe UI',SegoeUIWF,Arial,sans-serif;
+    font-size: 1em
+}
+
+script {
+    height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0
+}
+
+a.cdchrm:hover,a:hover {
+    text-decoration: underline
+}
+
+img {
+    border-width: 0
+}
+
+hr {
+    color: #ccc;
+    background-color: #ccc;
+    height: 1px;
+    border-bottom-width: 0;
+    border-top-width: 0;
+    margin-bottom: 7px
+}
+
+div.cntPS1 {
+    font-family: 'Segoe UI',SegoeUIWF,Arial,sans-serif;
+    font-size: 1em
+}
+
+.cntPS1 .cntPSBlob {
+    font-size: 1.2em
+}
+
+.cntPS1 .cntPSBlob13 {
+    font-size: 1.3em
+}
+
+.cntPS1 .cntPSBlob14 {
+    font-size: 1.4em
+}
+
+.cntPS1 a {
+    color: #04c;
+    text-decoration: none
+}
+
+.cntPS1 a:hover {
+    text-decoration: underline;
+    color: #04c
+}
+
+.cntPS1 h1,.cntPS1 h2,.cntPS1 h3,.cntPS1 h4,.cntPS1 h5,.cntPS1 h6 {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-weight: 400;
+    color: #000
+}
+
+.cntPS1 h1 {
+    padding-bottom: 10px;
+    line-height: 1.05em
+}
+
+.cntPS1 h2 {
+    padding-bottom: 7px;
+    padding-top: 0;
+    line-height: 1.1em
+}
+
+.cntPS1 h3,.cntPS1 h4,.cntPS1 h5,.cntPS1 h6 {
+    padding: 0;
+    line-height: 1.1em
+}
+
+.cntPS1 a>h1,.cntPS1 a>h2,.cntPS1 a>h3,.cntPS1 a>h4,.cntPS1 a>h5,.cntPS1 a>h6,.cntPS1 h1,.cntPS1 h2,.cntPS1 h3,.cntPS1 h4,.cntPS1 h5,.cntPS1 h6,.cntPS1 ul.cntPSLeftNav li,.cntPS1 ul.cntPSLeftNav li a {
+    font-family: 'Segoe UI Light',SegoeUILightWF,Arial,sans-serif
+}
+
+.cntPS1 a>h1,.cntPS1 h1 {
+    font-size: 2.6em;
+    color: #404142
+}
+
+.cntPS1 a>h2,.cntPS1 h2 {
+    font-size: 2em;
+    color: #101010
+}
+
+.cntPS1 a>h3,.cntPS1 h3 {
+    font-size: 2.4em;
+    padding-bottom: 9px;
+    color: #101010
+}
+
+.cntPS1 a>h4,.cntPS1 h4 {
+    font-size: 1.8em;
+    padding-bottom: 9px
+}
+
+.cntPS1 a>h5,.cntPS1 h5 {
+    font-size: 2.2em;
+    color: #101010;
+    padding-bottom: 9px
+}
+
+.cntPS1 a>h6,.cntPS1 h6 {
+    font-size: 1.6em;
+    color: #101010;
+    padding-bottom: 9px
+}
+
+.cntPS1 a>h1.cntPSSampPlat,.cntPS1 h1.cntPSSampPlat {
+    font-family: 'Segoe UI Light',SegoeUILightWF,Arial,sans-serif;
+    font-size: 2em;
+    color: #636363
+}
+
+.cntPS1 a>h1.cntPSSampPlatBold,.cntPS1 h1.cntPSSampPlatBold {
+    font-family: 'Segoe UI Semibold',SegoeUISemiboldLocal,Arial,sans-serif;
+    color: #101010
+}
+
+.cntPS1 label,.cntPS1 p {
+    font-size: 1.4em;
+    line-height: 1.12857em;
+    color: #444
+}
+
+.cntPS1 a>h1:hover,.cntPS1 a>h2:hover,.cntPS1 a>h3:hover,.cntPS1 a>h4:hover,.cntPS1 a>h5:hover,.cntPS1 a>h6:hover {
+    color: #04c
+}
+
+.cntPS1 ul.cntPSGrList,.cntPS1 ul.cntPSOrList {
+    list-style-type: none;
+    list-style-image: none
+}
+
+.cntPS1 ul.cntPSGrList li {
+    font-size: 1.4em;
+    line-height: 1.1em;
+    padding-bottom: 7px;
+    background: url(/images/pallet/list_grey.png) no-repeat 0 center;
+    padding-left: 15px;
+    margin: 0 0 0 -15px
+}
+
+.cntPS1 ul.cntPSOrList li {
+    font-size: 1.4em;
+    line-height: 1.1em;
+    padding-bottom: 7px;
+    background: url(/images/pallet/list_orange.png) no-repeat 0 center;
+    padding-left: 15px;
+    margin: 0 0 0 -15px
+}
+
+.cntPS1 ul.cntPSCatList,.cntPS1 ul.cntPSNoList {
+    list-style: none;
+    margin: 0 0 0 -40px
+}
+
+.cntPS1 ul.cntPSCatList li {
+    font-size: 1.4em;
+    line-height: 1.1em;
+    padding-bottom: 7px
+}
+
+.cntPS1 ul.cntPSCatList li a {
+    color: #101010
+}
+
+.cntPS1 ul.cntPSCatList li a:hover {
+    color: #04c
+}
+
+.cntPS1 ul.cntPSLinkList {
+    list-style: none;
+    margin: 0 0 0 -40px
+}
+
+.cntPS1 ul.cntPSLinkList li {
+    font-size: 1.4em;
+    line-height: 1.1em;
+    padding-bottom: 7px
+}
+
+.cntPS1 span.cntPSLeftNavHeading {
+    font-size: 1.2em;
+    line-height: 1.1em;
+    color: #636363;
+    text-transform: uppercase
+}
+
+.cntPS1 ul.cntPSLeftNav {
+    list-style: none;
+    margin: 0 0 0 -40px
+}
+
+.cntPS1 ul.cntPSLeftNav li {
+    font-size: 1.5em;
+    line-height: 1em;
+    margin-bottom: 11px
+}
+
+.cntPS1 a.cntPSLeftNav,.cntPS1 ul.cntPSLeftNav li a {
+    color: #444
+}
+
+.cntPS1 a.cntPSLeftNav:hover,.cntPS1 ul.cntPSLeftNav li a:hover {
+    text-decoration: underline
+}
+
+.cntPS1 a.cntPSLeftNavNoUnderline:hover {
+    text-decoration: none
+}
+
+.cntPS1 a.cntPSSelected,.cntPS1 ul.cntPSLeftNav li a.cntPSSelected,.cntPS1 ul.cntPSLeftNav li a:hover.cntPSSelected,a:hover.cntPSSelected {
+    color: #eb3c00;
+    border-bottom: 1px solid #fff
+}
+
+:first-child+html .cntPS1 ul.cntPSCatList,:first-child+html .cntPS1 ul.cntPSLeftNav,:first-child+html .cntPS1 ul.cntPSLinkList,:first-child+html .cntPS1 ul.cntPSNoList {
+    margin: 0
+}
+
+.cntPS1 hr {
+    border: none;
+    border-top: solid 1px #eaeaea
+}
+
+.cntPS1 a.cntPSActWht,.cntPS1 a.cntPSAction {
+    font-size: 1.4em;
+    line-height: 1.25em;
+    font-weight: 400;
+    display: inline-block;
+    -webkit-background-origin: padding-box;
+    padding: 5px 21px 5px 0
+}
+
+.cntPS1 a.cntPSMore {
+    font-size: 2em;
+    line-height: 1.2em;
+    color: #101010;
+    background: right 55% url(/images/pallet/more_@{direction1}.png) no-repeat;
+    font-weight: 400;
+    display: inline-block;
+    -webkit-background-origin: padding-box;
+    background-origin: padding-box;
+    padding: 5px 30px 5px 0
+}
+
+.cntPS1 a.cntPSMore:hover {
+    color: #969696;
+    background-image: url(/images/pallet/more_hover_@{direction1}.png)
+}
+
+.cntPS1 a.cntPSAction {
+    color: #101010;
+    background: right 60% url(/images/pallet/action_@{direction1}.png) no-repeat
+}
+
+.cntPS1 a.cntPSAction:hover {
+    color: #04c;
+    background-image: url(/images/pallet/action_hover_@{direction1}.png)
+}
+
+.cntPS1 a.cntPSActWht {
+    color: #fff;
+    background: right 60% url(/images/pallet/action_#fff_@{direction1}.png) no-repeat
+}
+
+.cntPS1 a.cntPSActWht:hover {
+    color: #fff
+}
+
+.cntPS1 a.cntPSGrButton,.cntPS1 a.cntPSNeuButton,.cntPS1 a.cntPSOrButton,.cntPS1 a.cntPSSecButton,.cntPS1 button.cntPSGrButton,.cntPS1 button.cntPSNeuButton,.cntPS1 button.cntPSOrButton,.cntPS1 button.cntPSSecButton {
+    display: inline-block;
+    line-height: 1.7222em;
+    font-size: 1.8em;
+    color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #6bbd46;
+    text-decoration: none;
+    border: solid 1px #6bbd46
+}
+
+.cntPS1 a.cntPSGrButton_sm,.cntPS1 a.cntPSNeuButton_sm,.cntPS1 a.cntPSOrButton_sm,.cntPS1 a.cntPSSecButton_sm,.cntPS1 button.cntPSGrButton_sm,.cntPS1 button.cntPSNeuButton_sm,.cntPS1 button.cntPSOrButton_sm,.cntPS1 button.cntPSSecButton_sm {
+    display: inline-block;
+    line-height: 1.785em;
+    font-size: 1.4em;
+    color: #fff;
+    padding-left: 18px;
+    padding-right: 18px;
+    background: #6bbd46;
+    text-decoration: none;
+    border: solid 1px #6bbd46
+}
+
+.cntPS1 a.cntPSGrButton_lg,.cntPS1 a.cntPSNeuButton_lg,.cntPS1 a.cntPSOrButton_lg,.cntPS1 a.cntPSSecButton_lg,.cntPS1 button.cntPSGrButton_lg,.cntPS1 button.cntPSNeuButton_lg,.cntPS1 button.cntPSOrButton_lg,.cntPS1 button.cntPSSecButton_lg {
+    display: inline-block;
+    line-height: 2em;
+    font-size: 2.4em;
+    color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #6bbd46;
+    text-decoration: none;
+    border: solid 1px #6bbd46
+}
+
+.cntPS1 button.cntPSGrButton,.cntPS1 button.cntPSGrButton_lg,.cntPS1 button.cntPSGrButton_sm,.cntPS1 button.cntPSNeuButton,.cntPS1 button.cntPSNeuButton_lg,.cntPS1 button.cntPSNeuButton_sm,.cntPS1 button.cntPSOrButton,.cntPS1 button.cntPSOrButton_lg,.cntPS1 button.cntPSOrButton_sm,.cntPS1 button.cntPSSecButton,.cntPS1 button.cntPSSecButton_lg,.cntPS1 button.cntPSSecButton_sm {
+    position: relative;
+    top: 0
+}
+
+:first-child+html .cntPS1 button.cntPSGrButton,:first-child+html .cntPS1 button.cntPSNeuButton,:first-child+html .cntPS1 button.cntPSOrButton,:first-child+html .cntPS1 button.cntPSSecButton {
+    padding: 0 10px;
+    position: relative;
+    top: 4px
+}
+
+.cntPS1 a.cntPSOrButton,.cntPS1 a.cntPSOrButton_lg,.cntPS1 a.cntPSOrButton_sm,.cntPS1 button.cntPSOrButton,.cntPS1 button.cntPSOrButton_lg,.cntPS1 button.cntPSOrButton_sm {
+    background: #fcd116;
+    border: solid 1px #fcd116
+}
+
+.cntPS1 a.cntPSBlButton,.cntPS1 a.cntPSBlButton_lg,.cntPS1 a.cntPSBlButton_sm,.cntPS1 button.cntPSBlButton,.cntPS1 button.cntPSBlButton_lg,.cntPS1 button.cntPSBlButton_sm {
+    background: #6dc2e9;
+    border: solid 1px #6dc2e9
+}
+
+.cntPS1 a.cntPSNeuButton,.cntPS1 a.cntPSNeuButton_lg,.cntPS1 a.cntPSNeuButton_sm,.cntPS1 button.cntPSNeuButton,.cntPS1 button.cntPSNeuButton_lg,.cntPS1 button.cntPSNeuButton_sm {
+    background: #d9d9d9;
+    border: solid 1px #d9d9d9;
+    color: #666
+}
+
+.cntPS1 a.cntPSSecButton,.cntPS1 a.cntPSSecButton_lg,.cntPS1 a.cntPSSecButton_sm,.cntPS1 button.cntPSSecButton,.cntPS1 button.cntPSSecButton_lg,.cntPS1 button.cntPSSecButton_sm {
+    background: #fff;
+    border: solid 1px #ccc;
+    color: #777
+}
+
+.cntPS1 a:hover.cntPSBlButton,.cntPS1 a:hover.cntPSBlButton_lg,.cntPS1 a:hover.cntPSBlButton_sm,.cntPS1 a:hover.cntPSGrButton,.cntPS1 a:hover.cntPSNeuButton,.cntPS1 a:hover.cntPSNeuButton_lg,.cntPS1 a:hover.cntPSNeuButton_sm,.cntPS1 a:hover.cntPSOrButton,.cntPS1 a:hover.cntPSOrButton_lg,.cntPS1 a:hover.cntPSOrButton_sm,.cntPS1 a:hover.cntPSSecButton,.cntPS1 a:hover.cntPSSecButton_lg,.cntPS1 a:hover.cntPSSecButton_sm,.cntPS1 button.cntPSGrButton:hover,.cntPS1 button.cntPSGrButton_lg:hover,.cntPS1 button.cntPSGrButton_sm:hover,.cntPS1 button.cntPSNeuButton:hover,.cntPS1 button.cntPSNeuButton_lg:hover,.cntPS1 button.cntPSNeuButton_sm:hover,.cntPS1 button.cntPSOrButton:hover,.cntPS1 button.cntPSOrButton_lg:hover,.cntPS1 button.cntPSOrButton_sm:hover,.cntPS1 button.cntPSSecButton:hover,.cntPS1 button.cntPSSecButton_lg:hover,.cntPS1 button.cntPSSecButton_sm:hover {
+    background: #666;
+    border: solid 1px #666;
+    color: #fff
+}
+
+.cntPS1 .cntPopSearch,.cntPS1 a.cntPopSearch {
+    color: #656565
+}
+
+.cntPS1 a.cntPSMeta1,.cntPS1 a.cntPSMeta2,.cntPS1 a.cntPSMeta2B,.cntPS1 a.cntPSMeta3,.cntPS1 a.cntPSMeta4,.cntPS1 div.cntPSMeta1,.cntPS1 div.cntPSMeta2,.cntPS1 div.cntPSMeta2B,.cntPS1 div.cntPSMeta3,.cntPS1 div.cntPSMeta4,.cntPS1 li.cntPSMeta1,.cntPS1 li.cntPSMeta2,.cntPS1 li.cntPSMeta2B,.cntPS1 li.cntPSMeta3,.cntPS1 li.cntPSMeta4,.cntPS1 p.cntPSMeta1,.cntPS1 p.cntPSMeta2,.cntPS1 p.cntPSMeta2B,.cntPS1 p.cntPSMeta3,.cntPS1 p.cntPSMeta4,.cntPS1 span.cntPSMeta1,.cntPS1 span.cntPSMeta2,.cntPS1 span.cntPSMeta2B,.cntPS1 span.cntPSMeta3,.cntPS1 span.cntPSMeta4 {
+    margin: 0;
+    font-size: 1.4em;
+    line-height: 1.09em
+}
+
+.cntPS1 a.cntPSMeta5,.cntPS1 div.cntPSMeta5,.cntPS1 li.cntPSMeta5,.cntPS1 p.cntPSMeta5,.cntPS1 span.cntPSMeta5 {
+    margin: 0;
+    font-size: 1.2em;
+    line-height: 1.09em
+}
+
+.cntPS1 a.cntPSMeta1,.cntPS1 a.cntPSMeta1:visited,.cntPS1 div.cntPSMeta1,.cntPS1 li.cntPSMeta1,.cntPS1 p.cntPSMeta1,.cntPS1 span.cntPSMeta1 {
+    color: #101010!important
+}
+
+.cntPS1 a.cntPSMeta2,.cntPS1 a.cntPSMeta5,.cntPS1 div.cntPSMeta2,.cntPS1 li.cntPSMeta2,.cntPS1 li.cntPSMeta5,.cntPS1 p.cntPSMeta2,.cntPS1 p.cntPSMeta5,.cntPS1 span.cntPSMeta2,.cntPS1 span.cntPSMeta5 {
+    color: #636363
+}
+
+.cntPS1 a.cntPSMeta2,.cntPS1 a.cntPSMeta3,.cntPS1 a.cntPSMeta4,.cntPS1 div.cntPSMeta2,.cntPS1 div.cntPSMeta3,.cntPS1 div.cntPSMeta4,.cntPS1 li.cntPSMeta2,.cntPS1 li.cntPSMeta3,.cntPS1 li.cntPSMeta4,.cntPS1 p.cntPSMeta2,.cntPS1 p.cntPSMeta3,.cntPS1 p.cntPSMeta4,.cntPS1 span.cntPSMeta2,.cntPS1 span.cntPSMeta3,.cntPS1 span.cntPSMeta4 {
+    margin-top: 3px
+}
+
+.cntPS1 a.cntPSMeta3,.cntPS1 a.cntPSMeta4,.cntPS1 div.cntPSMeta3,.cntPS1 li.cntPSMeta3,.cntPS1 li.cntPSMeta4,.cntPS1 p.cntPSMeta3,.cntPS1 p.cntPSMeta4,.cntPS1 span.cntPSMeta3,.cntPS1 span.cntPSMeta4 {
+    color: #101010
+}
+
+.cntPS1 a.cntPSMeta4,.cntPS1 div.cntPSMeta4,.cntPS1 li.cntPSMeta4,.cntPS1 p.cntPSMeta4,.cntPS1 span.cntPSMeta4 {
+    font-family: 'Segoe UI Semibold',SegoeUISemiboldLocal,Arial,sans-serif
+}
+
+.cntPS1 .cntPSOrange,.cntPS1 a.cntPSOrange,.cntPS1 ul.cntPSOrange li,.cntPS1 ul.cntPSOrange li a {
+    color: #eb3c00
+}
+
+.cntPS1 .cntPSLtGrey,.cntPS1 a.cntPSLtGrey,.cntPS1 a.cntPSLtGrey:visited,.cntPS1 ul.cntPSLtGrey li,.cntPS1 ul.cntPSLtGrey li a {
+    color: #636363!important
+}
+
+.cntPS1 .cntPSExLink,.cntPS1 a.cntExLink {
+    color: #388222
+}
+
+.cntPS1 a:visited.cntExLink {
+    color: #6633b3
+}
+
+.cntPS1 .cntPSNavLink,.cntPS1 a.cntPSNavLink {
+    color: #444
+}
+
+.cntPS1 a:hover.cntPSNavLink {
+    color: #b1b1b1;
+    text-decoration: underline
+}
+
+.cntPS1 .cntPS#fff,.cntPS1 a.cntPS#fff,.cntPS1 p.cntPS#fff,.cntPS1 ul.cntPS#fff li,.cntPS1 ul.cntPS#fff li a {
+    color: #fff
+}
+
+.cntPS1 .cntPSBlack,.cntPS1 a.cntPSBlack,.cntPS1 ul.cntPSBlack li,.cntPS1 ul.cntPSBlack li a {
+    color: #101010
+}
+
+.cntPS1 a.cntPS#fff:hover,.cntPS1 a.cntPSBlack:hover,.cntPS1 a.cntPSExLink:hover,.cntPS1 a.cntPSLtGrey:hover,.cntPS1 a.cntPSMeta1:hover,.cntPS1 a.cntPSMeta2:hover,.cntPS1 a.cntPSMeta3:hover,.cntPS1 a.cntPSMeta4:hover,.cntPS1 a.cntPSMeta5:hover,.cntPS1 a.cntPSOrange:hover,.cntPS1 a.cntPopSearch:hover {
+    color: #04c!important;
+    text-decoration: underline
+}
+
+.cntPS1 .cntPSLeft {
+    float: left
+}
+
+.cntPS1 .cntPSRight {
+    float: right
+}
+
+.cntPS1 .cntPSClear {
+    clear: both
+}
+
+.cntPS1 div.cntDropDown,div.dvShadowbox {
+    box-shadow: 3px 3px 10px #bcbcbc,-3px -3px 10px #bcbcbc
+}
+
+.cntPS1 .ui-oodropdown-dropcontainer,div.dvShadowboxNoTop {
+    box-shadow: 3px 3px 10px #bcbcbc,-3px 3px 10px #bcbcbc
+}
+
+.cntPS1 a.cntPSDownload,.cntPS1 a.cntPSDownloadWht {
+    font-size: 2em;
+    line-height: 1.15em;
+    font-weight: 400;
+    display: inline-block;
+    -webkit-background-origin: padding-box;
+    padding: 0 31px 0 0
+}
+
+.cntPS1 a.cntPSDownloadSm,.cntPS1 a.cntPSDownloadWhtSm {
+    font-size: 1.4em;
+    line-height: 1.1428em;
+    font-weight: 400;
+    display: inline-block;
+    -webkit-background-origin: padding-box;
+    padding: 0 21px 0 0
+}
+
+.cntPS1 a.cntPSDownloadWht,.cntPS1 a.cntPSDownloadWhtSm {
+    color: #fff
+}
+
+.cntPS1 a.cntPSDownload:hover,.cntPS1 a.cntPSDownloadSm:hover {
+    color: #969696
+}
+
+.cntPS1 a.cntPSDownload {
+    background: no-repeat right 55% url(/images/pallet/download.png)
+}
+
+.cntPS1 a.cntPSDownload:hover {
+    background: no-repeat right 55% url(/images/pallet/download_hover.png)
+}
+
+.cntPS1 a.cntPSDownloadSm {
+    background: no-repeat right 55% url(/images/pallet/download_small.png)
+}
+
+.cntPS1 a.cntPSDownloadSm:hover {
+    background: no-repeat right 55% url(/images/pallet/download_small_hover.png)
+}
+
+.cntPS1 a.cntPSDownloadWht {
+    background: no-repeat right 55% url(/images/pallet/download_#fff.png)
+}
+
+.cntPS1 a.cntPSDownloadWhtSm {
+    background: no-repeat right 55% url(/images/pallet/download_#fff_small.png)
+}
+
+.cntPS1 .heading1,.cntPS1 .heading2,.cntPS1 .heading3,.cntPS1 .heading4,.cntPS1 .heading5,.cntPS1 .heading6 {
+    margin: 0 0 20px;
+    padding: 0;
+    font-weight: 400;
+    line-height: 1em;
+    clear: both
+}
+
+.cntPS1 .heading1,.cntPS1 .heading2,.cntPS1 .heading3,.cntPS1 .heading4,.cntPS1 .heading5,.cntPS1 .heading6,.cntPS1 a>.heading1,.cntPS1 a>.heading2,.cntPS1 a>.heading3,.cntPS1 a>.heading4,.cntPS1 a>.heading5,.cntPS1 a>.heading6 {
+    font-family: 'Segoe UI Light',SegoeUILightWF,Arial,sans-serif;
+    color: #000
+}
+
+.cntPS1 .heading1,.cntPS1 a>.heading1 {
+    font-size: 4.2em
+}
+
+.cntPS1 .heading2,.cntPS1 a>.heading2 {
+    font-size: 3em
+}
+
+.cntPS1 .heading3,.cntPS1 a>.heading3 {
+    font-size: 2.8em
+}
+
+.cntPS1 .heading4,.cntPS1 a>.heading4 {
+    font-size: 2.6em
+}
+
+.cntPS1 .heading5,.cntPS1 a>.heading5 {
+    font-size: 2.4em
+}
+
+.cntPS1 .heading6,.cntPS1 a>.heading6 {
+    font-size: 2.2em
+}
+
+.cntPS1 table.psTbl {
+    border-collapse: collapse;
+    width: 100%
+}
+
+.cntPS1 table.psTbl td,.cntPS1 table.psTbl th {
+    border: 2px solid #fff;
+    padding: 10px
+}
+
+.cntPS1 .tblHdr {
+    font-weight: 700
+}
+
+.cntPS1 .tblAltRow tr:nth-child(odd),.cntPS1 .tblAltRowEv tr:nth-child(even) {
+    background: #e6e6e6
+}
+
+.cntPS1 table.tbl33P td {
+    width: 33%
+}
+
+.cntPS1 table.tbl33P td.tdCent {
+    text-align: center
+}
+
+.cntPS1 table.tbl33P .trTdGry {
+    background: #e6e6e6
+}
+
+.cntPS1 .BdrRH {
+    border-right: 1px solid #aeaeae
+}
+
+.cntPS1 .BdrLH {
+    border-left: 1px solid #aeaeae
+}
+
+.cntPS1 .BdrTH {
+    border-top: 1px solid #aeaeae
+}
+
+.cntPS1 .BdrBH {
+    border-bottom: 1px solid #aeaeae
+}
+
+.cntPS1 .BdrAH {
+    border: 1px solid #aeaeae
+}
+
+.cntPS1 div.cntPSSearchContainer {
+    margin-top: 14px
+}
+
+.cntPS1 div.cntPSSearch {
+    border: solid 1px #c9c9c9;
+    color: #777;
+    height: 22px;
+    width: 498px;
+    padding: 1px 0
+}
+
+.cntPS1 div.cntPSSearch span {
+    display: none
+}
+
+.cntPS1 div.cntPSSearch input[type=text] {
+    font-size: 1.4em;
+    border-width: 0;
+    margin: 0;
+    padding-right: 5px;
+    outline: 0 invert none;
+    height: inherit;
+    vertical-align: top;
+    margin-top: -1px;
+    width: 460px
+}
+
+.cntPS1 div.cntPSSearch input[type=text].cdsrchdef {
+    color: #999
+}
+
+.cntPS1 div.cntPSSearch input:focus {
+    outline: 0
+}
+
+.cntPS1 div.cntPSSearch button {
+    height: inherit;
+    width: 30px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    background-color: transparent
+}
+
+.cntPS1 div.cntPSSearch button img {
+    margin-left: 3px;
+    vertical-align: middle
+}
+
+.cntPS1 a.cntSortByOption {
+    display: inline-block;
+    font-size: 1.4em;
+    padding: 0 15px;
+    text-align: center;
+    line-height: .8em
+}
+
+.cntPS1 .cntSortBorder {
+    border-left: 1px solid #444
+}
+
+.cntPS1 div.cntDropDown {
+    display: none;
+    position: absolute;
+    z-index: 9990;
+    white-space: nowrap;
+    margin-top: 5px;
+    background-color: #fff;
+    min-width: 128px;
+    border: 1px solid #dedede
+}
+
+.cntPS1 div.cntDropDown a {
+    display: block;
+    font-size: 1.3em;
+    line-height: 2em;
+    vertical-align: middle;
+    padding: 0 10px;
+    color: #666
+}
+
+.cntPS1 div.cntDropDown a:hover {
+    text-decoration: none;
+    background-color: #eaecee;
+    color: #262626!important
+}
+
+.cntPS1 div.cntDropDown a:visited {
+    color: #666
+}
+
+.ui-oodropdown {
+    height: 2.5em;
+    border: 1px solid #c9c9c9;
+    padding-bottom: 1px
+}
+
+.ui-oodropdown-wrapper {
+    margin: 0 5px
+}
+
+.ui-oodropdown-wrapper-noselectedtext {
+    width: 14px
+}
+
+.ui-oodropdown-dropcontainer-wrapper {
+    z-index: 9995;
+    position: absolute
+}
+
+.ui-oodropdown-active,.ui-oodropdown-hover {
+    border-color: #bcbcbc
+}
+
+.ui-oodropdown-section,.ui-oodropdown-text {
+    font-size: 1.3em;
+    line-height: 2em;
+    padding: 0 10px;
+    text-decoration: none;
+    color: #666!important;
+    display: block
+}
+
+.ui-oodropdown-arrow {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    vertical-align: top;
+    margin-top: 7px
+}
+
+.ui-oodropdown-arrow-noselectedtext {
+    margin-left: 5px
+}
+
+.ui-oodropdown-arrow-img {
+    vertical-align: top;
+    margin: 4px 2px 0 0
+}
+
+.ui-oodropdown-text-active,.ui-oodropdown-text:hover {
+    color: #262626!important;
+    text-decoration: none!important
+}
+
+.ui-oodropdown-text:visited {
+    color: #666!important;
+    text-decoration: none!important
+}
+
+.ui-oodropdown-dropcontainer {
+    background-color: #fff;
+    border: 1px solid #c9c9c9;
+    overflow: hidden
+}
+
+.ui-oodropdown-dropcontainer-scroll {
+    overflow: scroll;
+    overflow-x: hidden
+}
+
+.ui-oodropdown-item {
+    margin: 2px 2px 0;
+    padding: 1px;
+    white-space: nowrap
+}
+
+.ui-oodropdown-item-hover {
+    background-color: #eaecee;
+    border: 1px solid #eaecee;
+    padding: 0
+}
+
+.ui-oodropdown-section {
+    font-weight: 700;
+    background-color: #f0f2f5
+}
+
+.cntPS1 a.btnSmall {
+    display: inline-block;
+    font-size: 1.4em;
+    line-height: 23px;
+    min-height: 25px;
+    min-width: 25px;
+    white-space: nowrap;
+    vertical-align: top;
+    text-align: center;
+    padding: 0 16px
+}
+
+.cntPS1 a.btnMedium {
+    display: inline-block;
+    font-size: 1.8em;
+    line-height: 29px;
+    min-height: 31px;
+    min-width: 45px;
+    white-space: nowrap;
+    vertical-align: top;
+    text-align: center;
+    padding: 0 20px
+}
+
+.cntPS1 a.btnLarge {
+    display: inline-block;
+    font-size: 2.4em;
+    line-height: 44px;
+    min-height: 47px;
+    min-width: 60px;
+    white-space: nowrap;
+    vertical-align: top;
+    text-align: center;
+    padding: 0 20px
+}
+
+.cntPS1 a.btnGrey,.cntPS1 a.btnGrey:visited {
+    background-color: #d9d9d9;
+    color: #373737;
+    border: 1px solid #d9d9d9
+}
+
+.cntPS1 a.btnGreen,.cntPS1 a.btnGreen:visited {
+    background-color: #118b04;
+    color: #fff;
+    border: 1px solid #118b04
+}
+
+.cntPS1 a.btnBlue,.cntPS1 a.btnBlue:visited {
+    background-color: #6dc2e9;
+    color: #373737;
+    border: 1px solid #6dc2e9
+}
+
+.cntPS1 a.btnYellow,.cntPS1 a.btnYellow:visited {
+    background-color: #fcd116;
+    color: #373737;
+    border: 1px solid #fcd116
+}
+
+.cntPS1 a.btn#fff,.cntPS1 a.btn#fff:visited,.cntPS1 a.btnWhite,.cntPS1 a.btnWhite:visited {
+    background-color: #fff;
+    color: #505050;
+    border: 1px solid #898989
+}
+
+.cntPS1 a.btn#fff:hover,.cntPS1 a.btnBlue:hover,.cntPS1 a.btnGreen:hover,.cntPS1 a.btnGrey:hover,.cntPS1 a.btnWhite:hover,.cntPS1 a.btnYellow:hover {
+    text-decoration: none
+}
+
+.cntPS1 a.btnSelected {
+    background-color: #707070!important;
+    color: #fff!important;
+    border: 1px solid #707070
+}
+
+.cntPS1 a.btnGreyDisabled {
+    background-color: #e8e8e8!important;
+    color: #b5b5b5!important
+}
+
+.cntPS1 a.btnGreenDisabled {
+    background-color: #a0d19b!important;
+    color: #fff!important
+}
+
+.cntPS1 a.btnBlueDisabled {
+    background-color: #c5e7f6!important;
+    color: #b5b5b5!important
+}
+
+.cntPS1 a.btnYellowDisabled {
+    background-color: #feeda2!important;
+    color: #b5b5b5!important
+}
+
+.cntPS1 a.btn#fffDisabled,.cntPS1 a.btnWhiteDisabled {
+    background-color: #e8e8e8!important;
+    color: #b5b5b5!important
+}
+
+.cntPS1 .cntPSRating0,.cntPS1 .cntPSRating1,.cntPS1 .cntPSRating1_5,.cntPS1 .cntPSRating2,.cntPS1 .cntPSRating2_5,.cntPS1 .cntPSRating3,.cntPS1 .cntPSRating3_5,.cntPS1 .cntPSRating4,.cntPS1 .cntPSRating4_5,.cntPS1 .cntPSRating5,.cntPS1 .cntPSRating_5 {
+    width: 95px;
+    height: 15px;
+    float: left
+}
+
+.cntPS1 .cntPSRating0,.cntPS1 .cntPSRating1,.cntPS1 .cntPSRating2,.cntPS1 .cntPSRating3,.cntPS1 .cntPSRating4,.cntPS1 .cntPSRating5 {
+    background: transparent url(/images/pallet/rating_whole_@{direction1}.png) no-repeat
+}
+
+.cntPS1 .cntPSRating0 {
+    background-position: -95px 0
+}
+
+.cntPS1 .cntPSRating1 {
+    background-position: -76px 0
+}
+
+.cntPS1 .cntPSRating2 {
+    background-position: -57px 0
+}
+
+.cntPS1 .cntPSRating3 {
+    background-position: -38px 0
+}
+
+.cntPS1 .cntPSRating4 {
+    background-position: -19px 0
+}
+
+.cntPS1 .cntPSRating5 {
+    background-position: 0 0
+}
+
+.cntPS1 .cntPSRating1_5,.cntPS1 .cntPSRating2_5,.cntPS1 .cntPSRating3_5,.cntPS1 .cntPSRating4_5,.cntPS1 .cntPSRating_5 {
+    background: transparent url(/images/pallet/rating_half_@{direction1}.png) no-repeat
+}
+
+.cntPS1 .cntPSRating_5 {
+    background-position: -76px 0
+}
+
+.cntPS1 .cntPSRating1_5 {
+    background-position: -57px 0
+}
+
+.cntPS1 .cntPSRating2_5 {
+    background-position: -38px 0
+}
+
+.cntPS1 .cntPSRating3_5 {
+    background-position: -19px 0
+}
+
+.cntPS1 .cntPSRating4_5 {
+    background-position: 0 0
+}
+
+.cntPS1 .cntPagingControl {
+    height: 25px;
+    line-height: 25px;
+    font-size: 1.3em
+}
+
+.cntPS1 .cntPagingImageBack {
+    height: 9px;
+    width: 9px
+}
+
+.cntPS1 .cntPagingLinkBack {
+    padding: 0 16px 0 0
+}
+
+.cntPS1 .cntPagingLinkNext {
+    padding: 0 0 0 16px
+}
+
+.cntPS1 .cntPagingLinkBack,.cntPS1 .cntPagingLinkNext {
+    display: inline-block
+}
+
+.cntPS1 .cntPagingLinkBack,.cntPS1 .cntPagingLinkNext,.cntPS1 a.cntPagingLinkBack:visited,.cntPS1 a.cntPagingLinkNext:visited {
+    color: #666
+}
+
+.cntPS1 .cntPagingDisabled {
+    display: none
+}
+
+.cntPS1 a.cntPagingLinkBack:hover,.cntPS1 a.cntPagingLinkNext:hover {
+    color: #262626
+}
+
+.cntPS1 a.cntPagingBlockNav,.cntPS1 a.cntPagingBlockNav:visited {
+    display: inline-block;
+    margin: 0 2px;
+    color: #666;
+    text-align: center;
+    width: 25px;
+    height: 25px
+}
+
+.cntPS1 a.cntPagingBlockNav:hover,.cntPS1 a.cntPagingBlockNavSelected:hover {
+    background-color: #eaeaea;
+    text-decoration: none;
+    color: #262626
+}
+
+.cntPS1 a.cntPagingBlockNavSelected {
+    font-weight: 700;
+    color: #eb3c00!important
+}
+
+.cntPS1 .cntSearchHeading,.cntPS1 .cntSearchHeadingNoResults {
+    font-size: 1.4em;
+    color: #898989;
+    font-weight: 400;
+    display: inline-block;
+    line-height: 1.1em
+}
+
+.cntPS1 .cntSearchHeading {
+    margin: 0 0 10px
+}
+
+.cntPS1 .cntSearchHeadText {
+    color: #666
+}
+
+.cntPS1 .cntSearchDidYouMeanText {
+    color: #999
+}
+
+.cntPS1 .cntSearchDidYouMeanTerm {
+    color: #04c
+}
+
+.cntPS1 .cntSearchDidYouMeanTerm:visited {
+    color: #6633b3
+}
+
+.cntPS1 .cdSearchTermHighlight:visited,.cntPS1 .cntSearchTermHighlight {
+    color: #101010
+}
+
+.cntPS1 .cntSearchTermHighlight:hover {
+    color: #04c
+}
+
+.cntPS1 .cntSearchHeadSeparator {
+    margin-right: 4px;
+    margin-left: 8px
+}
+
+.cntPS1 .cntSearchHeadText>a.cntPSMeta1,.cntPS1 .cntSearchHeadingNoResults>span.cntPSMeta1 {
+    font-size: 1em;
+    line-height: 1.1em
+}
+
+.cntPS1 .cntSearchPlatterHr {
+    margin: 0
+}
+
+.cntGSContainer20,.cntGSContainer24 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 940px;
+    float: left
+}
+
+.cntGSFluid20,.cntGSFluid24 {
+    margin-left: 0;
+    margin-right: auto;
+    width: 98%;
+    min-width: 940px;
+    max-width: 1600px
+}
+
+.cntGSCV {
+    margin-left: auto;
+    margin-right: auto;
+    width: 345px
+}
+
+.cntGSGrid1,.cntGSGrid10,.cntGSGrid11,.cntGSGrid12,.cntGSGrid13,.cntGSGrid14,.cntGSGrid15,.cntGSGrid16,.cntGSGrid17,.cntGSGrid18,.cntGSGrid19,.cntGSGrid2,.cntGSGrid20,.cntGSGrid21,.cntGSGrid22,.cntGSGrid23,.cntGSGrid24,.cntGSGrid3,.cntGSGrid4,.cntGSGrid5,.cntGSGrid6,.cntGSGrid7,.cntGSGrid8,.cntGSGrid9 {
+    display: inline;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px
+}
+
+.cntGSCV .cntGSGrid1,.cntGSCV .cntGSGrid2,.cntGSCV .cntGSGrid3,.cntGSCV .cntGSGrid4,.cntGSCV .cntGSGrid5,.cntGSCV .cntGSGrid6 {
+    display: inline;
+    float: left;
+    margin-left: 8px;
+    margin-right: 7px
+}
+
+.cntGSLeft1,.cntGSLeft10,.cntGSLeft11,.cntGSLeft12,.cntGSLeft13,.cntGSLeft14,.cntGSLeft15,.cntGSLeft16,.cntGSLeft17,.cntGSLeft18,.cntGSLeft19,.cntGSLeft2,.cntGSLeft20,.cntGSLeft21,.cntGSLeft22,.cntGSLeft23,.cntGSLeft24,.cntGSLeft3,.cntGSLeft4,.cntGSLeft5,.cntGSLeft6,.cntGSLeft7,.cntGSLeft8,.cntGSLeft9,.cntGSRight1,.cntGSRight10,.cntGSRight11,.cntGSRight12,.cntGSRight13,.cntGSRight14,.cntGSRight15,.cntGSRight16,.cntGSRight17,.cntGSRight18,.cntGSRight19,.cntGSRight2,.cntGSRight20,.cntGSRight21,.cntGSRight22,.cntGSRight23,.cntGSRight24,.cntGSRight3,.cntGSRight4,.cntGSRight5,.cntGSRight6,.cntGSRight7,.cntGSRight8,.cntGSRight9 {
+    position: relative
+}
+
+.cntGSFluid20 .cntGSGrid1,.cntGSFluid20 .cntGSGrid10,.cntGSFluid20 .cntGSGrid11,.cntGSFluid20 .cntGSGrid12,.cntGSFluid20 .cntGSGrid13,.cntGSFluid20 .cntGSGrid14,.cntGSFluid20 .cntGSGrid15,.cntGSFluid20 .cntGSGrid16,.cntGSFluid20 .cntGSGrid17,.cntGSFluid20 .cntGSGrid18,.cntGSFluid20 .cntGSGrid19,.cntGSFluid20 .cntGSGrid2,.cntGSFluid20 .cntGSGrid20,.cntGSFluid20 .cntGSGrid21,.cntGSFluid20 .cntGSGrid22,.cntGSFluid20 .cntGSGrid23,.cntGSFluid20 .cntGSGrid24,.cntGSFluid20 .cntGSGrid3,.cntGSFluid20 .cntGSGrid4,.cntGSFluid20 .cntGSGrid5,.cntGSFluid20 .cntGSGrid6,.cntGSFluid20 .cntGSGrid7,.cntGSFluid20 .cntGSGrid8,.cntGSFluid20 .cntGSGrid9,.cntGSFluid24 .cntGSGrid1,.cntGSFluid24 .cntGSGrid10,.cntGSFluid24 .cntGSGrid11,.cntGSFluid24 .cntGSGrid12,.cntGSFluid24 .cntGSGrid13,.cntGSFluid24 .cntGSGrid14,.cntGSFluid24 .cntGSGrid15,.cntGSFluid24 .cntGSGrid16,.cntGSFluid24 .cntGSGrid17,.cntGSFluid24 .cntGSGrid18,.cntGSFluid24 .cntGSGrid19,.cntGSFluid24 .cntGSGrid2,.cntGSFluid24 .cntGSGrid20,.cntGSFluid24 .cntGSGrid21,.cntGSFluid24 .cntGSGrid22,.cntGSFluid24 .cntGSGrid23,.cntGSFluid24 .cntGSGrid24,.cntGSFluid24 .cntGSGrid3,.cntGSFluid24 .cntGSGrid4,.cntGSFluid24 .cntGSGrid5,.cntGSFluid24 .cntGSGrid6,.cntGSFluid24 .cntGSGrid7,.cntGSFluid24 .cntGSGrid8,.cntGSFluid24 .cntGSGrid9 {
+    margin-left: 1%;
+    margin-right: 1%
+}
+
+.cntGSContainer20 .cntGSFirst,.cntGSContainer24 .cntGSFirst {
+    margin-left: 0
+}
+
+.cntGSCV .cntGSFirst {
+    margin-left: 0!important
+}
+
+.cntGSContainer20 .cntGSLast,.cntGSContainer24 .cntGSLast {
+    margin-right: 0
+}
+
+.cntGSCV .cntGSLast {
+    margin-right: 0!important
+}
+
+.cntGSContainer20 .cntGSZero,.cntGSContainer24 .cntGSZero {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    border: 0
+}
+
+.cntGSCV .cntGSZero {
+    margin-left: 0!important;
+    margin-right: 0!important;
+    padding: 0;
+    border: 0
+}
+
+.cntGSFluid20 .cntGSFirst,.cntGSFluid24 .cntGSFirst {
+    margin-left: 0
+}
+
+.cntGSFluid20 .cntGSLast,.cntGSFluid24 .cntGSLast {
+    margin-right: 0
+}
+
+.cntGSFluid20 .cntGSOverflow,.cntGSFluid24 .cntGSOverflow {
+    overflow: hidden
+}
+
+.cntGSContainer20 .cntGSGrid1 {
+    width: 28px
+}
+
+.cntGSContainer20 .cntGSGrid2 {
+    width: 76px
+}
+
+.cntGSContainer20 .cntGSGrid3 {
+    width: 124px
+}
+
+.cntGSContainer20 .cntGSGrid4 {
+    width: 172px
+}
+
+.cntGSContainer20 .cntGSGrid5 {
+    width: 220px
+}
+
+.cntGSContainer20 .cntGSGrid6 {
+    width: 268px
+}
+
+.cntGSContainer20 .cntGSGrid7 {
+    width: 316px
+}
+
+.cntGSContainer20 .cntGSGrid8 {
+    width: 364px
+}
+
+.cntGSContainer20 .cntGSGrid9 {
+    width: 412px
+}
+
+.cntGSContainer20 .cntGSGrid10 {
+    width: 460px
+}
+
+.cntGSContainer20 .cntGSGrid11 {
+    width: 508px
+}
+
+.cntGSContainer20 .cntGSGrid12 {
+    width: 556px
+}
+
+.cntGSContainer20 .cntGSGrid13 {
+    width: 604px
+}
+
+.cntGSContainer20 .cntGSGrid14 {
+    width: 652px
+}
+
+.cntGSContainer20 .cntGSGrid15 {
+    width: 700px
+}
+
+.cntGSContainer20 .cntGSGrid16 {
+    width: 748px
+}
+
+.cntGSContainer20 .cntGSGrid17 {
+    width: 796px
+}
+
+.cntGSContainer20 .cntGSGrid18 {
+    width: 844px
+}
+
+.cntGSContainer20 .cntGSGrid19 {
+    width: 892px
+}
+
+.cntGSContainer20 .cntGSGrid20 {
+    width: 940px;
+    margin-right: 0;
+    margin-left: 0
+}
+
+.cntGSContainer20 .cntGSLeft1 {
+    left: 48px
+}
+
+.cntGSContainer20 .cntGSLeft2 {
+    left: 96px
+}
+
+.cntGSContainer20 .cntGSLeft3 {
+    left: 144px
+}
+
+.cntGSContainer20 .cntGSLeft4 {
+    left: 192px
+}
+
+.cntGSContainer20 .cntGSLeft5 {
+    left: 240px
+}
+
+.cntGSContainer20 .cntGSLeft6 {
+    left: 288px
+}
+
+.cntGSContainer20 .cntGSLeft7 {
+    left: 336px
+}
+
+.cntGSContainer20 .cntGSLeft8 {
+    left: 384px
+}
+
+.cntGSContainer20 .cntGSLeft9 {
+    left: 432px
+}
+
+.cntGSContainer20 .cntGSLeft10 {
+    left: 480px
+}
+
+.cntGSContainer20 .cntGSLeft11 {
+    left: 528px
+}
+
+.cntGSContainer20 .cntGSLeft12 {
+    left: 576px
+}
+
+.cntGSContainer20 .cntGSLeft13 {
+    left: 624px
+}
+
+.cntGSContainer20 .cntGSLeft14 {
+    left: 672px
+}
+
+.cntGSContainer20 .cntGSLeft15 {
+    left: 720px
+}
+
+.cntGSContainer20 .cntGSLeft16 {
+    left: 768px
+}
+
+.cntGSContainer20 .cntGSLeft17 {
+    left: 816px
+}
+
+.cntGSContainer20 .cntGSLeft18 {
+    left: 864px
+}
+
+.cntGSContainer20 .cntGSLeft19 {
+    left: 912px
+}
+
+.cntGSContainer20 .cntGSRight1 {
+    left: -48px
+}
+
+.cntGSContainer20 .cntGSRight2 {
+    left: -96px
+}
+
+.cntGSContainer20 .cntGSRight3 {
+    left: -144px
+}
+
+.cntGSContainer20 .cntGSRight4 {
+    left: -192px
+}
+
+.cntGSContainer20 .cntGSRight5 {
+    left: -240px
+}
+
+.cntGSContainer20 .cntGSRight6 {
+    left: -288px
+}
+
+.cntGSContainer20 .cntGSRight7 {
+    left: -336px
+}
+
+.cntGSContainer20 .cntGSRight8 {
+    left: -384px
+}
+
+.cntGSContainer20 .cntGSRight9 {
+    left: -432px
+}
+
+.cntGSContainer20 .cntGSRight10 {
+    left: -480px
+}
+
+.cntGSContainer20 .cntGSRight11 {
+    left: -528px
+}
+
+.cntGSContainer20 .cntGSRight12 {
+    left: -576px
+}
+
+.cntGSContainer20 .cntGSRight13 {
+    left: -624px
+}
+
+.cntGSContainer20 .cntGSRight14 {
+    left: -672px
+}
+
+.cntGSContainer20 .cntGSRight15 {
+    left: -720px
+}
+
+.cntGSContainer20 .cntGSRight16 {
+    left: -768px
+}
+
+.cntGSContainer20 .cntGSRight17 {
+    left: -816px
+}
+
+.cntGSContainer20 .cntGSRight18 {
+    left: -864px
+}
+
+.cntGSContainer20 .cntGSRight19 {
+    left: -912px
+}
+
+.cntGSContainer24 .cntGSGrid1 {
+    width: 20px
+}
+
+.cntGSContainer24 .cntGSGrid2 {
+    width: 60px
+}
+
+.cntGSContainer24 .cntGSGrid3 {
+    width: 100px
+}
+
+.cntGSContainer24 .cntGSGrid4 {
+    width: 140px
+}
+
+.cntGSContainer24 .cntGSGrid5 {
+    width: 180px
+}
+
+.cntGSContainer24 .cntGSGrid6 {
+    width: 220px
+}
+
+.cntGSContainer24 .cntGSGrid7 {
+    width: 260px
+}
+
+.cntGSContainer24 .cntGSGrid8 {
+    width: 300px
+}
+
+.cntGSContainer24 .cntGSGrid9 {
+    width: 340px
+}
+
+.cntGSContainer24 .cntGSGrid10 {
+    width: 380px
+}
+
+.cntGSContainer24 .cntGSGrid11 {
+    width: 420px
+}
+
+.cntGSContainer24 .cntGSGrid12 {
+    width: 460px
+}
+
+.cntGSContainer24 .cntGSGrid13 {
+    width: 500px
+}
+
+.cntGSContainer24 .cntGSGrid14 {
+    width: 540px
+}
+
+.cntGSContainer24 .cntGSGrid15 {
+    width: 580px
+}
+
+.cntGSContainer24 .cntGSGrid16 {
+    width: 620px
+}
+
+.cntGSContainer24 .cntGSGrid17 {
+    width: 660px
+}
+
+.cntGSContainer24 .cntGSGrid18 {
+    width: 700px
+}
+
+.cntGSContainer24 .cntGSGrid19 {
+    width: 740px
+}
+
+.cntGSContainer24 .cntGSGrid20 {
+    width: 780px
+}
+
+.cntGSContainer24 .cntGSGrid21 {
+    width: 820px
+}
+
+.cntGSContainer24 .cntGSGrid22 {
+    width: 860px
+}
+
+.cntGSContainer24 .cntGSGrid23 {
+    width: 900px
+}
+
+.cntGSContainer24 .cntGSGrid24 {
+    width: 940px;
+    margin-right: 0;
+    margin-left: 0
+}
+
+.cntGSContainer24 .cntGSLeft1 {
+    left: 40px
+}
+
+.cntGSContainer24 .cntGSLeft2 {
+    left: 80px
+}
+
+.cntGSContainer24 .cntGSLeft3 {
+    left: 120px
+}
+
+.cntGSContainer24 .cntGSLeft4 {
+    left: 160px
+}
+
+.cntGSContainer24 .cntGSLeft5 {
+    left: 200px
+}
+
+.cntGSContainer24 .cntGSLeft6 {
+    left: 240px
+}
+
+.cntGSContainer24 .cntGSLeft7 {
+    left: 280px
+}
+
+.cntGSContainer24 .cntGSLeft8 {
+    left: 320px
+}
+
+.cntGSContainer24 .cntGSLeft9 {
+    left: 360px
+}
+
+.cntGSContainer24 .cntGSLeft10 {
+    left: 400px
+}
+
+.cntGSContainer24 .cntGSLeft11 {
+    left: 440px
+}
+
+.cntGSContainer24 .cntGSLeft12 {
+    left: 480px
+}
+
+.cntGSContainer24 .cntGSLeft13 {
+    left: 520px
+}
+
+.cntGSContainer24 .cntGSLeft14 {
+    left: 560px
+}
+
+.cntGSContainer24 .cntGSLeft15 {
+    left: 600px
+}
+
+.cntGSContainer24 .cntGSLeft16 {
+    left: 640px
+}
+
+.cntGSContainer24 .cntGSLeft17 {
+    left: 680px
+}
+
+.cntGSContainer24 .cntGSLeft18 {
+    left: 720px
+}
+
+.cntGSContainer24 .cntGSLeft19 {
+    left: 760px
+}
+
+.cntGSContainer24 .cntGSLeft20 {
+    left: 800px
+}
+
+.cntGSContainer24 .cntGSLeft21 {
+    left: 840px
+}
+
+.cntGSContainer24 .cntGSLeft22 {
+    left: 880px
+}
+
+.cntGSContainer24 .cntGSLeft23 {
+    left: 920px
+}
+
+.cntGSContainer24 .cntGSRight1 {
+    left: -40px
+}
+
+.cntGSContainer24 .cntGSRight2 {
+    left: -80px
+}
+
+.cntGSContainer24 .cntGSRight3 {
+    left: -120px
+}
+
+.cntGSContainer24 .cntGSRight4 {
+    left: -160px
+}
+
+.cntGSContainer24 .cntGSRight5 {
+    left: -200px
+}
+
+.cntGSContainer24 .cntGSRight6 {
+    left: -240px
+}
+
+.cntGSContainer24 .cntGSRight7 {
+    left: -280px
+}
+
+.cntGSContainer24 .cntGSRight8 {
+    left: -320px
+}
+
+.cntGSContainer24 .cntGSRight9 {
+    left: -360px
+}
+
+.cntGSContainer24 .cntGSRight10 {
+    left: -400px
+}
+
+.cntGSContainer24 .cntGSRight11 {
+    left: -440px
+}
+
+.cntGSContainer24 .cntGSRight12 {
+    left: -480px
+}
+
+.cntGSContainer24 .cntGSRight13 {
+    left: -520px
+}
+
+.cntGSContainer24 .cntGSRight14 {
+    left: -560px
+}
+
+.cntGSContainer24 .cntGSRight15 {
+    left: -600px
+}
+
+.cntGSContainer24 .cntGSRight16 {
+    left: -640px
+}
+
+.cntGSContainer24 .cntGSRight17 {
+    left: -680px
+}
+
+.cntGSContainer24 .cntGSRight18 {
+    left: -720px
+}
+
+.cntGSContainer24 .cntGSRight19 {
+    left: -760px
+}
+
+.cntGSContainer24 .cntGSRight20 {
+    left: -800px
+}
+
+.cntGSContainer24 .cntGSRight21 {
+    left: -840px
+}
+
+.cntGSContainer24 .cntGSRight22 {
+    left: -880px
+}
+
+.cntGSContainer24 .cntGSRight23 {
+    left: -920px
+}
+
+.cntGSFluid20 .cntGSGrid1 {
+    width: 3.1%
+}
+
+.cntGSFluid20 .cntGSGrid2 {
+    width: 8.2%
+}
+
+.cntGSFluid20 .cntGSGrid3 {
+    width: 13.3%
+}
+
+.cntGSFluid20 .cntGSGrid4 {
+    width: 18.4%
+}
+
+.cntGSFluid20 .cntGSGrid5 {
+    width: 23.5%
+}
+
+.cntGSFluid20 .cntGSGrid6 {
+    width: 28.6%
+}
+
+.cntGSFluid20 .cntGSGrid7 {
+    width: 33.7%
+}
+
+.cntGSFluid20 .cntGSGrid8 {
+    width: 38.8%
+}
+
+.cntGSFluid20 .cntGSGrid9 {
+    width: 43.9%
+}
+
+.cntGSFluid20 .cntGSGrid10 {
+    width: 49%
+}
+
+.cntGSFluid20 .cntGSGrid11 {
+    width: 54.1%
+}
+
+.cntGSFluid20 .cntGSGrid12 {
+    width: 59.2%
+}
+
+.cntGSFluid20 .cntGSGrid13 {
+    width: 64.3%
+}
+
+.cntGSFluid20 .cntGSGrid14 {
+    width: 69.4%
+}
+
+.cntGSFluid20 .cntGSGrid15 {
+    width: 74.5%
+}
+
+.cntGSFluid20 .cntGSGrid16 {
+    width: 79.6%
+}
+
+.cntGSFluid20 .cntGSGrid17 {
+    width: 84.7%
+}
+
+.cntGSFluid20 .cntGSGrid18 {
+    width: 89.8%
+}
+
+.cntGSFluid20 .cntGSGrid19 {
+    width: 94.9%
+}
+
+.cntGSFluid20 .cntGSGrid20 {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0
+}
+
+.cntGSFluid24 .cntGSGrid1 {
+    width: 2.25%
+}
+
+.cntGSFluid24 .cntGSGrid2 {
+    width: 6.5%
+}
+
+.cntGSFluid24 .cntGSGrid3 {
+    width: 10.75%
+}
+
+.cntGSFluid24 .cntGSGrid4 {
+    width: 15%
+}
+
+.cntGSFluid24 .cntGSGrid5 {
+    width: 19.25%
+}
+
+.cntGSFluid24 .cntGSGrid6 {
+    width: 23.5%
+}
+
+.cntGSFluid24 .cntGSGrid7 {
+    width: 27.75%
+}
+
+.cntGSFluid24 .cntGSGrid8 {
+    width: 32%
+}
+
+.cntGSFluid24 .cntGSGrid9 {
+    width: 36.25%
+}
+
+.cntGSFluid24 .cntGSGrid10 {
+    width: 40.5%
+}
+
+.cntGSFluid24 .cntGSGrid11 {
+    width: 44.75%
+}
+
+.cntGSFluid24 .cntGSGrid12 {
+    width: 49%
+}
+
+.cntGSFluid24 .cntGSGrid13 {
+    width: 53.25%
+}
+
+.cntGSFluid24 .cntGSGrid14 {
+    width: 57.5%
+}
+
+.cntGSFluid24 .cntGSGrid15 {
+    width: 61.75%
+}
+
+.cntGSFluid24 .cntGSGrid16 {
+    width: 66%
+}
+
+.cntGSFluid24 .cntGSGrid17 {
+    width: 70.25%
+}
+
+.cntGSFluid24 .cntGSGrid18 {
+    width: 74.5%
+}
+
+.cntGSFluid24 .cntGSGrid19 {
+    width: 78.75%
+}
+
+.cntGSFluid24 .cntGSGrid20 {
+    width: 83%
+}
+
+.cntGSFluid24 .cntGSGrid21 {
+    width: 87.25%
+}
+
+.cntGSFluid24 .cntGSGrid22 {
+    width: 91.5%
+}
+
+.cntGSFluid24 .cntGSGrid23 {
+    width: 95.75%
+}
+
+.cntGSFluid24 .cntGSGrid24 {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0
+}
+
+.cntGSVert5 {
+    display: block;
+    height: 5px
+}
+
+.cntGSVert10 {
+    display: block;
+    height: 10px
+}
+
+.cntGSVert15 {
+    display: block;
+    height: 15px
+}
+
+.cntGSVert20 {
+    display: block;
+    height: 20px
+}
+
+.cntGSVert25 {
+    display: block;
+    height: 25px
+}
+
+.cntGSVert30 {
+    display: block;
+    height: 30px
+}
+
+.cntGSVert35 {
+    display: block;
+    height: 35px
+}
+
+.cntGSVert40 {
+    display: block;
+    height: 40px
+}
+
+.cntGSVert45 {
+    display: block;
+    height: 45px
+}
+
+.cntGSVert50 {
+    display: block;
+    height: 50px
+}
+
+.cntGSPad5 {
+    padding: 5px
+}
+
+.cntGSPad10 {
+    padding: 10px
+}
+
+.cntGSPad15 {
+    padding: 15px
+}
+
+.cntGSPad20 {
+    padding: 20px
+}
+
+.cntGSPad25 {
+    padding: 25px
+}
+
+.cntGSPad30 {
+    padding: 30px
+}
+
+.cntGSPad35 {
+    padding: 35px
+}
+
+.cntGSPad40 {
+    padding: 40px
+}
+
+.cntGSMar5 {
+    margin: 5px
+}
+
+.cntGSMar10 {
+    margin: 10px
+}
+
+.cntGSMar15 {
+    margin: 15px
+}
+
+.cntGSMar20 {
+    margin: 20px
+}
+
+.cntGSMar25 {
+    margin: 25px
+}
+
+.cntGSMar30 {
+    margin: 30px
+}
+
+.cntGSMar35 {
+    margin: 35px
+}
+
+.cntGSMar40 {
+    margin: 40px
+}
+
+.cntGSBotMarg5 {
+    margin-bottom: 5px
+}
+
+.cntGSBotMarg10 {
+    margin-bottom: 10px
+}
+
+.cntGSBotMarg15 {
+    margin-bottom: 15px
+}
+
+.cntGSCV .cntGSGrid1 {
+    margin-left: 0;
+    margin-right: 0;
+    width: 45px
+}
+
+.cntGSCV .cntGSGrid2 {
+    width: 105px
+}
+
+.cntGSCV .cntGSGrid3 {
+    width: 165px
+}
+
+.cntGSCV .cntGSGrid4 {
+    width: 225px
+}
+
+.cntGSCV .cntGSGrid5 {
+    width: 285px
+}
+
+.cntGSCV .cntGSGrid6 {
+    width: 345px
+}
+
+.cntGSPH0005,.cntGSPH0010,.cntGSPH0015,.cntGSPH0020 {
+    padding-left: 0
+}
+
+.cntGSPH0005,.cntGSPH0505,.cntGSPH1005,.cntGSPH1505,.cntGSPH2005 {
+    padding-right: 5px
+}
+
+.cntGSPH0010,.cntGSPH0510,.cntGSPH1010,.cntGSPH1510,.cntGSPH2010 {
+    padding-right: 10px
+}
+
+.cntGSPH0015,.cntGSPH0515,.cntGSPH1015,.cntGSPH1515,.cntGSPH2015 {
+    padding-right: 15px
+}
+
+.cntGSPH0020,.cntGSPH0520,.cntGSPH1020,.cntGSPH1520,.cntGSPH2020 {
+    padding-right: 20px
+}
+
+.cntGSPH0500,.cntGSPH0505,.cntGSPH0510,.cntGSPH0515,.cntGSPH0520 {
+    padding-left: 5px
+}
+
+.cntGSPH0500,.cntGSPH1000,.cntGSPH1500,.cntGSPH2000 {
+    padding-right: 0
+}
+
+.cntGSPH1000,.cntGSPH1005,.cntGSPH1010,.cntGSPH1015,.cntGSPH1020 {
+    padding-left: 10px
+}
+
+.cntGSPH1500,.cntGSPH1505,.cntGSPH1510,.cntGSPH1515,.cntGSPH1520 {
+    padding-left: 15px
+}
+
+.cntGSPH2000,.cntGSPH2005,.cntGSPH2010,.cntGSPH2015,.cntGSPH2020 {
+    padding-left: 20px
+}
+
+.cntGSPV0000,.cntGSPV0005,.cntGSPV0010,.cntGSPV0015,.cntGSPV0020,.cntGSPV0030 {
+    padding-top: 0
+}
+
+.cntGSPV0000,.cntGSPV0500,.cntGSPV1000,.cntGSPV1500,.cntGSPV2000 {
+    padding-bottom: 0
+}
+
+.cntGSPV0005,.cntGSPV0505,.cntGSPV1005,.cntGSPV1505,.cntGSPV2005 {
+    padding-bottom: 5px
+}
+
+.cntGSPV0010,.cntGSPV0510,.cntGSPV1010,.cntGSPV1510,.cntGSPV2010 {
+    padding-bottom: 10px
+}
+
+.cntGSPV0015,.cntGSPV0515,.cntGSPV1015,.cntGSPV1515,.cntGSPV2015 {
+    padding-bottom: 15px
+}
+
+.cntGSPV0020,.cntGSPV0520,.cntGSPV1020,.cntGSPV1520,.cntGSPV2020 {
+    padding-bottom: 20px
+}
+
+.cntGSPV0030 {
+    padding-bottom: 30px
+}
+
+.cntGSPV0500,.cntGSPV0505,.cntGSPV0510,.cntGSPV0515,.cntGSPV0520 {
+    padding-top: 5px
+}
+
+.cntGSPV1000,.cntGSPV1005,.cntGSPV1010,.cntGSPV1015,.cntGSPV1020 {
+    padding-top: 10px
+}
+
+.cntGSPV1500,.cntGSPV1505,.cntGSPV1510,.cntGSPV1515,.cntGSPV1520 {
+    padding-top: 15px
+}
+
+.cntGSPV2000,.cntGSPV2005,.cntGSPV2010,.cntGSPV2015,.cntGSPV2020 {
+    padding-top: 20px
+}
+
+.cntGSMH0005,.cntGSMH0010,.cntGSMH0015,.cntGSMH0020 {
+    margin-left: 0
+}
+
+.cntGSMH0005,.cntGSMH0505,.cntGSMH1005,.cntGSMH1505,.cntGSMH2005 {
+    margin-right: 5px
+}
+
+.cntGSMH0010,.cntGSMH0510,.cntGSMH1010,.cntGSMH1510,.cntGSMH2010 {
+    margin-right: 10px
+}
+
+.cntGSMH0015,.cntGSMH0515,.cntGSMH1015,.cntGSMH1515,.cntGSMH2015 {
+    margin-right: 15px
+}
+
+.cntGSMH0020,.cntGSMH0520,.cntGSMH1020,.cntGSMH1520,.cntGSMH2020 {
+    margin-right: 20px
+}
+
+.cntGSMH0500,.cntGSMH0505,.cntGSMH0510,.cntGSMH0515,.cntGSMH0520 {
+    margin-left: 5px
+}
+
+.cntGSMH0500,.cntGSMH1000,.cntGSMH1500,.cntGSMH2000 {
+    margin-right: 0
+}
+
+.cntGSMH1000,.cntGSMH1005,.cntGSMH1010,.cntGSMH1015,.cntGSMH1020 {
+    margin-left: 10px
+}
+
+.cntGSMH1500,.cntGSMH1505,.cntGSMH1510,.cntGSMH1515,.cntGSMH1520 {
+    margin-left: 15px
+}
+
+.cntGSMH2000,.cntGSMH2005,.cntGSMH2010,.cntGSMH2015,.cntGSMH2020 {
+    margin-left: 20px
+}
+
+.cntGSMV0000,.cntGSMV0005,.cntGSMV0010,.cntGSMV0015,.cntGSMV0020 {
+    margin-top: 0
+}
+
+.cntGSMV0000,.cntGSMV0500,.cntGSMV1000,.cntGSMV1500,.cntGSMV2000 {
+    margin-bottom: 0
+}
+
+.cntGSMV0005,.cntGSMV0505,.cntGSMV1005,.cntGSMV1505,.cntGSMV2005 {
+    margin-bottom: 5px
+}
+
+.cntGSMV0010,.cntGSMV0510,.cntGSMV1010,.cntGSMV1510,.cntGSMV2010 {
+    margin-bottom: 10px
+}
+
+.cntGSMV0015,.cntGSMV0515,.cntGSMV1015,.cntGSMV1515,.cntGSMV2015 {
+    margin-bottom: 15px
+}
+
+.cntGSMV0020,.cntGSMV0520,.cntGSMV1020,.cntGSMV1520,.cntGSMV2020 {
+    margin-bottom: 20px
+}
+
+.cntGSMV0500,.cntGSMV0505,.cntGSMV0510,.cntGSMV0515,.cntGSMV0520 {
+    margin-top: 5px
+}
+
+.cntGSMV1000,.cntGSMV1005,.cntGSMV1010,.cntGSMV1015,.cntGSMV1020 {
+    margin-top: 10px
+}
+
+.cntGSMV1500,.cntGSMV1505,.cntGSMV1510,.cntGSMV1515,.cntGSMV1520 {
+    margin-top: 15px
+}
+
+.cntGSMV2000,.cntGSMV2005,.cntGSMV2010,.cntGSMV2015,.cntGSMV2020 {
+    margin-top: 20px
+}
+
+.cntGSMV2525 {
+    margin-top: 25px;
+    margin-bottom: 25px
+}
+
+.cntGSMV3030 {
+    margin-top: 30px;
+    margin-bottom: 30px
+}
+
+.cntGSMV3535 {
+    margin-top: 35px;
+    margin-bottom: 35px
+}
+
+.cntGSMV4040 {
+    margin-top: 40px;
+    margin-bottom: 40px
+}
+
+.cntPS1 .ooNavBar {
+    min-height: 30px
+}
+
+.cntPS1 .spnDotSeparator {
+    margin: 0 9px 10px 10px
+}
+
+.cntPS1 div.dvOfficeLogo {
+    margin: 6px 0 0 20px
+}
+
+.cntPS1 .spnOrgWelcome {
+    font-size: 1.3em
+}
+
+.cntPS1 .dvNavBarLinkContainer {
+    min-height: 30px
+}
+
+.cntPS1 .dvNavBarLinks {
+    display: inline-block;
+    vertical-align: top
+}
+
+.cntPS1 .dvNavBarUnauthenticatedLinks {
+    min-height: 30px
+}
+
+.cntPS1 a.ancNavBarLink {
+    display: inline-block;
+    font-size: 1.3em;
+    line-height: 2.2em
+}
+
+.cntPS1 a.ancNavBarLinkLiveId {
+    margin-right: 16px
+}
+
+.cntPS1 .dvNavBarLinksUnauth {
+    margin-left: 20px
+}
+
+.cntPS1 .dvNavBarLinksOrgId {
+    display: inline-block;
+    line-height: 2.2em;
+    padding: 0 10px
+}
+
+.cntPS1 .ancSmileFeedback {
+    display: inline-block;
+    margin-left: 16px
+}
+
+.cntPS1 .imgSmileFeedback {
+    margin: 7px 5px 5px
+}
+
+.cntPS1 .cntPSNavBar365BlueBG {
+    background-color: #0072c6
+}
+
+.cntPS1 .cntPSNavBarDrkGrayBG {
+    background-color: #505050
+}
+
+.cntPS1 .cntPSNavBarLtGrayBG {
+    background-color: #eaecee
+}
+
+.cntPS1 a.cntPSNavBarLtGray:hover {
+    color: #e1e1e1!important;
+    text-decoration: none
+}
+
+.cntPS1 a.cntPSNavBarDrkGray,.cntPS1 a.cntPSNavBarDrkGray:visited {
+    color: #666
+}
+
+.cntPS1 a.cntPSNavBarBlack:hover {
+    color: #262626;
+    text-decoration: none
+}
+
+.cntPS1 .ulMeControlMenuItems,.ulMeControlMenuItems li ul,.ulMeControlMenuItems ul {
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    min-height: 30px;
+    min-width: 165px;
+    padding: 0;
+    text-decoration: none
+}
+
+.cntPS1 .dvMCShadowContainer {
+    display: none;
+    position: absolute;
+    z-index: 200;
+    border: 1px solid #dedede;
+    border-top-width: 0
+}
+
+.cntPS1 .dvMCShadowContainer a {
+    font-size: 1.3em
+}
+
+.cntPS1 .dvMCShadowContainer a span {
+    min-height: 20px;
+    line-height: 2.2em;
+    padding: 5px 5px 5px 10px
+}
+
+.cntPS1 .dvMeControlItemContainer {
+    background-color: #fff
+}
+
+.cntPS1 li.liSubMenu>a {
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    color: #666
+}
+
+.cntPS1 li.liMultiLink>a {
+    width: auto
+}
+
+.cntPS1 .spnMCMultiLinkLast {
+    padding-left: 5px!important
+}
+
+.cntPS1 li.liSubMenu {
+    background-color: #fff;
+    min-height: 30px
+}
+
+.cntPS1 li.liSubMenu:hover {
+    background-color: #eaecee
+}
+
+.cntPS1 li.liSubMenu>a:hover {
+    text-decoration: none;
+    color: #262626
+}
+
+.cntPS1 .spnMenuItemSeparator {
+    height: 1px;
+    background-color: #e8e8e8;
+    display: block
+}
+
+.cntPS1 .spnMarketDivider {
+    width: 10%
+}
+
+.cntPS1 div#dvMeControl {
+    background-color: #eaecee;
+    color: #666;
+    display: inline-block;
+    min-height: 30px
+}
+
+.cntPS1 .imgDownArrow {
+    margin: 0 0 0 5px;
+    padding-bottom: 2px
+}
+
+.cntPS1 .ancWorldWidePageLink {
+    display: inline-block!important
+}
+
+.cntPS1 .ancMarketToggleLink {
+    background: none!important;
+    display: inline-block!important
+}
+
+.cntPS1 ul#ulMeControl {
+    height: 30px;
+    list-style-type: none;
+    margin: 0 auto;
+    padding-left: 0;
+    white-space: nowrap
+}
+
+.cntPS1 li#liMeControl {
+    display: inline-block;
+    margin-left: 16px;
+    height: auto
+}
+
+.cntPS1 a.ancMeControl,.cntPS1 a.ancMeControl:visited {
+    color: #666;
+    display: inline-block;
+    font-size: 1.3em;
+    line-height: 2.3em;
+    vertical-align: top
+}
+
+.cntPS1 a.ancMeControl:hover {
+    color: #262626;
+    text-decoration: none
+}
+
+.cdclr {
+    clear: both;
+    height: 0;
+    visibility: hidden;
+    line-height: 0
+}
+
+div#cdnavcontbck {
+    background-color: #fff;
+    width: 100%
+}
+
+div#cdnavcontainer {
+    padding: 0;
+    margin-bottom: 13px;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both
+}
+
+a.skiptocontent,div#cdnavcontainer div#cdskiptomain {
+    position: absolute;
+    left: 0;
+    top: -500px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden
+}
+
+div#cdCntPane {
+    width: 940px;
+    margin: 25px 0 15px 20px
+}
+
+.cntPS1 a.cdtopn,.cntPS1 a:visited.cdtopn {
+    color: #3b3b3b
+}
+
+.cntPS1 a:hover.cdtopn {
+    color: #b1b1b1;
+    text-decoration: none
+}
+
+div#cdtabarea {
+    margin-left: 20px
+}
+
+ul#cdtoptabs {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 951px;
+    white-space: nowrap
+}
+
+ul#cdtoptabs li.cdclr {
+    margin-top: -1.2em
+}
+
+ul#cdtoptabs li.cdtopn {
+    display: inline-block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    width: auto
+}
+
+ul#cdtoptabs li.cdtopn a {
+    display: block;
+    padding: 0;
+    margin-right: 20px
+}
+
+ul#cdtoptabs li.cdtopn.cdselected a {
+    color: #eb3c00;
+    text-decoration: none;
+    border-bottom: 1px solid #fff
+}
+
+ul#cdtoptabs li.cdtopn.cdselected365 a {
+    color: #0072c6!important;
+    border-bottom: 1px solid #fff
+}
+
+ul#cdtoptabs li.cdtopn a span.cdtopnancbeta {
+    position: relative;
+    top: -13px;
+    left: -21px
+}
+
+ul#cdtoptabs li.cdtopn a span.cdtopnavitem {
+    line-height: 1.2em
+}
+
+div#cdcontent {
+    padding: 0 10px;
+    min-height: 400px;
+    height: auto!important;
+    height: 400px
+}
+
+div#cdopffooter {
+    width: 950px;
+    margin: 0 auto
+}
+
+div#cdopffooter div {
+    float: left
+}
+
+div#cdopffooter span {
+    float: right
+}
+
+div#cdovfooter ul#cdfooterlinks {
+    float: left
+}
+
+div#cdovfooter ul#cdfooterlinks li {
+    margin-right: 15px;
+    margin-left: 0
+}
+
+div#cdovfooter span#cdmicrosoftfooterlink {
+    float: right
+}
+
+ul.cdnavlist {
+    list-style-type: none
+}
+
+ul.cdnavlist li {
+    display: inline
+}
+
+a#cdmainc {
+    float: right;
+    visibility: hidden;
+    width: 1px;
+    height: 1px;
+    overflow: hidden
+}
+
+div#cdBotBod {
+    clear: both;
+    height: 30px
+}
+
+.dvNotificationBar {
+    display: none;
+    width: 100%;
+    min-height: 54px;
+    margin-bottom: 15px
+}
+
+.dvNBODCOverride {
+    min-height: 32px
+}
+
+.dvNBAlert,.dvNBODC {
+    background-color: #fff19d;
+    border: 1px solid #d7d889
+}
+
+.dvNBError {
+    background-color: #f8d4d4;
+    border: 1px solid #f5a6a7
+}
+
+.dvNBInfo {
+    background-color: #dbe5f1;
+    border: 1px solid #aeb3c2
+}
+
+.dvNBAlert,.dvNBError,.dvNBInfo {
+    font-size: 1.6em;
+    margin-bottom: 5px
+}
+
+.dvNBODC {
+    font-size: 1.5em;
+    margin-bottom: 5px
+}
+
+.spnNBIcon {
+    display: table-cell;
+    padding: 11px 17px 6px 11px;
+    vertical-align: top
+}
+
+.spnMessageContainer {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%
+}
+
+.dvNBODC .spnNBTitle {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 17px 0 14px;
+    color: #4c4c4c;
+    font-weight: 700;
+    text-transform: uppercase
+}
+
+.dvNBAlert .spnNBMessage,.dvNBError .spnNBMessage,.dvNBInfo .spnNBMessage,.dvNBODC .spnNBMessage {
+    display: table-cell;
+    vertical-align: middle;
+    color: #4c4c4c
+}
+
+.dvNBAlert .ancNBHyperlink,.dvNBError .ancNBHyperlink,.dvNBInfo .ancNBHyperlink,.dvNBODC .ancNBHyperlink {
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 15px
+}
+
+.dvNBAlert .ancNBHyperlink,.dvNBODC .ancNBHyperlink {
+    color: #695900
+}
+
+.dvNBError .ancNBHyperlink {
+    color: #7f2626
+}
+
+.dvNBInfo .ancNBHyperlink {
+    color: #125ab2
+}
+
+.dvNBAlert .ancNBHyperlink:hover,.dvNBError .ancNBHyperlink:hover,.dvNBInfo .ancNBHyperlink:hover,.dvNBODC .ancNBHyperlink:hover {
+    color: #04c
+}
+
+.ancNBCloseX {
+    display: table-cell;
+    padding-top: 6px;
+    padding-right: 6px
+}
+
+.oxbtn.disabled {
+    cursor: default
+}
+
+.oxbtngreen.disabled,.oxbtngreen.disabled:hover {
+    background-color: #a0d19b;
+    border: 1px solid #a0d19b;
+    color: #fff
+}
+
+.oxbtngrey.disabled,.oxbtngrey.disabled:hover {
+    background-color: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    color: #b5b5b5
+}
+
+.oxbtnblue {
+    background-color: #6dc2e9;
+    border: 1px solid #6dc2e9;
+    color: #373737
+}
+
+.oxbtnblue.disabled,.oxbtnblue.disabled:hover {
+    background-color: #c5e7f6;
+    border: 1px solid #c5e7f6;
+    color: #b5b5b5
+}
+
+.oxbtnyellow {
+    background-color: #fcd116;
+    border: 1px solid #fcd116;
+    color: #373737
+}
+
+.oxbtnyellow.disabled,.oxbtnyellow.disabled:hover {
+    background-color: #feeda2;
+    border: 1px solid #feeda2;
+    color: #b5b5b5
+}
+
+.oxbtnwhite {
+    background-color: #fff;
+    border: 1px solid #898989;
+    color: #505050
+}
+
+.oxbtnwhite.disabled,.oxbtnwhite.disabled:hover {
+    background-color: #fff;
+    border: 1px solid #b8b8b8;
+    color: #b5b5b5
+}
+
+form button.oxbtnlarge {
+    font-size: 2.4em;
+    line-height: 47px;
+    min-width: 100px;
+    padding: 0 20px
+}
+
+form button.oxbtnsmall {
+    font-size: 1.4em;
+    line-height: 25px;
+    min-width: 65px;
+    padding: 0 16px
+}
+
+.oxbtnleftgrp {
+    float: left
+}
+
+.oxbtnleftgrp>* {
+    margin-right: 25px
+}
+
+.oxnot {
+    color: #4c4c4c;
+    font-family: 'Segoe UI',Arial,sans-serif;
+    line-height: 20px;
+    position: relative
+}
+
+.oxpagenot {
+    margin: auto;
+    width: 800px
+}
+
+.oxnotalert {
+    border: 1px solid #d7d889
+}
+
+.oxnoterror {
+    border: 1px solid #f5a6a7
+}
+
+.oxnotinfo {
+    border: 1px solid #aeb3c2
+}
+
+.oxnotalert a,.oxnoterror a,.oxnotinfo a {
+    margin-left: 15px
+}
+
+.oxnotalert a:hover,.oxnoterror a:hover,.oxnotinfo a:hover {
+    text-decoration: underline
+}
+
+.oxnotalert a {
+    color: #695900
+}
+
+.oxnoterror a {
+    color: #7f2626
+}
+
+.oxnotinfo a {
+    color: #125ab2
+}
+
+.oxnotcontentwrp {
+    display: table
+}
+
+.oxnoticonwrp {
+    display: table-cell;
+    vertical-align: middle
+}
+
+.oxnoticonwrp img {
+    height: 32px;
+    margin: 0 11px;
+    width: 32px
+}
+
+.oxnotmsgwrp {
+    display: table;
+    height: 35px
+}
+
+.oxnotmsgwrp a {
+    text-decoration: underline
+}
+
+.oxnotmsgwrp>div {
+    display: table-cell;
+    vertical-align: middle
+}
+
+.oxnotcloseiconwrp {
+    left: auto;
+    right: 2px;
+    position: absolute;
+    top: -2px
+}
+
+.oxnotcloseiconwrp button {
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    background: 0 0
+}
+
+.oxsep {
+    clear: both
+}
+
+form#aspnetForm .oxhidden {
+    display: none
+}
+
+.oxnarratoronly {
+    position: fixed;
+    top: -100px;
+    width: 1000%
+}
+
+div#debug {
+    color: #989597;
+    font-family: 'Segoe UI',Arial,sans-serif;
+    font-size: 1.2em;
+    left: 10px;
+    position: relative;
+    top: 25px
+}
+
+.oxpopanel {
+    margin-top: 20px;
+    font-size: 1.4em
+}
+
+.oxpopanel .oxpoarrow {
+    width: 240px;
+    height: 12px;
+    z-index: 10;
+    cursor: pointer;
+    text-align: center
+}
+
+.oxpolist {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #f2f2f2;
+    line-height: 20px;
+    height: 505px;
+    width: 940px
+}
+
+.oxpocarousel {
+    float: left;
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+    width: 240px;
+    background-color: transparent
+}
+
+.oxpocarousel .oxpoinnerlist {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    top: 0;
+    z-index: 10;
+    width: 240px;
+    height: 440px
+}
+
+.oxpcsinfo {
+    margin-left: 240px;
+    width: 735px;
+    height: 440px;
+    background: #fff;
+    position: relative
+}
+
+div.oxpcsinfonav {
+    font-size: .71em;
+    background: #fff;
+    margin-top: -5px
+}
+
+div.oxpcsinfonav .oxbtngrp {
+    margin-top: 15px;
+    padding: 0 35px
+}
+
+.oxpcschallenge {
+    height: 500px;
+    background: #fff;
+    clear: both;
+    position: relative
+}
+
+.position {
+    position: relative
+}
+
+.oxpocarousel li {
+    margin: 0;
+    padding: 15px 20px;
+    cursor: pointer;
+    height: 56px;
+    width: 200px;
+    overflow: hidden
+}
+
+.oxpocarousel li a {
+    color: #666
+}
+
+.oxpocarousel li.selected {
+    background: #fff;
+    border-left: solid 5px #fcd116;
+    padding-left: 15px
+}
+
+.oxpocarousel li.selected a {
+    color: LINK_DEFAULT_COLOR
+}
+
+.oxpocarousel li.highlight {
+    background-color: #e5e5e5;
+    border-left: solid 5px #505050;
+    padding-left: 15px
+}
+
+.oxpocarousel li.selected .paymentitem {
+    color: #db7100
+}
+
+.oxpocarousel .image {
+    float: left
+}
+
+.oxpocarousel .image img {
+    margin: 5px 0
+}
+
+.oxpocarousel a.oxpoedit {
+    height: 18px;
+    line-height: 18px;
+    display: inline-block;
+    vertical-align: middle
+}
+
+iframe#oxpoiframehost {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden
+}
+
+div#oxpoaddlink a {
+    margin-top: 15px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 1.2em;
+    display: inline-block
+}
+
+.oxpoadd .addimage {
+    padding-right: 5px;
+    height: 17px;
+    vertical-align: bottom;
+    display: inline-block
+}
+
+.oxpoloadcontainer {
+    position: absolute;
+    z-index: 15;
+    margin: 0;
+    top: 0;
+    background: #fff;
+    width: 100%;
+    height: 100%
+}
+
+.oxpoloadcontainer .oxpoloading {
+    position: relative;
+    top: 35%;
+    color: #fff;
+    margin: 0 auto;
+    text-align: center
+}
+
+.oxpoloadcontainer .oxpoposition {
+    top: 50%
+}
+
+.oxpoloadcontainer .oxpoloading .oxpoloadtext {
+    color: #db7100;
+    vertical-align: top
+}
+
+.oxpoloadcontainer .oxpoloading .oxpoloadimage {
+    margin-right: 5px;
+    vertical-align: middle
+}
+
+.oxpofn,.oxpofnres,.oxpopititle {
+    color: OMEX_COLOR_DARK;
+    width: 130px
+}
+
+div.oxpofnres {
+    width: 130px;
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.oxpopi {
+    display: table;
+    width: 200px;
+    height: 100%
+}
+
+.oxpopiimage {
+    vertical-align: middle
+}
+
+.oxponewpocont,.oxponewpotxtcont,.oxpopidetleft,.oxpopidetright {
+    display: table-cell;
+    vertical-align: middle
+}
+
+.oxpopidetleft {
+    width: 70px
+}
+
+.oxpopidetright {
+    width: 130px;
+    padding: 0 10px
+}
+
+.oxponewpocont {
+    width: 20px
+}
+
+.oxponewpotxtcont {
+    width: 180px;
+    padding: 0 10px
+}
+
+.oxpcsmsgcont {
+    font-size: 1.4em
+}
+
+.oxpuxerr {
+    margin: 30px auto
+}
+
+.oxpuxerrmsg {
+    color: #666;
+    font-size: 1.4em;
+    font-weight: OMEX_FONT_WEIGHT_LIGHT;
+    line-height: 20px;
+    margin: 20px 10px 0;
+    max-width: 750px
+}
+
+.oxpuxerrmsg>div {
+    margin-bottom: 10px
+}
+
+/* / * /.btn,.btn:hover,.btn:visited {
+    color: #fff
+}* / * / */
+
+.btn:hover {
+    background-color: #707070;
+    border: 1px solid #707070;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer
+}
+
+.btnTiny {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 11px;
+    line-height: 20px;
+    height: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.btnSmall {
+    padding-left: 16px;
+    padding-right: 16px;
+    display: inline-block;
+    font-size: 1.4em;
+    height: 23px;
+    line-height: 23px
+}
+
+.btnMedium {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: inline-block;
+    font-size: 1.2em;
+    height: 31px;
+    line-height: 31px
+}
+
+.btnMediumWithIcon {
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-block;
+    font-size: 1.8em;
+    height: 31px;
+    line-height: 31px
+}
+
+.btnBlue {
+    background-color: #1c5ae0;
+    border: 1px solid #1c5ae0
+}
+
+.btnGreen {
+    background-color: #118b04;
+    border: 1px solid #118b04
+}
+
+.btnGrey {
+    background-color: #d9d9d9;
+    border: 1px solid #d9d9d9;
+    color: #373737
+}
+
+.btnDarkGrey {
+    background-color: #58595b;
+    border: 1px solid #58595b
+}
+
+.btnWhite {
+    border: 1px solid #58595b;
+    color: #505050
+}
+
+.btnDisabledGreen,.btnDisabledGreen:hover {
+    background-color: #a0d19b;
+    border: 1px solid #a0d19b
+}
+
+.btnDisabledDarkGrey,.btnDisabledDarkGrey:hover,.btnDisabledGrey,.btnDisabledGrey:hover {
+    background-color: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    color: #b5b5b5
+}
+
+.btnMyAccountPositiveAction {
+    background-color: #dc3c00;
+    border: 1px solid #dc3c00;
+    color: #fafafa
+}
+
+.btnMyAccountPositiveAction:hover {
+    background-color: #ff6026;
+    border: 1px solid #ff6026;
+    color: #fafafa
+}
+
+.btnMyAccountPositiveAction:active {
+    background-color: #c23400;
+    border: 1px solid #c23400;
+    color: #fafafa
+}
+
+.btnMyAccountPositiveAction:disabled {
+    background-color: #ffc7b2;
+    border: 1px solid #ffc7b2;
+    color: #fafafa
+}
+
+.oxnot {
+    border: none;
+    margin-bottom: 13px;
+    font-size: 100%
+}
+
+.oxnot a {
+    margin-left: 0;
+    text-decoration: none;
+    color: #2490e0
+}
+
+.oxnot a:not(.muxmessagelink) {
+    display: block
+}
+
+#conversationSpacesContainer {
+    margin-left: 34px
+}
+
+#conversationSpacesContainer .oxnot {
+    margin-top: 20px
+}
+
+.errorContainer {
+    margin-left: 130px
+}
+
+#errorTitleBaseElementId {
+    margin-top: 150px
+}
+
+.errorBorderThemeError {
+    background-color: #e26566
+}
+
+.errorTextThemeError,.oxnoterror {
+    background-color: #fae4e1
+}
+
+.errorTextThemeError .oxnoticonwrp,.oxnoterror .oxnoticonwrp {
+    background-color: #e26566
+}
+
+.errorBorderThemeAlert {
+    background-color: #fbb61a
+}
+
+.errorTextThemeAlert,.oxnotalert {
+    background-color: #fcf7b6
+}
+
+.errorTextThemeAlert .oxnoticonwrp,.oxnotalert .oxnoticonwrp {
+    background-color: #fbb61a
+}
+
+.errorBorderThemeNeutral,.errorTextThemeNeutral,.oxnotinfo {
+    background-color: #fff2cc
+}
+
+.errorTextThemeNeutral .oxnoticonwrp,.oxnotinfo .oxnoticonwrp {
+    display: none
+}
+
+.oxnoticonwrp {
+    width: 20px;
+    background-color: #fbb61a
+}
+
+.oxnoticonwrp img {
+    display: none
+}
+
+.oxnotalert a:hover,.oxnoterror a:hover,.oxnotinfo a:hover {
+    color: #2490e0
+}
+
+#errorMessageId {
+    color: #333;
+    font-size: 1.4em;
+    line-height: 32px;
+    padding-top: 23px
+}
+
+#debug {
+    font-size: 1.4em
+}
+
+#linkId {
+    font-size: 1.4em;
+    text-decoration: underline
+}
+
+#linkBaseElementId {
+    margin-top: 30px;
+    margin-bottom: 30px
+}
+
+.conversationTitleClass {
+    color: #101010;
+    font-size: 1.6em;
+    font-weight: 100;
+    display: inline-block;
+    margin-bottom: 5px
+}
+
+.conversationMessageClass,.oxnotmsgwrp {
+    font-size: 1.4em;
+    line-height: 24px;
+    color: #333
+}
+
+.conversationLinkClass {
+    font-size: 1.4em
+}
+
+.conversationTitleBorderClass {
+    display: inline-block;
+    width: 20px;
+    vertical-align: bottom
+}
+
+.errorBorderThemeNeutral .conversationSpaceClass {
+    margin-left: 0
+}
+
+.errorBorderThemeNeutral .conversationSpaceClass .oxnoticonwrp {
+    display: none
+}
+
+.conversationSpaceClass,.oxnotmsgwrp {
+    margin-left: 20px;
+    padding: 13px 17px
+}
+
+.oxnotmsgwrp {
+    margin-left: 0
+}
+
+.conversationNeutralThemeTitle {
+    font-size: 2.2em;
+    color: #dc3c00
+}
+
+.oxnotcloseiconwrp {
+    display: none
+}
+
+.modern.dvModal {
+    border: none
+}
+
+.modern.dvModalToolbar {
+    background-color: #dc3c00
+}
+
+.modern .setupOverlayHeader {
+    color: #fafafa;
+    background-color: #dc3c00;
+    margin-left: -32px;
+    margin-right: -32px;
+    padding: 0 36px 48px;
+    font-family: 'Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    font-weight: 200
+}
+
+[lang=ja-JP] .modern .setupOverlayHeader {
+    font-family: YuGothic,"Meiryo UI",Meiryo,"MS Pgothic",Osaka,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ko-KR] .modern .setupOverlayHeader {
+    font-family: "Malgun Gothic",Gulim,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHS] .modern .setupOverlayHeader {
+    font-family: "Microsoft Yahei",Verdana,Simsun,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHT] .modern .setupOverlayHeader {
+    font-family: "Microsoft Jhenghei",Pmingliu,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=hi-IN] .modern .setupOverlayHeader {
+    font-family: "Nirmala UI",'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=th-TH] .modern .setupOverlayHeader {
+    font-family: 'Leelawadee UI Semilight','Kmer UI','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ar] .modern .setupOverlayHeader {
+    font-family: 'Segoe UI Light Arabic','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=bg-BG] .modern .setupOverlayHeader,[lang=ru-RU] .modern .setupOverlayHeader,[lang=uk-UA] .modern .setupOverlayHeader {
+    font-family: 'Segoe UI Light Cyrillic','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=cs-CZ] .modern .setupOverlayHeader,[lang=et-EE] .modern .setupOverlayHeader,[lang=hr-HR] .modern .setupOverlayHeader,[lang=hu-HU] .modern .setupOverlayHeader,[lang=kk-KZ] .modern .setupOverlayHeader,[lang=lt-LT] .modern .setupOverlayHeader,[lang=lt-sr-SP] .modern .setupOverlayHeader,[lang=lv-LV] .modern .setupOverlayHeader,[lang=pl-PL] .modern .setupOverlayHeader,[lang=sk-SK] .modern .setupOverlayHeader,[lang=tr-TR] .modern .setupOverlayHeader {
+    font-family: 'Segoe UI Light EastEuropean','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=el-GR] .modern .setupOverlayHeader {
+    font-family: 'Segoe UI Light Greek','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=he-IL] .modern .setupOverlayHeader {
+    font-family: 'Segoe UI Light Hebrew','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=vi-VN] .modern .setupOverlayHeader {
+    font-family: 'Segoe UI Light Vietnamese','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+.setupOverlayContent {
+    margin-bottom: 11px
+}
+
+.setupOverlayStep {
+    vertical-align: top;
+    display: inline-block;
+    width: 250px;
+    margin: 25px 20px
+}
+
+.setupOverlayImg {
+    border: none
+}
+
+.setupOverlayStepHeading {
+    margin-top: 20px;
+    min-height: 26px
+}
+
+.setupOverlayStepNumber {
+    display: inline-block;
+    background-color: #767676;
+    color: #fafafa;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    margin-left: 28px;
+    text-align: center;
+    padding: 2px;
+    float: left
+}
+
+.setupOverlayStepHeadingText {
+    display: inline-block;
+    font-size: 1.4em;
+    margin-left: 10px;
+    min-height: 26px;
+    line-height: 22px;
+    margin-bottom: 6px;
+    width: 188px;
+    float: left
+}
+
+.setupOverlayText {
+    margin-left: 30px;
+    color: #767676
+}
+
+.setupOverlayHelpLink {
+    display: inline-block;
+    font-size: 1em;
+    max-width: 686px;
+    margin-top: 4px;
+    margin-left: 24px
+}
+
+.setupOverlayHelpLink a,.setupOverlayHelpLink a:hover {
+    color: #1f7bc2
+}
+
+.setupOverlayUserEmail {
+    display: block
+}
+
+#setupOverlayClosePanel {
+    padding-left: 4px
+}
+
+body {
+    overflow-y: scroll
+}
+
+.textBold {
+    font-weight: 700
+}
+
+.footerContainer,.headBar {
+    min-width: 960px
+}
+
+div#cdofooter {
+    clear: both
+}
+
+.oxmux {
+    width: 960px;
+    word-wrap: break-word
+}
+
+h1.oxmuxh {
+    color: #404142;
+    font-size: 2em;
+    font-weight: 100;
+    margin: 14px 10px 10px 24px;
+    padding-left: 10px
+}
+
+.oxnodisp {
+    display: none
+}
+
+#WedcsTag {
+    height: 0
+}
+
+.oxnotmsgwrp div#muxsharinglink_managefallback_container {
+    margin-top: .2em
+}
+
+.oxnotmsgwrp a.muxsharinglink_managefallback {
+    text-decoration: none;
+    color: #04c;
+    margin-left: 0
+}
+
+.oxnotmsgwrp a.muxsharinglink_managefallback:hover {
+    text-decoration: underline
+}
+
+div#myaccount .oxmuxltw {
+    cursor: pointer
+}
+
+.oxmux>ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0
+}
+
+.oxmuxlew button {
+    background: 0 0;
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    padding: 0
+}
+
+.oxmuxltw {
+    background-color: #ededed;
+    margin: 0 0 13px;
+    min-height: 40px;
+    position: relative
+}
+
+h3.oxmuxlt {
+    color: #101010;
+    font-size: 2.4em;
+    font-weight: 100;
+    margin: 0;
+    padding-bottom: 0;
+    padding-left: 12px;
+    padding-right: 47px;
+    padding-top: 3px
+}
+
+h3.oxmuxlst {
+    color: #101010;
+    font-size: 1.4em;
+    font-weight: 100;
+    margin: 0;
+    padding-bottom: 3px;
+    padding-left: 12px;
+    padding-right: 47px;
+    padding-top: 0
+}
+
+.oxmuxlew {
+    cursor: pointer;
+    left: auto;
+    position: absolute;
+    right: 8px;
+    top: 11px
+}
+
+.oxmuxlf {
+    color: #666;
+    font-size: 1.4em;
+    max-width: 750px;
+    padding-bottom: 16px;
+    padding-left: 12px;
+    padding-right: 20px;
+    padding-top: 2px
+}
+
+.oxmuxp>div {
+    margin-bottom: 22px
+}
+
+.oxmuxptop {
+    border-top: 1px solid #ccc;
+    margin-top: -8px
+}
+
+h5.oxmuxpt {
+    border-bottom: 1px solid #ccc;
+    color: #101010;
+    font-size: 2.2em;
+    font-weight: 400;
+    margin: 0;
+    padding: 0 10px 3px
+}
+
+.oxmuxllc {
+    float: left;
+    margin: 0 10px;
+    width: 470px
+}
+
+.oxmuxlrc {
+    float: left;
+    margin-left: 10px;
+    width: 440px
+}
+
+.oxmuxd {
+    line-height: 24px;
+    margin: 8px 0
+}
+
+.oxmuxid,.oxmuxidd {
+    min-height: 95px
+}
+
+.oxmuxsd {
+    margin-bottom: 13px
+}
+
+.oxmuxld {
+    margin-bottom: 0
+}
+
+h6.oxmuxdt,h6.oxmuxssct {
+    color: #101010;
+    font-size: 1.6em;
+    font-weight: 100;
+    margin: -1px 0 2px
+}
+
+.oxmuxtable {
+    color: #666;
+    display: table;
+    font-size: 1.4em;
+    line-height: 26px;
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse
+}
+
+span.oxmuxtableh {
+    color: #101010;
+    font-weight: 100;
+    text-decoration: underline
+}
+
+.oxmuxtablehr,.oxmuxtabler {
+    display: table-row
+}
+
+.oxmuxinstabler {
+    display: table-row;
+    margin-bottom: 10px
+}
+
+.oxmuxinstablerborder {
+    border-bottom: 1px solid #ccc
+}
+
+.oxmuxtablec1 {
+    display: table-cell;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 260px;
+    overflow: hidden
+}
+
+.oxmuxtablec2 {
+    display: table-cell;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 170px;
+    overflow: hidden
+}
+
+span#muxcmpname {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 270px;
+    height: 2em;
+    display: block;
+    white-space: nowrap
+}
+
+.oxmuxtablehrc1 {
+    display: table-cell;
+    padding-right: 20px;
+    width: 260px
+}
+
+.oxmuxtablehrc2 {
+    display: table-cell;
+    padding-right: 20px;
+    width: 170px
+}
+
+.oxmuxinstabler div {
+    color: #999;
+    line-height: 14px;
+    margin-bottom: 7px
+}
+
+.oxmuxinstabler img {
+    display: none;
+    height: 13px;
+    width: 13px
+}
+
+.oxmuxldni {
+    font-size: 1.4em
+}
+
+.oxmuxhd {
+    color: #000;
+    padding-left: 10px
+}
+
+.oxmuxphd {
+    color: #000;
+    padding-left: 30px
+}
+
+.oxmuxifd {
+    font-size: 1.4em;
+    padding-top: 4px
+}
+
+.oxmuxidai {
+    color: #101010;
+    font-size: 1.6em;
+    font-weight: 100;
+    position: relative;
+    top: -4px
+}
+
+.oxmuxidai>span {
+    color: #404142
+}
+
+.oxmuxinsw .oxbtn {
+    max-width: 190px
+}
+
+.oxmuxinsw {
+    padding-top: 2px
+}
+
+.oxmuxinsw .ui-oodropdown-wrapper {
+    margin-left: 0;
+    margin-right: 25px;
+    margin-top: 3px;
+    vertical-align: top
+}
+
+button.oxmuxinsbtn {
+    background-color: #7ac51c;
+    color: #fff;
+    font-size: 1.45em;
+    line-height: 1.3em;
+    padding-bottom: 2.5px;
+    width: 146px
+}
+
+.oxmuxinsbtn:focus,.oxmuxinsbtn:hover {
+    background-color: #8ee027
+}
+
+.oxmuxilang {
+    font-size: 1.4em;
+    margin-top: 4px;
+    width: 220px;
+    word-wrap: break-word;
+    vertical-align: top;
+    padding-right: 10px
+}
+
+.oxmuxidailw,.oxmuxsscl {
+    font-size: 1.4em
+}
+
+.oxmuxlsep {
+    clear: both;
+    height: 56px
+}
+
+.oxmuxmdm {
+    padding-right: 20px
+}
+
+.oxmuxmdm,.oxmuxsscm {
+    color: #666;
+    font-size: 1.4em;
+    max-width: 750px
+}
+
+.oxmuxhd>div,.oxmuxphd>div,.oxmuxrd>div,.oxmuxsdnam,.oxmuxsud>div,.oxmuxwd>div {
+    font-size: 1.4em;
+    color: #666;
+    line-height: 22px
+}
+
+.oxmuxss {
+    margin-left: 10px;
+    margin-top: 8px
+}
+
+.oxmuxssi {
+    float: left;
+    height: 16px;
+    margin-top: 4px;
+    width: 16px
+}
+
+.oxmuxssc {
+    margin-left: 25px
+}
+
+.muxcmpownname {
+    width: 270px;
+    height: 2em;
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.oxmuxl {
+    padding-left: 20px
+}
+
+#muxparspi,#muxptarcontent {
+    display: inline-block;
+    max-width: 650px
+}
+
+#muxparpcs>#muxpardescription,#muxparspi>div,#muxptarcontent>div {
+    font-size: 1.4em;
+    padding-left: 10px
+}
+
+#muxptarcontent>div {
+    margin-bottom: 8px
+}
+
+#muxparpcs>#oxselectpi {
+    padding-left: 10px
+}
+
+#muxptarcontent div#muxparprice {
+    font-size: 2.2em;
+    margin: 20px 0 0
+}
+
+#muxparen,#muxparpcs>#muxpardescription,#muxparspin {
+    margin-top: 10px
+}
+
+#muxparncn {
+    margin-top: 20px
+}
+
+#muxparsd,#muxpartl {
+    margin-top: 30px
+}
+
+#muxparncn {
+    font-weight: 600
+}
+
+#muxparspi {
+    float: right
+}
+
+#muxparbuttons {
+    margin-top: 25px;
+    margin-bottom: 30px
+}
+
+#muxparbuttons>#muxparbsep {
+    display: inline-block;
+    width: 40px
+}
+
+#muxparpcs #oxpolistContainer {
+    width: 100%
+}
+
+#muxarpcsnavgroupGroup {
+    float: left;
+    padding: 0
+}
+
+.oxmuxcdm {
+    margin-left: 10px;
+    margin-top: -6px
+}
+
+h5.oxmuxcdmt {
+    color: #101010;
+    font-size: 2.2em;
+    font-weight: 100;
+    margin: 0 0 3px
+}
+
+.oxmuxcdm>div {
+    color: #666;
+    font-size: 1.4em;
+    line-height: 20px;
+    margin-bottom: 10px;
+    max-width: 750px
+}
+
+div#cancelconf .oxmuxidd {
+    margin-bottom: 0;
+    min-height: 0
+}
+
+.oxmux .omexBillingContainer {
+    border-top: none;
+    font-size: 1.4em;
+    padding-left: 10px
+}
+
+.oxmuxcconfmsg,.oxmuxctm,.oxmuxtrnoffautrenw {
+    font-size: 1.4em;
+    margin-left: 10px
+}
+
+#turningofflearnmorelinkid {
+    line-height: 4;
+    text-decoration: underline
+}
+
+.fmscancelsurvey {
+    margin: -6px;
+    max-width: 750px
+}
+
+div#cancelresult #SURVEYSECTIONCONTAINER .ANSWERTEXT {
+    color: #666;
+    font: 13px 'Segoe UI',Arial,sans-serif
+}
+
+.oxmuxspish {
+    margin-bottom: 16px;
+    margin-left: 13px;
+    font-size: 1.4em
+}
+
+.oxmuxspishmsg {
+    margin-bottom: 10px
+}
+
+.oxmuxspishtextlink {
+    font-size: 1.4em;
+    margin-top: 10px
+}
+
+.oxmuxod>div {
+    font-size: 1.4em;
+    line-height: 20px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    max-width: 750px
+}
+
+div#muxilangdverdd .oxddselected {
+    z-index: 12
+}
+
+div#muxilangdverdd .oxdditems {
+    z-index: 11
+}
+
+.oxmuxoffins,.oxmuxoffver {
+    margin-left: 10px
+}
+
+.oxmuxoffinm,.oxmuxoffverm {
+    font-size: 1.4em;
+    color: #666;
+    line-height: 22px
+}
+
+#LanguageDetailPanel,#OfflineInstallerPanel {
+    margin-bottom: 15px
+}
+
+.oxmuxoffverlbl {
+    display: inline-block;
+    font-size: 1.4em;
+    min-width: 100px
+}
+
+#muxoffverins {
+    margin-left: 25px
+}
+
+#bldoffverinsw {
+    display: inline-block
+}
+
+#muxioffvlp {
+    margin-bottom: 4px
+}
+
+.oxmuxmsg {
+    color: #666;
+    font-size: 1.4em;
+    font-weight: 100;
+    line-height: 20px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 20px;
+    max-width: 750px
+}
+
+.oxmuxmsg>div {
+    margin-bottom: 10px
+}
+
+.oxmuxcs .oxbtn,.oxmuxerr .oxbtn {
+    float: right;
+    margin-top: 20px
+}
+
+div#muxloadmsg {
+    min-height: 475px
+}
+
+div#muxwaitmsg {
+    padding: 25px 40px
+}
+
+div#muxwaitmsg div {
+    bottom: 7px;
+    margin-left: 15px;
+    position: relative;
+    display: inline-block;
+    width: 400px;
+    text-align: left
+}
+
+div#muxwaitmsg img {
+    vertical-align: top
+}
+
+div.oxmuxloadm {
+    font-size: 1.6em;
+    padding: 25px
+}
+
+.oxmuxaiod,.oxmuxlangd {
+    font-size: 1.4em
+}
+
+.oxmuxaiod,.oxmuxilangd,.oxmuxlangd {
+    margin-left: 10px
+}
+
+.oxmuxilangd .oxmuxidaiw {
+    margin-top: 12px
+}
+
+.oxmuxilangd .oxmuxinsw {
+    padding-top: 15px
+}
+
+.oxmuxilangd .oxmuxinsw .ui-oodropdown-wrapper {
+    margin-top: 6px
+}
+
+.oxmuxilanglbl {
+    display: inline-block;
+    font-size: 1.4em;
+    min-width: 100px
+}
+
+.oxmuxilangmsg {
+    width: 570px;
+    vertical-align: top;
+    padding-left: 7px;
+    padding-top: 15px;
+    display: inline-block;
+    font-size: 1.4em
+}
+
+#muxilangdlangdd,#muxilangdverdd {
+    height: 19px;
+    width: 250px
+}
+
+.oxmuxilangfcol {
+    float: left;
+    width: 230px
+}
+
+.oxmuxilangscol {
+    float: right;
+    width: 210px
+}
+
+.muxilangdsp0 .muxilangmsg1,.muxilangdsp1 .muxilangmsg0 {
+    display: none
+}
+
+div#installdisc .oxmuxp {
+    border-bottom: 1px solid #ccc
+}
+
+.oxmuxdiscd>div {
+    font-size: 1.4em;
+    line-height: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    max-width: 750px
+}
+
+.oxmuxdiscd>div button.oxbtnmedium {
+    font-size: 1.28em;
+    margin: 10px
+}
+
+.oxmuxdiscd>h4 {
+    color: #101010;
+    font-family: 'Segoe UI Light','Segoe UI',Arial,sans-serif;
+    font-size: 1.8em;
+    font-weight: 100;
+    margin: 0;
+    padding: 0 10px 10px
+}
+
+.oxmuxdiscd .oxmuxdiscditem {
+    max-width: none
+}
+
+.oxmuxdiscditemtitle {
+    margin-bottom: 10px
+}
+
+.oxmuxdiscditemtitle>img {
+    position: relative;
+    top: 1px
+}
+
+.oxmuxdiscditemtitle>a {
+    margin-left: 7px
+}
+
+.oxmuxdiscditemdesc {
+    float: left;
+    margin-left: 9px;
+    max-width: 461px
+}
+
+.oxmuxdiscditemdesc>div {
+    line-height: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    max-width: 550px
+}
+
+.oxmuxdiscditemdesc>img {
+    margin: 10px
+}
+
+.oxmuxdiscditemkey {
+    border: 1px solid #ccc;
+    color: #101010;
+    float: left;
+    margin-left: 60px;
+    padding: 21px 25px;
+    text-align: center
+}
+
+.oxmuxdiscditemkey>div {
+    font-weight: 600;
+    text-align: justify
+}
+
+.oxmuxdiscditemkey h6 {
+    font-size: 1em;
+    font-weight: 100;
+    margin: -1px 0 2px
+}
+
+.oxmuxdiscditemkey img {
+    margin-bottom: -2.5px;
+    padding-top: 2.5px
+}
+
+#oxmuxmuldevimg {
+    float: left;
+    padding-right: 50px;
+    margin-left: -10px
+}
+
+#oxmuxmsatitle {
+    margin-top: 20px;
+    text-transform: uppercase;
+    padding-top: 35px
+}
+
+#oxmuxmsa {
+    font-size: 1.7em;
+    width: 915px;
+    margin-bottom: 80px;
+    line-height: 1.7em
+}
+
+#oxprodkeystr {
+    color: #e83f24;
+    font-weight: 400
+}
+
+#oxmsaul {
+    margin: -5px 0 35px 0
+}
+
+#oxbookmark {
+    display: none
+}
+
+.oxmuxltwrm {
+    margin: 10px 0 13px;
+    min-height: 40px;
+    position: relative
+}
+
+h3.oxmuxltrm {
+    color: #101010;
+    font-size: 3.4em;
+    font-weight: 100;
+    margin: 0;
+    padding-bottom: 10px;
+    padding-left: 12px;
+    padding-right: 47px;
+    padding-top: 3px
+}
+
+div#getskype .oxmuxd {
+    font-size: 1.4em;
+    margin-left: 10px
+}
+
+div#getskype .oxmuxd ol {
+    margin: 0 0 10px
+}
+
+div#getskype .oxmuxd div {
+    margin-bottom: 10px
+}
+
+div#skyperesult .oxmuxpt {
+    border-bottom: none
+}
+
+div#skyperesult .oxmuxd div {
+    margin-bottom: 10px;
+    font-size: 1.4em;
+    margin-left: 10px
+}
+
+.oxmuxskyperesultload {
+    padding: 10px 0 40px;
+    text-align: center
+}
+
+div#deactskype .oxmuxd div {
+    margin-bottom: 10px;
+    font-size: 1.4em;
+    margin-left: 10px
+}
+
+div#muxselectpi .oxpuxerr {
+    margin: auto
+}
+
+.oxmuxinfomsgbtn {
+    float: right
+}
+
+.muxadduserimg {
+    width: 64px;
+    height: 64px
+}
+
+div.muxadduserimg {
+    position: relative
+}
+
+div.muxadduserimghover:hover {
+    cursor: pointer
+}
+
+.muxusericons {
+    display: inline-block;
+    float: left;
+    width: 90px;
+    padding-left: 2px;
+    padding-right: 2px
+}
+
+.muxusername {
+    font-size: 1.1em;
+    color: #666;
+    width: 90px;
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.muxuseractions {
+    font-size: 1.1em
+}
+
+div.oxmuxptsub {
+    font-size: 1.4em;
+    color: #666;
+    padding-right: 20px;
+    padding-left: 10px;
+    word-wrap: break-word;
+    line-height: 24px;
+    margin-bottom: 15px;
+    margin-top: 15px
+}
+
+div.muxuserpending {
+    width: 64px;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    background-color: #0072c6;
+    color: #fff;
+    font-size: 1em;
+    text-align: center
+}
+
+a.muxmessagelink {
+    margin: 0;
+    padding: 0
+}
+
+div.oxmuxnoinstall {
+    font-size: 1.4em
+}
+
+.upgradeOSXModal .dvDialogTopPane {
+    margin-bottom: 0
+}
+
+.upgradeOSXModal .dvDialogTopMessage {
+    line-height: 180%;
+    color: #666;
+    margin-bottom: 35px
+}
+
+.upgradeOSXModal .dvDialogBottomMessage {
+    color: #666;
+    margin-top: 60px;
+    margin-bottom: 40px
+}
+
+.upgradeOSXModal .dvDialogBottomMessage a {
+    color: #2490e0;
+    cursor: pointer
+}
+
+.upgradeOSXModal a.btn {
+    font-size: 1.4em;
+    text-decoration: none
+}
+
+.upgradeOSXModal h4 {
+    font-size: 2.2em
+}
+
+.dvModal .upgradeOSXModal a.btnMyAccountPositiveAction {
+    color: #fafafa
+}
+
+.dvModal .upgradeOSXModal a.btnMyAccountPositiveAction:hover {
+    background-color: #ff6026!important;
+    border: 1px solid #ff6026
+}
+
+.muxsharedialogclass,H1.muxsharedialogheaderclass {
+    font-size: 1.4em
+}
+
+H2.muxsharedialogheaderclass {
+    font-size: 1.2em
+}
+
+div.oxmuxldni>ul,ul.muxdialoglist {
+    list-style-type: none;
+    padding: 0;
+    margin: 0
+}
+
+div.oxmuxldni>ul>li,ul.muxdialoglist>li {
+    line-height: 1.4em;
+    margin-top: 0;
+    margin-left: 7px;
+    background-image: url(/images/myaccount/bullet.png);
+    background-repeat: no-repeat;
+    background-position: left 0;
+    padding-left: 18px
+}
+
+div.oxbtngrp {
+    margin-top: 5px
+}
+
+button.oxbtnmedium {
+    font-size: 1.2em;
+    line-height: 31px;
+    min-width: 85px;
+    padding: 0 20px
+}
+
+input.muxaddusertextbox {
+    width: 524px;
+    font-size: 1.1em;
+    line-height: 1.2em;
+    vertical-align: middle;
+    border: 1px solid #999;
+    color: #666;
+    padding-left: 4px;
+    padding-right: 4px;
+    background-color: transparent;
+    z-index: 999
+}
+
+div.muxadduseremailerror {
+    font-size: 1em;
+    display: none;
+    line-height: 1.3em;
+    color: #e81123
+}
+
+div.muxaddusertxtcaption {
+    margin-bottom: 5px
+}
+
+div.muxadduserinfohead {
+    margin-bottom: 4px
+}
+
+input.muxerrorborder {
+    border: 1px solid #e81123
+}
+
+input.muxborder {
+    border: 1px solid #666
+}
+
+.muxdummyinput {
+    position: absolute;
+    left: 4px;
+    margin-top: 3px;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    vertical-align: middle;
+    color: #999;
+    padding-left: 4px;
+    padding-right: 4px;
+    z-index: -1
+}
+
+div.oxadddetailcontainer {
+    position: relative
+}
+
+div#muxsharingpanel_hipcheck_active,div#muxsharingpanel_hipcomplete_active {
+    background-color: #fff;
+    display: none;
+    position: absolute;
+    left: 32px;
+    top: 32px
+}
+
+div#muxsharingpanel_hipcheck_active .oxsep,div#muxsharingpanel_hipcomplete_active .oxsep {
+    height: 30px
+}
+
+.muxaremoveuserinfo {
+    margin-bottom: 18px;
+    overflow: hidden;
+    margin-top: 10px
+}
+
+.muxaremoveuserimgbox {
+    display: inline-block;
+    float: left;
+    width: 64px;
+    height: 58px;
+    margin-right: 10px;
+    margin-bottom: 4px
+}
+
+.muxremoveuserimg {
+    width: 64px;
+    height: 58px
+}
+
+.muxaremoveuserinfobox {
+    width: 540px
+}
+
+.muxaremoveuserinfoinstalls {
+    margin-top: 10px
+}
+
+div.muxremove {
+    margin-bottom: 10px
+}
+
+.muxremoveuserinfo {
+    margin-bottom: 18px;
+    overflow: hidden;
+    margin-top: 10px
+}
+
+.muxremoveuserimgbox {
+    display: inline-block;
+    float: left;
+    width: 64px;
+    height: 58px;
+    margin-right: 10px;
+    margin-bottom: 4px
+}
+
+.muxremoveuserinfobox {
+    width: 540px
+}
+
+a.muxsharinglink_stopsharing {
+    padding-left: 3px
+}
+
+div.muxleave,div.muxleavesorry {
+    margin-bottom: 10px
+}
+
+div.oxmuxotherinstalls {
+    line-height: 1.6em;
+    font-size: 1.4em
+}
+
+span.oxmuxotherinstallsvalue {
+    padding-left: 4px;
+    padding-right: 4px
+}
+
+.oxmuxidchild {
+    min-height: 20px
+}
+
+li.oxMessageBullet {
+    margin-left: 18px
+}
+
+div.oxMessageLeft {
+    max-width: 550px;
+    float: left;
+    padding-top: 5px
+}
+
+div.oxMessageBtnLine>#muxerrl {
+    margin-top: 0;
+    font-size: 1.4em
+}
+
+div.oxMessageBtnLine {
+    display: block;
+    padding-bottom: 20px;
+    margin-top: 20px
+}
+
+.oxMessageHeaderLine {
+    margin-bottom: 40px
+}
+
+.oxMessageSpacerLine {
+    margin-top: 20px
+}
+
+div.oxClear {
+    clear: both
+}
+
+.muxaccounthelppanellinks {
+    display: inline-block;
+    padding-left: 10px
+}
+
+#muxaccounthelppanelimageparent {
+    display: inline-block
+}
+
+.muxlinksectionheadclass {
+    font-size: 1.3em;
+    padding-bottom: 10px
+}
+
+.muxlinksectiontextclass,.muxremovebuttonparentdivclass,.muxremovesectiontextclass {
+    padding-bottom: 10px
+}
+
+.muxinvitelinktextareaclass {
+    width: 530px;
+    resize: none;
+    height: 60px;
+    padding: 2px;
+    color: #000;
+    overflow-x: hidden;
+    display: inline-block
+}
+
+.muxremovesectionheadclass {
+    font-size: 1.3em;
+    padding-bottom: 10px;
+    padding-top: 29px
+}
+
+.muxclosebuttonparentdivclass {
+    position: relative;
+    float: right;
+    margin-bottom: 20px
+}
+
+.muxinvitelinkparentdivclass {
+    border: solid;
+    border-width: 1px
+}
+
+.managedialogspinnerclass {
+    vertical-align: middle;
+    padding-left: 10px
+}
+
+.macElement,.windowsElement {
+    width: 220px;
+    word-wrap: break-word;
+    vertical-align: bottom
+}
+
+.displayinlineblock {
+    display: inline-block
+}
+
+.oxmuxinhi {
+    font-size: 1.4em;
+    max-width: 210px;
+    vertical-align: top;
+    margin-top: 4px
+}
+
+.oxmuxadditionaldevice {
+    font-size: 1.4em;
+    display: inline-block;
+    margin-right: 25px
+}
+
+.oxmuxadditionaldevice img {
+    padding-left: 6px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 19px
+}
+
+.muxmobiledevicespanel,.oxmuxmessagepadding {
+    margin: 0 10px
+}
+
+.installbutton {
+    max-width: 136px
+}
+
+.floatRight {
+    float: right
+}
+
+.floatLeft {
+    float: left
+}
+
+.forwardLink {
+    vertical-align: top
+}
+
+.cntPS1 a:visited,.cntPS1 a:visited.cntPSMeta3,.cntPS1 a:visited.cntPSMeta4,.cntPS1 a:visited.cntPSMeta5,.cntPS1 ul.cntPSCatList li a:visited,.dvModal a,a,a.cdchrm:visited,a:visited {
+    text-decoration: none;
+    color: #1f7bc2
+}
+
+.itemSwitcher {
+    color: #767676;
+    font-size: 1.5em;
+    margin: 25px 0 10px 19px;
+    border-bottom: 1px solid #ccc;
+    padding: 0 10px 10px 0
+}
+
+.tabSwitcherElements:not(.selectedNavigationElement):hover {
+    background-color: #eee;
+    color: #101010
+}
+
+.tabSwitcherElements {
+    cursor: pointer;
+    padding: 10px 17px;
+    display: ruby
+}
+
+.selectedNavigationElement {
+    color: #101010;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-bottom-color: #fff
+}
+
+#switcherItem1 {
+    margin-left: 5px
+}
+
+#breadcrumbBar {
+    height: 35px;
+    line-height: 35px;
+    padding: 5px 0 0 20px
+}
+
+.productTitle {
+    font-size: 2.4em;
+    font-weight: 100;
+    color: #101010;
+    margin-left: 14px;
+    vertical-align: middle;
+    cursor: pointer
+}
+
+.arrowBreadcrumb {
+    font-size: 2.4em;
+    font-weight: 100;
+    color: #101010;
+    margin-left: 20px;
+    vertical-align: middle
+}
+
+.breadcrumbElements {
+    float: left
+}
+
+.subpageBreadcrumbElements {
+    font-size: 2.4em;
+    font-weight: 100;
+    color: #101010;
+    margin-left: 20px;
+    vertical-align: middle
+}
+
+.inactiveBreadcrumbTitle {
+    color: #666
+}
+
+#backButtonImage {
+    vertical-align: middle;
+    cursor: pointer;
+    -moz-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    filter: FlipH;
+    -ms-filter: 'FlipH'
+}
+
+#subscriptionPageContents {
+    margin-top: 20px
+}
+
+#subscriptionPageContents .oxmuxl {
+    margin-left: 4px
+}
+
+#subscriptionPageContents #muxpsetPaymentBilling {
+    width: 650px;
+    display: inline-block
+}
+
+#subscriptionPageContents .oxmuxlrc {
+    margin-left: 0
+}
+
+#subscriptionPageContents .oxmupt {
+    color: #101010;
+    font-size: 2.2em
+}
+
+#tileContainer {
+    margin: 20px 0 0 24px
+}
+
+#innerTileContainer {
+    margin-left: 10px
+}
+
+#manageAccountTilesDiv {
+    display: inline-block;
+    float: right
+}
+
+#tileContainer .tiles {
+    display: inline-block;
+    margin-bottom: 52px;
+    padding-bottom: 33px
+}
+
+#tileContainer .oxmuxhd {
+    padding-left: 0
+}
+
+#manageAccountTilesDiv .tiles {
+    display: block;
+    margin-bottom: 70px
+}
+
+.tiles {
+    width: 255px;
+    text-align: left;
+    vertical-align: top;
+    position: relative
+}
+
+.floatingTile .tileElements,.manageAccountFloat .tileElements {
+    padding-left: 10px
+}
+
+.manageAccountFloat {
+    margin-left: 24px
+}
+
+.floatingTile {
+    margin-top: 40px;
+    margin-left: 23px
+}
+
+#skypeServiceStatus {
+    margin-bottom: 20px
+}
+
+.centerColumnTiles {
+    margin-left: 80px;
+    margin-right: 80px
+}
+
+.tileTitle {
+    border-bottom: 1px solid #ccc;
+    color: #101010;
+    font-size: 2.2em;
+    padding-bottom: 2px
+}
+
+#tileContainer .tileTitle {
+    border-bottom: 0
+}
+
+.tileSubtitle {
+    color: #767676;
+    font-size: 1.4em;
+    margin-bottom: 5px
+}
+
+.subtitlePlaceholder {
+    display: inline-block;
+    margin-left: 5px
+}
+
+.tileDescription {
+    font-size: 1.4em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px
+}
+
+.tileAnnouncement {
+    color: #333;
+    font-size: 1.4em
+}
+
+.tileLinks {
+    font-size: 1.4em;
+    position: absolute;
+    bottom: 0
+}
+
+.actionLinkDiv {
+    font-size: 1.4em
+}
+
+.actionLinkDiv a.muxsharinglink_stopsharing,.muxsharinglink_stopsharing.tileLinks {
+    padding-left: 0
+}
+
+.tiles #HelpDetailPanel,.tiles #MicrosoftAccountPanel {
+    margin-top: 0
+}
+
+.btnTile {
+    font-family: 'Segoe UI',Arial,sans-serif;
+    color: #fff;
+    background-color: #344146;
+    padding: 4px 0 5px;
+    width: 255px;
+    text-align: center;
+    min-height: 22px;
+    line-height: 22px;
+    cursor: pointer
+}
+
+.subpageTiles:first-child .btnTile {
+    background-color: #dc3c00
+}
+
+.subpageTiles:hover {
+    cursor: pointer;
+    text-decoration: none
+}
+
+.subpageTiles:hover .btnTile {
+    background-color: #ff6026
+}
+
+.shareUnavailable:hover {
+    cursor: default;
+    text-decoration: none
+}
+
+.tileTitleImages {
+    margin-right: 5px
+}
+
+.tileImageDiv {
+    height: 35px;
+    padding-bottom: 20px
+}
+
+.installTileImages {
+    vertical-align: middle;
+    margin-right: 20px;
+    opacity: .5
+}
+
+#shareTileImageBar {
+    height: 35px
+}
+
+.shareTileImageDivs {
+    margin-right: 15px;
+    display: inline-block
+}
+
+.clickable:active {
+    outline: 0
+}
+
+#PlaceholderMain_NoScriptWarningControl {
+    color: red;
+    display: block;
+    margin: 15px 40px
+}
+
+#acceptInvitationPage {
+    font-family: 'Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    font-weight: 400;
+    margin: 15px 40px
+}
+
+[lang=ja-JP] #acceptInvitationPage {
+    font-family: YuGothic,"Meiryo UI",Meiryo,"MS Pgothic",Osaka,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ko-KR] #acceptInvitationPage {
+    font-family: "Malgun Gothic",Gulim,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHS] #acceptInvitationPage {
+    font-family: "Microsoft Yahei",Verdana,Simsun,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHT] #acceptInvitationPage {
+    font-family: "Microsoft Jhenghei",Pmingliu,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=hi-IN] #acceptInvitationPage {
+    font-family: "Nirmala UI",'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=th-TH] #acceptInvitationPage {
+    font-family: 'Leelawadee UI Regular','Kmer UI','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ar] #acceptInvitationPage {
+    font-family: 'Segoe UI Regular Arabic','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=bg-BG] #acceptInvitationPage,[lang=ru-RU] #acceptInvitationPage,[lang=uk-UA] #acceptInvitationPage {
+    font-family: 'Segoe UI Regular Cyrillic','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=cs-CZ] #acceptInvitationPage,[lang=et-EE] #acceptInvitationPage,[lang=hr-HR] #acceptInvitationPage,[lang=hu-HU] #acceptInvitationPage,[lang=kk-KZ] #acceptInvitationPage,[lang=lt-LT] #acceptInvitationPage,[lang=lt-sr-SP] #acceptInvitationPage,[lang=lv-LV] #acceptInvitationPage,[lang=pl-PL] #acceptInvitationPage,[lang=sk-SK] #acceptInvitationPage,[lang=tr-TR] #acceptInvitationPage {
+    font-family: 'Segoe UI Regular EastEuropean','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=el-GR] #acceptInvitationPage {
+    font-family: 'Segoe UI Regular Greek','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=he-IL] #acceptInvitationPage {
+    font-family: 'Segoe UI Regular Hebrew','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=vi-VN] #acceptInvitationPage {
+    font-family: 'Segoe UI Regular Vietnamese','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+#acceptInvitationCol1 {
+    display: inline-block;
+    vertical-align: top;
+    width: 500px
+}
+
+#acceptInvitationCol2 {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 65px;
+    margin-left: 150px;
+    width: 245px
+}
+
+#acceptInvitationMSAcc {
+    display: inline-block
+}
+
+#acceptInvitationHeadMain {
+    font-family: 'Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    font-size: 3.2em;
+    font-weight: 400
+}
+
+[lang=ja-JP] #acceptInvitationHeadMain {
+    font-family: YuGothic,"Meiryo UI",Meiryo,"MS Pgothic",Osaka,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ko-KR] #acceptInvitationHeadMain {
+    font-family: "Malgun Gothic",Gulim,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHS] #acceptInvitationHeadMain {
+    font-family: "Microsoft Yahei",Verdana,Simsun,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHT] #acceptInvitationHeadMain {
+    font-family: "Microsoft Jhenghei",Pmingliu,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=hi-IN] #acceptInvitationHeadMain {
+    font-family: "Nirmala UI",'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=th-TH] #acceptInvitationHeadMain {
+    font-family: 'Leelawadee UI Semilight','Kmer UI','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ar] #acceptInvitationHeadMain {
+    font-family: 'Segoe UI Light Arabic','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=bg-BG] #acceptInvitationHeadMain,[lang=ru-RU] #acceptInvitationHeadMain,[lang=uk-UA] #acceptInvitationHeadMain {
+    font-family: 'Segoe UI Light Cyrillic','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=cs-CZ] #acceptInvitationHeadMain,[lang=et-EE] #acceptInvitationHeadMain,[lang=hr-HR] #acceptInvitationHeadMain,[lang=hu-HU] #acceptInvitationHeadMain,[lang=kk-KZ] #acceptInvitationHeadMain,[lang=lt-LT] #acceptInvitationHeadMain,[lang=lt-sr-SP] #acceptInvitationHeadMain,[lang=lv-LV] #acceptInvitationHeadMain,[lang=pl-PL] #acceptInvitationHeadMain,[lang=sk-SK] #acceptInvitationHeadMain,[lang=tr-TR] #acceptInvitationHeadMain {
+    font-family: 'Segoe UI Light EastEuropean','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=el-GR] #acceptInvitationHeadMain {
+    font-family: 'Segoe UI Light Greek','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=he-IL] #acceptInvitationHeadMain {
+    font-family: 'Segoe UI Light Hebrew','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=vi-VN] #acceptInvitationHeadMain {
+    font-family: 'Segoe UI Light Vietnamese','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+#acceptInvitationBenefitsText {
+    font-size: 1.4em;
+    margin-bottom: 30px
+}
+
+#acceptInvitationBenefitsBox {
+    margin: 0 0 30px;
+    width: 100%
+}
+
+#acceptInvitationBenefitsHeadMain {
+    background: #757575;
+    color: #fff;
+    font-family: 'Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    font-size: 1.6em;
+    font-weight: 400;
+    margin: 0;
+    padding: 6px 10px
+}
+
+[lang=ja-JP] #acceptInvitationBenefitsHeadMain {
+    font-family: YuGothic,"Meiryo UI",Meiryo,"MS Pgothic",Osaka,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ko-KR] #acceptInvitationBenefitsHeadMain {
+    font-family: "Malgun Gothic",Gulim,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHS] #acceptInvitationBenefitsHeadMain {
+    font-family: "Microsoft Yahei",Verdana,Simsun,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHT] #acceptInvitationBenefitsHeadMain {
+    font-family: "Microsoft Jhenghei",Pmingliu,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=hi-IN] #acceptInvitationBenefitsHeadMain {
+    font-family: "Nirmala UI",'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=th-TH] #acceptInvitationBenefitsHeadMain {
+    font-family: 'Leelawadee UI Regular','Kmer UI','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ar] #acceptInvitationBenefitsHeadMain {
+    font-family: 'Segoe UI Regular Arabic','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=bg-BG] #acceptInvitationBenefitsHeadMain,[lang=ru-RU] #acceptInvitationBenefitsHeadMain,[lang=uk-UA] #acceptInvitationBenefitsHeadMain {
+    font-family: 'Segoe UI Regular Cyrillic','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=cs-CZ] #acceptInvitationBenefitsHeadMain,[lang=et-EE] #acceptInvitationBenefitsHeadMain,[lang=hr-HR] #acceptInvitationBenefitsHeadMain,[lang=hu-HU] #acceptInvitationBenefitsHeadMain,[lang=kk-KZ] #acceptInvitationBenefitsHeadMain,[lang=lt-LT] #acceptInvitationBenefitsHeadMain,[lang=lt-sr-SP] #acceptInvitationBenefitsHeadMain,[lang=lv-LV] #acceptInvitationBenefitsHeadMain,[lang=pl-PL] #acceptInvitationBenefitsHeadMain,[lang=sk-SK] #acceptInvitationBenefitsHeadMain,[lang=tr-TR] #acceptInvitationBenefitsHeadMain {
+    font-family: 'Segoe UI Regular EastEuropean','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=el-GR] #acceptInvitationBenefitsHeadMain {
+    font-family: 'Segoe UI Regular Greek','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=he-IL] #acceptInvitationBenefitsHeadMain {
+    font-family: 'Segoe UI Regular Hebrew','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=vi-VN] #acceptInvitationBenefitsHeadMain {
+    font-family: 'Segoe UI Regular Vietnamese','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+#acceptInvitationBenefitsList {
+    margin: 0;
+    padding: 0
+}
+
+#acceptInvitationBenefitsList li {
+    background-color: #f5f5f5;
+    display: block;
+    font-size: 1.4em;
+    list-style: none;
+    margin: 2px 0 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 45px;
+    padding-right: 10px
+}
+
+#acceptInvitationMobile {
+    background-image: url(/images/myaccount/mobile_33x22.png);
+    background-position: 3px 50%;
+    background-repeat: no-repeat
+}
+
+body[dir=rtl] #acceptInvitationMobile {
+    background-position: 464px 50%
+}
+
+#acceptInvitationCloud {
+    background-image: url(/images/myaccount/cloud_31x18.png);
+    background-position: 4px 50%;
+    background-repeat: no-repeat
+}
+
+body[dir=rtl] #acceptInvitationCloud {
+    background-position: 465px 50%
+}
+
+#acceptInvitationSkype {
+    background-image: url(/images/myaccount/skype_26x26.png);
+    background-position: 5px 50%;
+    background-repeat: no-repeat
+}
+
+body[dir=rtl] #acceptInvitationSkype {
+    background-position: 469px 50%
+}
+
+#acceptInvitationMSAcc p {
+    font-size: 1.2em
+}
+
+#acceptInvitationMSAccHeadMain {
+    font-family: 'Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    font-size: 1.8em;
+    font-weight: 400
+}
+
+[lang=ja-JP] #acceptInvitationMSAccHeadMain {
+    font-family: YuGothic,"Meiryo UI",Meiryo,"MS Pgothic",Osaka,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ko-KR] #acceptInvitationMSAccHeadMain {
+    font-family: "Malgun Gothic",Gulim,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHS] #acceptInvitationMSAccHeadMain {
+    font-family: "Microsoft Yahei",Verdana,Simsun,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHT] #acceptInvitationMSAccHeadMain {
+    font-family: "Microsoft Jhenghei",Pmingliu,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=hi-IN] #acceptInvitationMSAccHeadMain {
+    font-family: "Nirmala UI",'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=th-TH] #acceptInvitationMSAccHeadMain {
+    font-family: 'Leelawadee UI Semilight','Kmer UI','Segoe UI Semilight WestEuropean','Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ar] #acceptInvitationMSAccHeadMain {
+    font-family: 'Segoe UI Light Arabic','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=bg-BG] #acceptInvitationMSAccHeadMain,[lang=ru-RU] #acceptInvitationMSAccHeadMain,[lang=uk-UA] #acceptInvitationMSAccHeadMain {
+    font-family: 'Segoe UI Light Cyrillic','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=cs-CZ] #acceptInvitationMSAccHeadMain,[lang=et-EE] #acceptInvitationMSAccHeadMain,[lang=hr-HR] #acceptInvitationMSAccHeadMain,[lang=hu-HU] #acceptInvitationMSAccHeadMain,[lang=kk-KZ] #acceptInvitationMSAccHeadMain,[lang=lt-LT] #acceptInvitationMSAccHeadMain,[lang=lt-sr-SP] #acceptInvitationMSAccHeadMain,[lang=lv-LV] #acceptInvitationMSAccHeadMain,[lang=pl-PL] #acceptInvitationMSAccHeadMain,[lang=sk-SK] #acceptInvitationMSAccHeadMain,[lang=tr-TR] #acceptInvitationMSAccHeadMain {
+    font-family: 'Segoe UI Light EastEuropean','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=el-GR] #acceptInvitationMSAccHeadMain {
+    font-family: 'Segoe UI Light Greek','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=he-IL] #acceptInvitationMSAccHeadMain {
+    font-family: 'Segoe UI Light Hebrew','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=vi-VN] #acceptInvitationMSAccHeadMain {
+    font-family: 'Segoe UI Light Vietnamese','Segoe UI Light WestEuropean','Segoe UI Light','Segoe WP Light','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+#acceptInvitationGetStarted {
+    float: right
+}
+
+#turnOnAutoRenewBanner {
+    display: block;
+    background-color: #f2f2f2;
+    width: 100%;
+    min-width: 960px;
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+    vertical-align: baseline;
+    color: #333
+}
+
+.btnBanner {
+    display: inline-block;
+    background-color: #dc3c00;
+    font-family: 'Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    font-weight: 400;
+    color: #fff;
+    padding: 4px 0 5px;
+    width: 255px;
+    text-align: center;
+    min-height: 22px;
+    line-height: 22px;
+    cursor: pointer;
+    font-size: 1.4em
+}
+
+[lang=ja-JP] .btnBanner {
+    font-family: YuGothic,"Meiryo UI",Meiryo,"MS Pgothic",Osaka,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ko-KR] .btnBanner {
+    font-family: "Malgun Gothic",Gulim,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHS] .btnBanner {
+    font-family: "Microsoft Yahei",Verdana,Simsun,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ch-ZHT] .btnBanner {
+    font-family: "Microsoft Jhenghei",Pmingliu,'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=hi-IN] .btnBanner {
+    font-family: "Nirmala UI",'Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=th-TH] .btnBanner {
+    font-family: 'Leelawadee UI Regular','Kmer UI','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=ar] .btnBanner {
+    font-family: 'Segoe UI Regular Arabic','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=bg-BG] .btnBanner,[lang=ru-RU] .btnBanner,[lang=uk-UA] .btnBanner {
+    font-family: 'Segoe UI Regular Cyrillic','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=cs-CZ] .btnBanner,[lang=et-EE] .btnBanner,[lang=hr-HR] .btnBanner,[lang=hu-HU] .btnBanner,[lang=kk-KZ] .btnBanner,[lang=lt-LT] .btnBanner,[lang=lt-sr-SP] .btnBanner,[lang=lv-LV] .btnBanner,[lang=pl-PL] .btnBanner,[lang=sk-SK] .btnBanner,[lang=tr-TR] .btnBanner {
+    font-family: 'Segoe UI Regular EastEuropean','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=el-GR] .btnBanner {
+    font-family: 'Segoe UI Regular Greek','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=he-IL] .btnBanner {
+    font-family: 'Segoe UI Regular Hebrew','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+[lang=vi-VN] .btnBanner {
+    font-family: 'Segoe UI Regular Vietnamese','Segoe UI Regular WestEuropean','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif
+}
+
+.btnBanner:hover,div.btnBanner:hover {
+    background-color: #ff6026
+}
+
+#muxarbmw {
+    display: inline-block;
+    vertical-align: middle;
+    width: 646px;
+    margin-left: 34px;
+    margin-right: 24px
+}
+
+#muxarbwelt {
+    font-size: 2.4em;
+    font-weight: 100;
+    margin-top: 15px
+}
+
+#muxarbweldes {
+    font-size: 1.4em;
+    margin-bottom: 20px
+}
+
+
+
+/*#endregion */
+

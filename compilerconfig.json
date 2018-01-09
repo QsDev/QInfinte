@@ -1,0 +1,51 @@
+﻿[
+  //{
+  //  "outputFile": "out/Output.es5.js",
+  //  "inputFile": "out/Output.js"
+  //},
+  //{
+  //  "outputFile": "Output.es5.js",
+  //  "inputFile": "Output.js"
+  //},
+  //{
+  //  "outputFile": "Output.min.es5.js",
+  //  "inputFile": "Output.min.js"
+  //},
+  //{
+  //  "outputFile": "Controls/Logo/Logo.css",
+  //  "inputFile": "Controls/Logo/Logo.scss"
+  //},
+  //{
+  //  "outputFile": "QShopTotal.es5.js",
+  //  "inputFile": "QShopTotal.js"
+  //},
+  //{
+  //  "outputFile": "css/iqsite.css",
+  //  "inputFile": "css/iqsite.scss"
+  //},
+  //{
+  //  "outputFile": "css/app.css",
+  //  "inputFile": "css/app.scss"
+  //},
+  //{
+  //  "outputFile": "css/app.css",
+  //  "inputFile": "css/app.less"
+  //},
+  //{
+  //  "outputFile": "css/app.js",
+  //  "inputFile": "css/app.coffee"
+  //},
+  //{
+  //  "outputFile": "lib/ireq.es5.js",
+  //  "inputFile": "lib/ireq.js"
+  //},
+  //{
+  //  "outputFile": "css/global.css",
+  //  "inputFile": "css/global.scss"
+  //},
+  //{
+  //  "outputFile": "components/Canvas3D/style.css",
+  //  "inputFile": "components/Canvas3D/style.less"
+  //}
+
+]

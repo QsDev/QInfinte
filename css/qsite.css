@@ -1,0 +1,37 @@
+﻿.qgrid, .qbar, .qhead, .catg, .qfoot, .qapp, .subheader {
+    display: grid;
+}
+
+.qbar, .qhead, .catg, .qfoot {
+    height: 50px;
+    max-height: 50px;
+}
+
+.qapp {
+    grid-template-columns: minmax(100px,auto) 1fr;
+    grid-template-rows: 50px minmax(0px,50px) 1fr 50px;
+    grid-template-areas: "header header" "sidebar subheader" "sidebar main" "footer footer";
+    height:100%;
+    width:100%;
+}
+
+.qhead {
+    grid-area: header;
+    grid-template-columns: 50px minmax(auto, 120), 1fr, 50px;
+    grid-template-areas: "icon brand items menu";
+}
+.subheader {
+    grid-area: subheader;
+    justify-self:start;
+}
+
+.qpage {
+    grid-area: main;
+}
+.qsidebar {
+    grid-area: sidebar;
+}
+
+.qfoot {
+    grid-area: footer;
+}

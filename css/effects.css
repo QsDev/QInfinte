@@ -1,0 +1,16 @@
+﻿.capitalize:first-letter {
+    font-family: cursive ;
+    -webkit-font-language-override: "fr";
+    -moz-font-language-override: "fr";
+    -ms-font-language-override: "fr";
+    -o-font-language-override: "fr";
+    font-language-override: "fr";
+
+    font-size: 150%;
+    -webkit-font-stretch: extra-condensed;
+    -moz-font-stretch: extra-condensed;
+    -ms-font-stretch: extra-condensed;
+    -o-font-stretch: extra-condensed;
+    font-stretch: extra-condensed;
+}
+
